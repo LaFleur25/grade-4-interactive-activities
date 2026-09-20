@@ -1,1 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grade 4 • Unit 1 Grammar Lab</title>
+<style>
+:root{--ink:#24304a;--pink:#d84f9b;--green:#75b843;--yellow:#ffd86b;--blue:#67c8dc;--cream:#fffaf0;--card:#fff;--good:#dff5d5;--bad:#ffe0e0}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#fff6cf,#e8f8ff);color:var(--ink)}
+header{padding:28px 18px 14px;text-align:center}.badge{display:inline-block;background:var(--green);color:white;padding:7px 14px;border-radius:999px;font-weight:800}
+h1{margin:12px 0 5px;font-size:clamp(28px,5vw,48px)} .sub{margin:0 auto;max-width:760px;font-size:18px}
+.wrap{max-width:1000px;margin:auto;padding:18px}.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0}
+.menu button,.primary{border:0;border-radius:22px;padding:20px 14px;font-size:20px;font-weight:800;cursor:pointer;box-shadow:0 7px 0 rgba(36,48,74,.14);transition:.15s}
+.menu button:hover,.primary:hover{transform:translateY(-2px)} .learn{background:#ffcf62}.mc{background:#75d3e5}.jumble{background:#f39bc7}
+section{display:none;background:rgba(255,255,255,.93);border-radius:28px;padding:24px;box-shadow:0 10px 30px rgba(36,48,74,.12);margin-bottom:24px}
+section.active{display:block} h2{font-size:30px;margin-top:0}.rule{background:#f7f3ff;border-left:8px solid var(--pink);padding:16px;border-radius:14px;margin:14px 0}
+.examples{display:grid;grid-template-columns:1fr 1fr;gap:12px}.example{background:#f3fbec;padding:14px;border-radius:15px}
+.q{padding:18px;border:2px solid #e8edf3;border-radius:18px;margin:14px 0}.q h3{margin:0 0 12px;font-size:18px}.options{display:grid;gap:9px}
+.option{background:#f6f8fb;border:2px solid transparent;border-radius:13px;padding:11px 13px;cursor:pointer;text-align:left;font-size:16px}.option:hover{border-color:var(--blue)}
+.option.correct{background:var(--good);border-color:#65ad4b}.option.wrong{background:var(--bad);border-color:#e57b7b}
+.feedback{min-height:24px;font-weight:700;margin-top:8px}.progress{font-weight:800;margin-bottom:14px}
+.words{display:flex;flex-wrap:wrap;gap:10px;min-height:55px;padding:12px;background:#f5f7fb;border-radius:14px}.word{border:0;background:#fff;border-radius:12px;padding:10px 13px;box-shadow:0 2px 8px #ccd2dc;cursor:pointer;font-size:16px}
+.answer{min-height:58px;margin-top:12px;padding:12px;border:2px dashed #a9b5c7;border-radius:14px;display:flex;flex-wrap:wrap;gap:9px}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.small{border:0;border-radius:12px;padding:10px 14px;font-weight:800;cursor:pointer}.check{background:var(--green);color:#fff}.reset{background:#e9edf4}.next{background:var(--blue)}
+.score{font-size:20px;font-weight:900;background:#fff4c8;padding:12px 16px;border-radius:14px;display:inline-block}
+footer{text-align:center;padding:20px;color:#637087;font-size:13px}@media(max-width:700px){.menu{grid-template-columns:1fr}.examples{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<span class="badge">COMPASS • UNIT 1</span>
+<h1>Grammar Lab 🚀</h1>
+<p class="sub">Daily routines + Present Simple + expressions and adverbs of frequency</p>
+</header>
+<main class="wrap">
+<div class="menu">
+<button class="learn" onclick="show('learn')">📘 Learn</button>
+<button class="mc" onclick="show('mc')">🎯 Multiple Choice</button>
+<button class="jumble" onclick="show('jumble')">🧩 Jumbled Sentences</button>
+</div>
 
+<section id="learn" class="active">
+<h2>📘 Learn the Grammar</h2>
+<div class="rule"><b>Present Simple</b> tells us about routines and things we do regularly.<br><br>
+<b>I / You / We / They</b> + base verb → <i>I make my bed every day.</i><br>
+<b>He / She / It</b> + verb + <b>-s</b> → <i>Kim gets up at eight o'clock.</i></div>
+<div class="rule"><b>How often...?</b> asks about frequency.<br>
+We can answer with <b>always, usually, sometimes, never</b> or expressions such as <b>every day, once a week, twice a week, three times a week</b>.</div>
+<div class="examples">
+<div class="example">🎒 I <b>pack my bag</b> every day.</div>
+<div class="example">🐶 She <b>feeds her pet</b> every morning.</div>
+<div class="example">🧹 We <b>sometimes pick up</b> our rooms.</div>
+<div class="example">⏰ He <b>is never</b> late for school.</div>
+</div>
+<div class="rule"><b>Remember!</b> Frequency adverbs usually come <b>before an action verb</b>: <i>I usually do my homework.</i><br>
+With <b>be</b>, they come <b>after am/is/are</b>: <i>She is sometimes late.</i></div>
+</section>
+
+<section id="mc">
+<h2>🎯 Multiple Choice Challenge</h2>
+<div class="progress">Choose the best answer. Your score updates as you play.</div>
+<div id="mcbox"></div>
+<div class="score" id="score">Score: 0 / 20</div>
+</section>
+
+<section id="jumble">
+<h2>🧩 Jumbled Sentences</h2>
+<p>Tap the words in the correct order. Tap a word in your answer to move it back.</p>
+<div id="jumblebox"></div>
+</section>
+</main>
+<footer>Grade 4 • Unit 1 • Interactive grammar practice</footer>
+<script>
+const mc=[
+["I ___ my bed every morning.",["make","makes","making"],0],
+["Kim ___ up at eight o'clock.",["get","gets","getting"],1],
+["We ___ to school every day.",["go","goes","going"],0],
+["Ben ___ his pet after school.",["feed","feeds","feeding"],1],
+["I ___ do my homework after dinner.",["usually","yesterday","now"],0],
+["She is ___ late for school. She is always on time!",["always","never","every"],1],
+["How often ___ you pick up your room?",["do","does","are"],0],
+["How often ___ Alex study for a test?",["do","does","is"],1],
+["I pack my bag ___ day.",["every","twice","once"],0],
+["I visit my grandparents ___ a week.",["once","every","never a"],0],
+["My sister ___ her lunch before school.",["make","makes","making"],1],
+["They ___ home at four o'clock.",["go","goes","going"],0],
+["Eva ___ ready for school at seven.",["get","gets","getting"],1],
+["I ___ feed my pet in the morning, but not every day.",["sometimes","never","now"],0],
+["He does his homework twice ___ week.",["a","an","the"],0],
+["We study for a test three times ___ week.",["a","every the","on"],0],
+["Coco ___ to school at eight o'clock.",["go","goes","going"],1],
+["I ___ my room once a week.",["pick up","picks up","picking up"],0],
+["She ___ her bag for school every night.",["pack","packs","packing"],1],
+["How often do you ___ your homework?",["do","does","doing"],0]
+];
+let score=0, answered=Array(mc.length).fill(false);
+const box=document.getElementById('mcbox');
+mc.forEach((x,i)=>{
+ const d=document.createElement('div');d.className='q';
+ d.innerHTML=`<h3>${i+1}. ${x[0]}</h3><div class="options">${x[1].map((o,j)=>`<button class="option" onclick="pick(${i},${j},this)">${o}</button>`).join('')}</div><div class="feedback" id="f${i}"></div>`;
+ box.appendChild(d);
+});
+function pick(i,j,btn){
+ if(answered[i]) return; answered[i]=true;
+ const parent=btn.parentElement, buttons=[...parent.children], correct=mc[i][2];
+ buttons[correct].classList.add('correct');
+ if(j===correct){score++;document.getElementById('f'+i).textContent="Great job! ⭐";}
+ else{btn.classList.add('wrong');document.getElementById('f'+i).textContent="Good try! Check the green answer.";}
+ document.getElementById('score').textContent=`Score: ${score} / 20`;
+}
+const js=[
+["I","make","my","bed","every","morning"],
+["Kim","gets","up","at","eight","o'clock"],
+["We","go","to","school","every","day"],
+["Ben","feeds","his","pet","after","school"],
+["I","usually","do","my","homework","after","dinner"],
+["She","is","never","late","for","school"],
+["How","often","do","you","pick","up","your","room"],
+["I","pack","my","bag","for","school","every","night"],
+["My","sister","makes","her","lunch","in","the","morning"],
+["We","study","for","a","test","twice","a","week"]
+];
+let current=0, chosen=[];
+function shuffled(a){let b=[...a];for(let i=b.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
+function renderJ(){
+ const words=shuffled(js[current].map((w,i)=>({w,i}))); chosen=[];
+ document.getElementById('jumblebox').innerHTML=`<div class="progress">Sentence ${current+1} / ${js.length}</div><div class="words" id="bank"></div><div class="answer" id="ans"></div><div class="feedback" id="jf"></div><div class="controls"><button class="small check" onclick="checkJ()">Check</button><button class="small reset" onclick="renderJ()">Shuffle again</button>${current<js.length-1?'<button class="small next" onclick="nextJ()">Next →</button>':''}</div>`;
+ const bank=document.getElementById('bank');
+ words.forEach(obj=>{let b=document.createElement('button');b.className='word';b.textContent=obj.w;b.dataset.idx=obj.i;b.onclick=()=>moveToAns(b);bank.appendChild(b)});
+}
+function moveToAns(b){document.getElementById('ans').appendChild(b);b.onclick=()=>moveBack(b)}
+function moveBack(b){document.getElementById('bank').appendChild(b);b.onclick=()=>moveToAns(b)}
+function checkJ(){
+ const got=[...document.getElementById('ans').children].map(x=>x.textContent).join(' ');
+ const target=js[current].join(' ');
+ document.getElementById('jf').textContent=got===target?"Perfect! 🌟":"Not yet — try changing the word order.";
+}
+function nextJ(){current++;renderJ()}
+function show(id){document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:150,behavior:'smooth'})}
+renderJ();
+</script>
+</body>
+</html>
