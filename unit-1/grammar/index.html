@@ -7,272 +7,80 @@
 <link rel="icon" type="image/png" href="../../skaya-logo-white-bg-purple-favicon.png">
 <style>
 :root{--ink:#25304a;--pink:#ef83b8;--green:#79bd4b;--yellow:#ffd86b;--blue:#70d0e3;--purple:#b79bea;--good:#dff5d5;--bad:#ffe0e0}
-*{box-sizing:border-box}
-body{margin:0;font-family:"Arial","Helvetica","sans-serif",cursive;background:linear-gradient(135deg,#fff4c7,#e8f8ff);color:var(--ink);min-height:100vh}
-button{font-family:inherit}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#fff4c7,#e8f8ff);color:var(--ink);min-height:100vh} button{font-family:inherit}
 .topnav{position:sticky;top:0;z-index:10;display:flex;gap:10px;padding:12px 16px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);box-shadow:0 3px 12px rgba(37,48,74,.1)}
 .navbtn{border:0;border-radius:14px;padding:9px 15px;font-weight:bold;cursor:pointer;background:#edf1f7;color:var(--ink)}
-header{text-align:center;padding:35px 16px 16px}
-.badge{display:inline-block;background:var(--green);color:white;padding:7px 15px;border-radius:999px;font-weight:bold}
-h1{font-size:clamp(30px,6vw,50px);margin:12px 0 5px}.subtitle{font-size:18px;margin:0 auto;max-width:760px}
-.wrap{max-width:950px;margin:auto;padding:18px}
-.screen{display:none}.screen.active{display:block}
+header{text-align:center;padding:35px 16px 16px}.badge{display:inline-block;background:var(--green);color:white;padding:7px 15px;border-radius:999px;font-weight:bold}
+h1{font-size:clamp(30px,6vw,50px);margin:12px 0 5px}.subtitle{font-size:18px;margin:0 auto;max-width:760px}.wrap{max-width:950px;margin:auto;padding:18px}.screen{display:none}.screen.active{display:block}
 .homecard,.card{background:rgba(255,255,255,.94);border-radius:28px;padding:25px;box-shadow:0 10px 30px rgba(37,48,74,.12)}
-.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
-.bigbtn{border:0;border-radius:25px;padding:28px 14px;font-size:22px;font-weight:bold;cursor:pointer;box-shadow:0 7px 0 rgba(37,48,74,.13);transition:.15s}
-.bigbtn:hover{transform:translateY(-3px)}.learnbtn{background:var(--yellow)}.mcbtn{background:var(--blue)}.jbtn{background:var(--pink)}
-h2{font-size:31px;margin:0 0 14px}
-.rule{padding:17px;border-radius:17px;margin:14px 0;background:#f8f3ff;border-left:8px solid var(--purple);line-height:1.65}
-.tip{padding:17px;border-radius:17px;margin:14px 0;background:#fff4ca;border-left:8px solid var(--yellow);line-height:1.65}
-.green{background:#eef9e8;border-left-color:var(--green)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.ex{padding:14px;border-radius:15px;background:#f0fbff;line-height:1.5}
-.structure{font-size:18px;text-align:center;background:#edf9ff;border-radius:15px;padding:14px;margin:10px 0}
-.progress{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-weight:bold;background:#f4f6fa;padding:12px 14px;border-radius:14px;margin-bottom:18px}
-.question{font-size:23px;line-height:1.5;margin:20px 0}
-.options{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.option{border:3px solid transparent;background:#f5f7fb;border-radius:17px;padding:15px;text-align:left;font-size:18px;cursor:pointer}
-.option:hover{border-color:var(--blue)}.option.correct{background:var(--good);border-color:#64aa4c}.option.wrong{background:var(--bad);border-color:#df7070}
-.feedback{min-height:45px;font-size:18px;font-weight:bold;padding-top:13px}
-.controls{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:17px}
-.ctrl{border:0;border-radius:14px;padding:12px 18px;font-weight:bold;cursor:pointer}.prev{background:#e7ebf2}.next{background:var(--blue)}.check{background:var(--green);color:white}.shuffle{background:var(--yellow)}
-.words,.answer{display:flex;flex-wrap:wrap;gap:10px;min-height:68px;padding:14px;border-radius:17px}
-.words{background:#f4f6fa}.answer{border:3px dashed #adb7c8;margin-top:14px;background:#fff}
-.word{border:0;background:white;border-radius:13px;padding:11px 14px;box-shadow:0 2px 8px #ccd2dc;font-size:17px;cursor:pointer}
-footer{text-align:center;padding:28px 12px;color:#657087}
-@media(max-width:700px){.menu,.grid,.options{grid-template-columns:1fr}.bigbtn{padding:22px}.topnav{position:static}}
-</style>
-</head>
+.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}.bigbtn{border:0;border-radius:25px;padding:28px 14px;font-size:22px;font-weight:bold;cursor:pointer;box-shadow:0 7px 0 rgba(37,48,74,.13);transition:.15s}
+.bigbtn:hover{transform:translateY(-3px)}.learnbtn{background:var(--yellow)}.mcbtn{background:var(--blue)}.jbtn{background:var(--pink)} h2{font-size:31px;margin:0 0 14px}
+.rule{padding:17px;border-radius:17px;margin:14px 0;background:#f8f3ff;border-left:8px solid var(--purple);line-height:1.65}.tip{padding:17px;border-radius:17px;margin:14px 0;background:#fff4ca;border-left:8px solid var(--yellow);line-height:1.65}.green{background:#eef9e8;border-left-color:var(--green)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.ex{padding:14px;border-radius:15px;background:#f0fbff;line-height:1.5}.structure{font-size:18px;text-align:center;background:#edf9ff;border-radius:15px;padding:14px;margin:10px 0}
+.progress{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-weight:bold;background:#f4f6fa;padding:12px 14px;border-radius:14px;margin-bottom:18px}.question{font-size:23px;line-height:1.5;margin:20px 0}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:12px}.option{border:3px solid transparent;background:#f5f7fb;border-radius:17px;padding:15px;text-align:left;font-size:18px;cursor:pointer}.option:hover{border-color:var(--blue)}.option.correct{background:var(--good);border-color:#64aa4c}.option.wrong{background:var(--bad);border-color:#df7070}
+.feedback{min-height:45px;font-size:18px;font-weight:bold;padding-top:13px}.controls{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:17px}.ctrl{border:0;border-radius:14px;padding:12px 18px;font-weight:bold;cursor:pointer}.prev{background:#e7ebf2}.next{background:var(--blue)}.check{background:var(--green);color:white}.shuffle{background:var(--yellow)}
+.words,.answer{display:flex;flex-wrap:wrap;gap:10px;min-height:68px;padding:14px;border-radius:17px}.words{background:#f4f6fa}.answer{border:3px dashed #adb7c8;margin-top:14px;background:#fff}.word{border:0;background:white;border-radius:13px;padding:11px 14px;box-shadow:0 2px 8px #ccd2dc;font-size:17px;cursor:pointer}
+.visual-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.visual-btn{border:0;border-radius:14px;padding:11px 15px;font-weight:bold;cursor:pointer;background:#efe8ff;color:var(--ink);box-shadow:0 3px 8px rgba(37,48,74,.12)}.visual-btn.calendar{background:#e5f7ff}
+.modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(37,48,74,.72);padding:22px;overflow:auto;align-items:center;justify-content:center}.modal.open{display:flex}.modalbox{position:relative;background:white;border-radius:26px;padding:18px;max-width:900px;width:100%;box-shadow:0 18px 55px rgba(0,0,0,.28)}.infographic{display:block;width:100%;height:auto;max-height:82vh;object-fit:contain;border-radius:18px}.closemodal{position:absolute;right:14px;top:12px;border:0;background:#edf1f7;border-radius:50%;width:40px;height:40px;font-size:22px;cursor:pointer;z-index:2}
+.scale{max-width:680px;margin:auto;padding:12px}.scale-title{text-align:center;background:#d9c6f3;border-radius:18px;padding:16px;font-size:30px;font-weight:bold}.scale-note{text-align:center;background:#fff0a6;border-radius:14px;padding:10px;margin:12px auto 18px;max-width:440px}.scale-row{border-radius:18px;padding:16px 20px;margin:11px 0}.scale-row h3{margin:0 0 5px;font-size:23px}.stars{font-size:25px;margin:4px 0}.scale-row p{margin:5px 0;font-size:18px}.r1{background:#e9f7d9}.r2{background:#e4f5fb}.r3{background:#fff3c9}.r4{background:#fbe6d8}.r5{background:#f3e7f5}
+.weekly-demo{text-align:center;padding:10px 6px}.weekly-demo h3{font-size:30px;margin:4px 0 8px}.weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin:20px auto 14px;max-width:720px}.day{background:#f5f7fb;border-radius:16px;padding:10px 4px;font-weight:bold}.day .dot{margin:8px auto 0;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#e4e8ef;color:#8b94a6;font-size:22px}.day.on .dot{background:#bfe8a8;color:#28743c}.freq-choice{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:18px 0}.freq-choice button{border:0;border-radius:14px;padding:11px 14px;font-weight:bold;cursor:pointer;background:#eee9ff;color:var(--ink)}.freq-choice button.active{background:var(--purple);color:white}.freq-label{font-size:26px;font-weight:bold;margin-top:10px}.freq-example{font-size:19px;margin:8px 0 2px}.smallnote{font-size:14px;color:#667085;margin-top:14px}
+footer{text-align:center;padding:28px 12px;color:#657087}@media(max-width:700px){.menu,.grid,.options{grid-template-columns:1fr}.bigbtn{padding:22px}.topnav{position:static}.weekdays{gap:3px}.day{padding:8px 2px}}
+</style></head>
 <body>
-<div class="topnav">
-<button class="navbtn" onclick="goHome()">🏠 Home</button>
-<button class="navbtn" id="globalBack" onclick="goBack()" style="display:none">⬅️ Back</button>
-</div>
-<header>
-<span class="badge">COMPASS • UNIT 1</span>
-<h1>Grammar Lab 🚀</h1>
-<p class="subtitle">Daily Routines • Present Simple • Expressions & Adverbs of Frequency</p>
-</header>
+<div class="topnav"><button class="navbtn" onclick="goHome()">🏠 Home</button><button class="navbtn" id="globalBack" onclick="goBack()" style="display:none">⬅️ Back</button></div>
+<header><span class="badge">COMPASS • UNIT 1</span><h1>Grammar Lab 🚀</h1><p class="subtitle">Daily Routines • Present Simple • Expressions & Adverbs of Frequency</p></header>
 <main class="wrap">
-
-<div id="home" class="screen active">
-<div class="homecard">
-<h2>🌟 What would you like to do?</h2>
-<p>Learn the grammar first or jump into a challenge!</p>
-<div class="menu">
-<button class="bigbtn learnbtn" onclick="openScreen('learn')">📘<br>Learn</button>
-<button class="bigbtn mcbtn" onclick="openMC()">🎯<br>Multiple Choice</button>
-<button class="bigbtn jbtn" onclick="openJumble()">🧩<br>Jumbled Sentences</button>
-</div>
-</div>
-</div>
-
+<div id="home" class="screen active"><div class="homecard"><h2>🌟 What would you like to do?</h2><p>Learn the grammar first or jump into a challenge!</p><div class="menu"><button class="bigbtn learnbtn" onclick="openScreen('learn')">📘<br>Learn</button><button class="bigbtn mcbtn" onclick="openMC()">🎯<br>Multiple Choice</button><button class="bigbtn jbtn" onclick="openJumble()">🧩<br>Jumbled Sentences</button></div></div></div>
 <div id="learn" class="screen"><div class="card">
 <h2>📘 Present Simple & Frequency</h2>
-<div class="rule">
-<b>1️⃣ When do we use the Present Simple?</b><br>
-We use the Present Simple to talk about <b>routines</b>, habits and things that happen regularly.<br><br>
-🌞 <i>I make my bed every morning.</i><br>
-🎒 <i>We go to school every day.</i><br>
-🐶 <i>Ben feeds his pet after school.</i>
-</div>
-<div class="rule green">
-<b>2️⃣ I / You / We / They</b><br>
-Use the verb in its basic form.
-<div class="structure">I / You / We / They + <b>verb</b></div>
-<div class="grid">
-<div class="ex">🎒 I <b>pack</b> my bag for school.</div>
-<div class="ex">📚 They <b>study</b> for a test.</div>
-<div class="ex">🏠 We <b>go</b> home after school.</div>
-<div class="ex">🧹 You <b>pick up</b> your room.</div>
-</div>
-</div>
-<div class="rule">
-<b>3️⃣ He / She / It</b><br>
-We usually add <b>-s</b> to the verb.
-<div class="structure">He / She / It + <b>verb + s</b></div>
-<div class="grid">
-<div class="ex">⏰ Kim <b>gets</b> up at eight.</div>
-<div class="ex">🥪 She <b>makes</b> her lunch.</div>
-<div class="ex">🐕 Alex <b>feeds</b> his pet.</div>
-<div class="ex">🎒 He <b>packs</b> his bag.</div>
-</div>
-</div>
-<div class="tip">
-<b>⭐ Watch out!</b><br>
-Some verbs change a little:<br>
-<b>go → goes</b> &nbsp; • &nbsp; <b>do → does</b><br>
-Example: <i>Coco goes to school at eight o'clock.</i>
-</div>
-<div class="rule green">
-<b>4️⃣ How often...?</b><br>
-We use <b>How often...?</b> to ask how frequently someone does something.<br><br>
-❓ <i>How often do you do your homework?</i><br>
-💬 <i>I do my homework every day.</i><br><br>
-With <b>he / she / it</b>, use <b>does</b>:<br>
-❓ <i>How often does Alex study for a test?</i>
-</div>
-<div class="rule">
-<b>5️⃣ Frequency words</b><br><br>
-🌟 <b>always</b> = all the time<br>
-😊 <b>usually</b> = most of the time<br>
-🙂 <b>sometimes</b> = on some days / occasions<br>
-🚫 <b>never</b> = not at any time<br><br>
-We can also say:<br>
-📅 <b>every day</b><br>
-1️⃣ <b>once a week</b><br>
-2️⃣ <b>twice a week</b><br>
-3️⃣ <b>three times a week</b>
-</div>
-<div class="tip">
-<b>💡 Where does the frequency word go?</b><br><br>
-Before most action verbs:<br>
-<i>I <b>usually do</b> my homework after dinner.</i><br>
-<i>She <b>sometimes feeds</b> her pet in the morning.</i><br><br>
-But after <b>am / is / are</b>:<br>
-<i>She <b>is never</b> late for school.</i>
-</div>
-<div class="rule green">
-<b>🎯 Quick recap</b><br>
-✔ Use Present Simple for routines.<br>
-✔ Add <b>-s</b> with he, she and it.<br>
-✔ Use <b>do</b> with I/you/we/they and <b>does</b> with he/she/it in “How often...?” questions.<br>
-✔ Use words such as <b>always, usually, sometimes, never</b> to tell how often something happens.
-</div>
+<div class="rule"><b>1️⃣ When do we use the Present Simple?</b><br>We use the Present Simple to talk about <b>routines</b>, habits and things that happen regularly.<br><br>🌞 <i>I make my bed every morning.</i><br>🎒 <i>We go to school every day.</i><br>🐶 <i>Ben feeds his pet after school.</i></div>
+<div class="rule green"><b>2️⃣ I / You / We / They</b><br>Use the verb in its basic form.<div class="structure">I / You / We / They + <b>verb</b></div><div class="grid"><div class="ex">🎒 I <b>pack</b> my bag for school.</div><div class="ex">📚 They <b>study</b> for a test.</div><div class="ex">🏠 We <b>go</b> home after school.</div><div class="ex">🧹 You <b>pick up</b> your room.</div></div></div>
+<div class="rule"><b>3️⃣ He / She / It</b><br>We usually add <b>-s</b> to the verb.<div class="structure">He / She / It + <b>verb + s</b></div><div class="grid"><div class="ex">⏰ Kim <b>gets</b> up at eight.</div><div class="ex">🥪 She <b>makes</b> her lunch.</div><div class="ex">🐕 Alex <b>feeds</b> his pet.</div><div class="ex">🎒 He <b>packs</b> his bag.</div></div></div>
+<div class="tip"><b>⭐ Watch out!</b><br>Some verbs change a little:<br><b>go → goes</b> &nbsp; • &nbsp; <b>do → does</b><br>Example: <i>Coco goes to school at eight o'clock.</i></div>
+<div class="rule green"><b>4️⃣ How often...?</b><br>We use <b>How often...?</b> to ask how frequently someone does something.<br><br>❓ <i>How often do you do your homework?</i><br>💬 <i>I do my homework every day.</i><br><br>With <b>he / she / it</b>, use <b>does</b>:<br>❓ <i>How often does Alex study for a test?</i></div>
+<div class="rule"><b>5️⃣ Adverbs of Frequency</b><br><br>
+🌟 <b>always</b> — 100% &nbsp; → &nbsp; I <b>always</b> do my homework.<br>
+😊 <b>usually</b> — 75% &nbsp; → &nbsp; I <b>usually</b> get up at seven.<br>
+🙂 <b>sometimes</b> — 50% &nbsp; → &nbsp; I <b>sometimes</b> read a book.<br>
+🌙 <b>almost never</b> — 25% &nbsp; → &nbsp; I <b>almost never</b> go to bed late.<br>
+🚫 <b>never</b> — 0% &nbsp; → &nbsp; I <b>never</b> forget my school bag.
+<div class="visual-actions"><button class="visual-btn" onclick="openModal('scaleModal')">⭐ See the Frequency Scale</button></div><br>
+<b>We can also say:</b><br>📅 <b>every day</b><br>1️⃣ <b>once a week</b><br>2️⃣ <b>twice a week</b><br>3️⃣ <b>three times a week</b>
+<div class="visual-actions"><button class="visual-btn calendar" onclick="openCalendar()">📅 Try the Weekly Calendar</button></div></div>
+<div class="tip"><b>💡 Where does the frequency word go?</b><br><br>Before most action verbs:<br><i>I <b>usually do</b> my homework after dinner.</i><br><i>She <b>sometimes feeds</b> her pet in the morning.</i><br><br>But after <b>am / is / are</b>:<br><i>She <b>is never</b> late for school.</i></div>
+<div class="rule green"><b>🎯 Quick recap</b><br>✔ Use Present Simple for routines.<br>✔ Add <b>-s</b> with he, she and it.<br>✔ Use <b>do</b> with I/you/we/they and <b>does</b> with he/she/it in “How often...?” questions.<br>✔ Use words such as <b>always, usually, sometimes, almost never, never</b> to tell how often something happens.</div>
+</div></div>
+<div id="mc" class="screen"><div class="card"><h2>🎯 Multiple Choice Challenge</h2><div class="progress"><span id="qProgress"></span><span id="score"></span></div><div class="question" id="question"></div><div class="options" id="options"></div><div class="feedback" id="feedback"></div><div class="controls"><button class="ctrl prev" onclick="prevQ()">⬅️ Previous</button><button class="ctrl next" onclick="nextQ()">Next ➡️</button></div></div></div>
+<div id="jumble" class="screen"><div class="card"><h2>🧩 Jumbled Sentences</h2><div class="progress"><span id="jProgress"></span><span>Tap the words in order!</span></div><div class="words" id="bank"></div><div class="answer" id="answer"></div><div class="feedback" id="jFeedback"></div><div class="controls"><button class="ctrl prev" onclick="prevJ()">⬅️ Previous</button><button class="ctrl check" onclick="checkJ()">✅ Check</button><button class="ctrl shuffle" onclick="resetJ()">🔀 Shuffle Again</button><button class="ctrl next" onclick="nextJ()">Next ➡️</button></div></div></div>
+</main><footer>Grade 4 • Compass Unit 1 • Have fun learning! 🌈</footer>
+
+<div id="scaleModal" class="modal" onclick="modalBackdrop(event,'scaleModal')"><div class="modalbox">
+<button class="closemodal" onclick="closeModal('scaleModal')" aria-label="Close">×</button>
+<img class="infographic" src="images/adverbs-of-frequency.png" alt="Adverbs of Frequency scale">
 </div></div>
 
-<div id="mc" class="screen"><div class="card">
-<h2>🎯 Multiple Choice Challenge</h2>
-<div class="progress"><span id="qProgress"></span><span id="score"></span></div>
-<div class="question" id="question"></div>
-<div class="options" id="options"></div>
-<div class="feedback" id="feedback"></div>
-<div class="controls">
-<button class="ctrl prev" onclick="prevQ()">⬅️ Previous</button>
-<button class="ctrl next" onclick="nextQ()">Next ➡️</button>
-</div>
-</div></div>
-
-<div id="jumble" class="screen"><div class="card">
-<h2>🧩 Jumbled Sentences</h2>
-<div class="progress"><span id="jProgress"></span><span>Tap the words in order!</span></div>
-<div class="words" id="bank"></div>
-<div class="answer" id="answer"></div>
-<div class="feedback" id="jFeedback"></div>
-<div class="controls">
-<button class="ctrl prev" onclick="prevJ()">⬅️ Previous</button>
-<button class="ctrl check" onclick="checkJ()">✅ Check</button>
-<button class="ctrl shuffle" onclick="resetJ()">🔀 Shuffle Again</button>
-<button class="ctrl next" onclick="nextJ()">Next ➡️</button>
-</div>
-</div></div>
-</main>
-<footer>Grade 4 • Compass Unit 1 • Have fun learning! 🌈</footer>
+<div id="calendarModal" class="modal" onclick="modalBackdrop(event,'calendarModal')"><div class="modalbox"><button class="closemodal" onclick="closeModal('calendarModal')">×</button><div class="weekly-demo"><h3>📅 How Often?</h3><p>Choose an expression and watch the week change!</p><div class="weekdays" id="weekdays"></div><div class="freq-label" id="freqLabel"></div><div class="freq-example" id="freqExample"></div><div class="freq-choice"><button onclick="setFrequency(7,this)">Every Day</button><button onclick="setFrequency(1,this)">Once a Week</button><button onclick="setFrequency(2,this)">Twice a Week</button><button onclick="setFrequency(3,this)">Three Times a Week</button></div><div class="smallnote">💡 The checked days are examples. The days can be different each week.</div></div></div></div>
 
 <script>
+function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden'} function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow=''} function modalBackdrop(e,id){if(e.target.id===id)closeModal(id)}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal.open').forEach(m=>closeModal(m.id))});
+const freqData={7:{label:'EVERY DAY',example:'I brush my teeth every day.',days:[0,1,2,3,4,5,6]},1:{label:'ONCE A WEEK',example:'I read a book once a week.',days:[2]},2:{label:'TWICE A WEEK',example:'I do my homework twice a week.',days:[1,4]},3:{label:'THREE TIMES A WEEK',example:'I take a shower three times a week.',days:[0,2,4]}};
+function openCalendar(){openModal('calendarModal');setFrequency(7,document.querySelector('#calendarModal .freq-choice button'))}
+function setFrequency(n,btn){const names=['M','T','W','T','F','S','S'],data=freqData[n],box=document.getElementById('weekdays');box.innerHTML='';names.forEach((name,i)=>{const d=document.createElement('div');d.className='day'+(data.days.includes(i)?' on':'');d.innerHTML=name+'<div class="dot">'+(data.days.includes(i)?'✓':'○')+'</div>';box.appendChild(d)});document.getElementById('freqLabel').textContent=data.label;document.getElementById('freqExample').textContent=data.example;document.querySelectorAll('#calendarModal .freq-choice button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active')}
+
 const questions=[
-["I ___ my bed every morning.",["make","makes","made","making"],0],
-["Kim ___ up at eight o'clock.",["get","getting","gets","got"],2],
-["We ___ to school every day.",["goes","go","going","went"],1],
-["Ben ___ his pet after school.",["feeding","feed","fed","feeds"],3],
-["I ___ do my homework after dinner.",["yesterday","usually","now","last"],1],
-["She is ___ late for school. She is always on time!",["never","every","once","usually not"],0],
-["How often ___ you pick up your room?",["does","are","do","is"],2],
-["How often ___ Alex study for a test?",["do","is","are","does"],3],
-["I pack my bag ___ day.",["twice","once","every","never a"],2],
-["I visit my grandparents ___ a week.",["once","every","always a","sometimes a"],0],
-["My sister ___ her lunch before school.",["make","making","made","makes"],3],
-["They ___ home at four o'clock.",["goes","go","going","gone"],1],
-["Eva ___ ready for school at seven.",["gets","get","getting","got"],0],
-["I ___ feed my pet in the morning, but not every day.",["never","every","sometimes","yesterday"],2],
-["He does his homework twice ___ week.",["the","a","an","every"],1],
-["We study for a test three times ___ week.",["every the","on","an","a"],3],
-["Coco ___ to school at eight o'clock.",["go","goes","going","gone"],1],
-["I ___ my room once a week.",["pick up","picks up","picked","picking"],0],
-["She ___ her bag for school every night.",["pack","packing","packed","packs"],3],
-["How often do you ___ your homework?",["does","doing","do","did"],2]
-];
-let qIndex=0;
-let answers=Array(questions.length).fill(null);
-
-function openScreen(id){
- document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));
- document.getElementById(id).classList.add('active');
- document.getElementById('globalBack').style.display=id==='home'?'none':'inline-block';
- window.scrollTo({top:0,behavior:'smooth'});
-}
-function goHome(){openScreen('home')}
-function goBack(){goHome()}
-function openMC(){qIndex=0;openScreen('mc');renderQ()}
-function renderQ(){
- const q=questions[qIndex], selected=answers[qIndex];
- document.getElementById('qProgress').textContent=`Question ${qIndex+1} / ${questions.length}`;
- const attempted=answers.filter(x=>x!==null).length;
- const correct=answers.reduce((s,a,i)=>s+(a===questions[i][2]?1:0),0);
- document.getElementById('score').textContent=`Score: ${correct} / ${attempted}`;
- document.getElementById('question').textContent=`${qIndex+1}. ${q[0]}`;
- const box=document.getElementById('options');box.innerHTML='';
- q[1].forEach((o,i)=>{
-  const b=document.createElement('button');b.className='option';b.innerHTML=`<b>${String.fromCharCode(65+i)}.</b> ${o}`;
-  if(selected!==null){
-   if(i===q[2])b.classList.add('correct');
-   if(i===selected && selected!==q[2])b.classList.add('wrong');
-  }
-  b.onclick=()=>answerQ(i);box.appendChild(b);
- });
- const f=document.getElementById('feedback');
- if(selected===null)f.textContent='';
- else if(selected===q[2])f.textContent='🌟 Great job! That is correct!';
- else f.textContent=`❌ Good try! The correct answer is ${String.fromCharCode(65+q[2])}: ${q[1][q[2]]}.`;
-}
-function answerQ(i){if(answers[qIndex]===null){answers[qIndex]=i;renderQ()}}
-function nextQ(){if(qIndex<questions.length-1){qIndex++;renderQ()}}
-function prevQ(){if(qIndex>0){qIndex--;renderQ()}else goHome()}
-
-const jumbles=[
-["I","make","my","bed","every","morning"],
-["Kim","gets","up","at","eight","o'clock"],
-["We","go","to","school","every","day"],
-["Ben","feeds","his","pet","after","school"],
-["I","usually","do","my","homework","after","dinner"],
-["She","is","never","late","for","school"],
-["How","often","do","you","pick","up","your","room"],
-["I","pack","my","bag","for","school","every","night"],
-["My","sister","makes","her","lunch","in","the","morning"],
-["We","study","for","a","test","twice","a","week"]
-];
-let jIndex=0;
-let jStates=Array.from({length:jumbles.length},()=>null);
-
-function shuffle(arr){let a=[...arr];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
-function newJState(i){return {bank:shuffle(jumbles[i].map((w,n)=>({w,n}))),chosen:[]}}
+["I ___ my bed every morning.",["make","makes","made","making"],0],["Kim ___ up at eight o'clock.",["get","getting","gets","got"],2],["We ___ to school every day.",["goes","go","going","went"],1],["Ben ___ his pet after school.",["feeding","feed","fed","feeds"],3],["I ___ do my homework after dinner.",["yesterday","usually","now","last"],1],["She is ___ late for school. She is always on time!",["never","every","once","usually not"],0],["How often ___ you pick up your room?",["does","are","do","is"],2],["How often ___ Alex study for a test?",["do","is","are","does"],3],["I pack my bag ___ day.",["twice","once","every","never a"],2],["I visit my grandparents ___ a week.",["once","every","always a","sometimes a"],0],["My sister ___ her lunch before school.",["make","making","made","makes"],3],["They ___ home at four o'clock.",["goes","go","going","gone"],1],["Eva ___ ready for school at seven.",["gets","get","getting","got"],0],["I ___ feed my pet in the morning, but not every day.",["never","every","sometimes","yesterday"],2],["He does his homework twice ___ week.",["the","a","an","every"],1],["We study for a test three times ___ week.",["every the","on","an","a"],3],["Coco ___ to school at eight o'clock.",["go","goes","going","gone"],1],["I ___ my room once a week.",["pick up","picks up","picked","picking"],0],["She ___ her bag for school every night.",["pack","packing","packed","packs"],3],["How often do you ___ your homework?",["does","doing","do","did"],2]];
+let qIndex=0,answers=Array(questions.length).fill(null);
+function openScreen(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.getElementById('globalBack').style.display=id==='home'?'none':'inline-block';window.scrollTo({top:0,behavior:'smooth'})}
+function goHome(){openScreen('home')} function goBack(){goHome()} function openMC(){qIndex=0;openScreen('mc');renderQ()}
+function renderQ(){const q=questions[qIndex],selected=answers[qIndex];document.getElementById('qProgress').textContent=`Question ${qIndex+1} / ${questions.length}`;const attempted=answers.filter(x=>x!==null).length,correct=answers.reduce((s,a,i)=>s+(a===questions[i][2]?1:0),0);document.getElementById('score').textContent=`Score: ${correct} / ${attempted}`;document.getElementById('question').textContent=`${qIndex+1}. ${q[0]}`;const box=document.getElementById('options');box.innerHTML='';q[1].forEach((o,i)=>{const b=document.createElement('button');b.className='option';b.innerHTML=`<b>${String.fromCharCode(65+i)}.</b> ${o}`;if(selected!==null){if(i===q[2])b.classList.add('correct');if(i===selected&&selected!==q[2])b.classList.add('wrong')}b.onclick=()=>answerQ(i);box.appendChild(b)});const f=document.getElementById('feedback');if(selected===null)f.textContent='';else if(selected===q[2])f.textContent='🌟 Great job! That is correct!';else f.textContent=`❌ Good try! The correct answer is ${String.fromCharCode(65+q[2])}: ${q[1][q[2]]}.`}
+function answerQ(i){if(answers[qIndex]===null){answers[qIndex]=i;renderQ()}} function nextQ(){if(qIndex<questions.length-1){qIndex++;renderQ()}} function prevQ(){if(qIndex>0){qIndex--;renderQ()}else goHome()}
+const jumbles=[["I","make","my","bed","every","morning"],["Kim","gets","up","at","eight","o'clock"],["We","go","to","school","every","day"],["Ben","feeds","his","pet","after","school"],["I","usually","do","my","homework","after","dinner"],["She","is","never","late","for","school"],["How","often","do","you","pick","up","your","room"],["I","pack","my","bag","for","school","every","night"],["My","sister","makes","her","lunch","in","the","morning"],["We","study","for","a","test","twice","a","week"]];
+let jIndex=0,jStates=Array.from({length:jumbles.length},()=>null);
+function shuffle(arr){let a=[...arr];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a} function newJState(i){return{bank:shuffle(jumbles[i].map((w,n)=>({w,n}))),chosen:[]}}
 function openJumble(){jIndex=0;if(!jStates[0])jStates[0]=newJState(0);openScreen('jumble');renderJ()}
-function renderJ(){
- if(!jStates[jIndex])jStates[jIndex]=newJState(jIndex);
- document.getElementById('jProgress').textContent=`Sentence ${jIndex+1} / ${jumbles.length}`;
- const state=jStates[jIndex],bank=document.getElementById('bank'),ans=document.getElementById('answer');
- bank.innerHTML='';ans.innerHTML='';
- state.bank.forEach(obj=>bank.appendChild(makeWord(obj,'bank')));
- state.chosen.forEach(obj=>ans.appendChild(makeWord(obj,'chosen')));
- document.getElementById('jFeedback').textContent='';
-}
-function makeWord(obj,where){
- const b=document.createElement('button');b.className='word';b.textContent=obj.w;
- b.onclick=()=>{
-  const s=jStates[jIndex];
-  if(where==='bank'){s.bank=s.bank.filter(x=>x.n!==obj.n);s.chosen.push(obj)}
-  else{s.chosen=s.chosen.filter(x=>x.n!==obj.n);s.bank.push(obj)}
-  renderJ();
- };
- return b;
-}
-function checkJ(){
- const got=jStates[jIndex].chosen.map(x=>x.w).join(' ');
- const target=jumbles[jIndex].join(' ');
- document.getElementById('jFeedback').textContent=got===target?'🌟 Perfect! Your sentence is correct!':'🤔 Not quite yet. Try changing the word order!';
-}
-function resetJ(){jStates[jIndex]=newJState(jIndex);renderJ()}
-function nextJ(){if(jIndex<jumbles.length-1){jIndex++;if(!jStates[jIndex])jStates[jIndex]=newJState(jIndex);renderJ()}}
-function prevJ(){if(jIndex>0){jIndex--;renderJ()}else goHome()}
-</script>
-</body>
-</html>
+function renderJ(){if(!jStates[jIndex])jStates[jIndex]=newJState(jIndex);document.getElementById('jProgress').textContent=`Sentence ${jIndex+1} / ${jumbles.length}`;const state=jStates[jIndex],bank=document.getElementById('bank'),ans=document.getElementById('answer');bank.innerHTML='';ans.innerHTML='';state.bank.forEach(obj=>bank.appendChild(makeWord(obj,'bank')));state.chosen.forEach(obj=>ans.appendChild(makeWord(obj,'chosen')));document.getElementById('jFeedback').textContent=''}
+function makeWord(obj,where){const b=document.createElement('button');b.className='word';b.textContent=obj.w;b.onclick=()=>{const s=jStates[jIndex];if(where==='bank'){s.bank=s.bank.filter(x=>x.n!==obj.n);s.chosen.push(obj)}else{s.chosen=s.chosen.filter(x=>x.n!==obj.n);s.bank.push(obj)}renderJ()};return b}
+function checkJ(){const got=jStates[jIndex].chosen.map(x=>x.w).join(' '),target=jumbles[jIndex].join(' ');document.getElementById('jFeedback').textContent=got===target?'🌟 Perfect! Your sentence is correct!':'🤔 Not quite yet. Try changing the word order!'} function resetJ(){jStates[jIndex]=newJState(jIndex);renderJ()} function nextJ(){if(jIndex<jumbles.length-1){jIndex++;if(!jStates[jIndex])jStates[jIndex]=newJState(jIndex);renderJ()}} function prevJ(){if(jIndex>0){jIndex--;renderJ()}else goHome()}
+</script></body></html>
