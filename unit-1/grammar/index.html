@@ -37,39 +37,189 @@ footer{text-align:center;padding:28px 12px;color:#657087}@media(max-width:700px)
 .pts-reading{line-height:1.65;font-size:17px}.pts-reading h3{margin:0 0 8px}.pts-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.pts-person{background:white;border:1px solid #dfe4ee;border-radius:14px;padding:12px}.pts-person b{font-size:17px}.pts-note{background:#fff8d8;border-radius:14px;padding:12px;font-weight:bold;line-height:1.5}.pts-routine{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}.pts-routine div{background:white;border-radius:12px;padding:10px}.pts-big{font-size:27px}.pts-chat{background:white;border-radius:15px;padding:12px;line-height:1.6}.pts-chat p{margin:5px 0}.pts-caption{text-align:center;font-weight:bold;margin-top:8px}
 @media(max-width:700px){.pts-cards,.pts-routine{grid-template-columns:1fr}}
 
+
+.ps-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.ps-tab{border:0;border-radius:999px;padding:11px 18px;font-weight:bold;cursor:pointer;background:#eef1f6}.ps-tab.active{background:#d9ccff}.ps-panel{display:none}.ps-panel.active{display:block}.lesson-block{background:#f8f9fc;border-radius:20px;padding:18px;margin:15px 0;line-height:1.65}.rule-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}.rule-mini{background:white;border:1px solid #e1e5ee;border-radius:16px;padding:15px}.formula{font-size:18px;font-weight:bold;text-align:center;padding:10px;background:white;border-radius:12px;margin:8px 0}.notebook{background:#fff8d8;border-left:5px solid #f1c84b;border-radius:14px;padding:14px;margin-top:12px}.example-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.flip-example{height:150px;perspective:900px;cursor:pointer}.flip-example-inner{position:relative;width:100%;height:100%;transition:transform .55s;transform-style:preserve-3d}.flip-example.flipped .flip-example-inner{transform:rotateY(180deg)}.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:1px solid #e1e5ee;background:white}.flip-back{transform:rotateY(180deg);background:#eee9ff}.flip-icon{font-size:38px}.flip-hint,.flip-answer{font-weight:bold}.quick-practice{background:#eee9ff;border-radius:20px;padding:18px;margin:16px 0}.qp-row{background:white;border-radius:14px;padding:12px;margin:9px 0}.qp-row input{width:130px;padding:8px;border:2px solid #d8dce6;border-radius:10px;font-size:16px}.qp-check{border:0;border-radius:12px;padding:10px 16px;background:#7657d6;color:white;font-weight:bold;cursor:pointer}.qp-feedback{font-weight:bold;margin-left:8px}@media(max-width:850px){.example-grid{grid-template-columns:repeat(2,1fr)}.rule-pair{grid-template-columns:1fr}}@media(max-width:500px){.example-grid{grid-template-columns:1fr}}
+
+.freq-buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:10px}.freq-buttons button{border:0;border-radius:12px;padding:10px 14px;background:#eee9ff;font-weight:bold;cursor:pointer}.freq-buttons button:hover{transform:translateY(-1px)}
+
+.weekly-modal{display:none;position:fixed;inset:0;background:rgba(20,20,35,.55);z-index:9999;align-items:center;justify-content:center;padding:20px}
+.weekly-modal.open{display:flex}.weekly-modal-box{position:relative;width:min(820px,96vw);max-height:90vh;overflow:auto;background:white;border-radius:24px;padding:26px;box-shadow:0 18px 60px rgba(0,0,0,.25)}
+.weekly-modal-close{position:absolute;right:16px;top:12px;border:0;background:#eef1f6;width:38px;height:38px;border-radius:50%;font-size:22px;cursor:pointer}
+.weekly-modal h2{text-align:center;margin-top:4px}.weekly-modal .freq-buttons{justify-content:center}.weekly-modal .mini-calendar{margin-top:18px}
+
+/* Learn additions */
+.spelling-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+.spelling-card{background:white;border:1px solid #e1e5ee;border-radius:16px;padding:14px;line-height:1.6}
+.transform-list{display:grid;gap:10px;margin-top:12px}
+.transform-card{background:white;border:1px solid #e1e5ee;border-radius:16px;padding:14px}
+.transform-answer{display:none;margin-top:10px;padding:10px;border-radius:12px;background:#eee9ff;font-weight:bold}
+.transform-card.revealed .transform-answer{display:block}
+.reveal-btn{border:0;border-radius:10px;padding:8px 12px;background:#7657d6;color:white;font-weight:bold;cursor:pointer;margin-top:8px}
+.qword-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+.qword{background:white;border:1px solid #e1e5ee;border-radius:14px;padding:12px}
+.short-answer-box{background:white;border:1px solid #e1e5ee;border-radius:16px;padding:14px;margin-top:12px;line-height:1.8}
+.qa-card{background:white;border:1px solid #e1e5ee;border-radius:16px;padding:14px;margin-top:10px}
+.qa-options{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.qa-options button{border:0;border-radius:10px;padding:9px 12px;background:#eee9ff;font-weight:bold;cursor:pointer}
+.qa-result{font-weight:bold;margin-top:8px}
+@media(max-width:700px){.spelling-grid,.qword-grid{grid-template-columns:1fr}}
+
+
+
+.mc-topic{position:relative}
+.mc-negative{background:#ffe8ee}
+.mc-allforms{background:#e9e2ff}
+.new-badge{position:absolute;top:10px;right:12px;background:#ef5b78;color:white;
+font-size:11px;font-weight:bold;letter-spacing:.7px;padding:5px 8px;border-radius:999px;
+box-shadow:0 2px 6px rgba(37,48,74,.15)}
+
+.home-menu-badge{position:absolute;top:9px;right:10px;padding:5px 8px;border-radius:999px;
+font-size:10px;font-weight:bold;letter-spacing:.5px;line-height:1;background:white;
+box-shadow:0 2px 7px rgba(37,48,74,.16)}
+.bigbtn{position:relative}
+.learnbtn .home-menu-badge{color:#7b5b00}
+.mcbtn .home-menu-badge{color:#08748a}
+.jbtn .home-menu-badge{color:#a03b70}
+
+.build-menu{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.build-topic{position:relative;border:0;border-radius:22px;padding:24px 18px;text-align:left;
+cursor:pointer;box-shadow:0 6px 0 rgba(37,48,74,.12);color:var(--ink)}
+.build-topic h3{margin:0 0 7px;font-size:22px}.build-topic p{margin:0;line-height:1.45}
+.build-jumbled{background:#ffe4f1}.build-change{background:#e9e2ff}
+.task-box{background:#fff8d8;border-left:6px solid var(--yellow);border-radius:16px;
+padding:14px 16px;margin:12px 0 16px;font-size:18px;line-height:1.5}
+.source-sentence{background:#f4f6fa;border-radius:16px;padding:15px;margin-bottom:14px;
+font-size:20px;font-weight:bold;text-align:center}
+@media(max-width:700px){.build-menu{grid-template-columns:1fr}}
 </style></head>
 <body>
 <div class="topnav"><button class="navbtn" onclick="goHome()">🏠 Home</button><button class="navbtn" id="globalBack" onclick="goBack()" style="display:none">⬅️ Back</button></div>
 <header><span class="badge">COMPASS • UNIT 1</span><h1>Grammar Lab 🚀</h1><p class="subtitle">Daily Routines • Present Simple • Expressions & Adverbs of Frequency</p></header>
 <main class="wrap">
-<div id="home" class="screen active"><div class="homecard"><h2>🌟 What would you like to do?</h2><p>Learn the grammar first or jump into a challenge!</p><div class="menu"><button class="bigbtn learnbtn" onclick="openScreen('learn')">📘<br>Learn</button><button class="bigbtn mcbtn" onclick="openMC()">🎯<br>Multiple Choice</button><button class="bigbtn jbtn" onclick="openJumble()">🧩<br>Jumbled Sentences</button></div></div></div>
+<div id="home" class="screen active"><div class="homecard"><h2>🌟 What would you like to do?</h2><p>Learn the grammar first or jump into a challenge!</p><div class="menu"><button class="bigbtn learnbtn" onclick="openScreen('learn')"><span class="home-menu-badge">UPDATED</span>📘<br>Learn</button><button class="bigbtn mcbtn" onclick="openMC()"><span class="home-menu-badge">NEW QUESTIONS</span>🎯<br>Multiple Choice</button><button class="bigbtn jbtn" onclick="openBuildMenu()"><span class="home-menu-badge">UPDATED</span>🧩<br>Build the Sentence</button></div></div></div>
 <div id="learn" class="screen"><div class="card">
-<h2>📘 Present Simple & Frequency</h2>
-<div class="rule"><b>1️⃣ When do we use the Present Simple?</b><br>We use the Present Simple to talk about <b>routines</b>, habits and things that happen regularly.<br><br>🌞 <i>I make my bed every morning.</i><br>🎒 <i>We go to school every day.</i><br>🐶 <i>Ben feeds his pet after school.</i></div>
-<div class="rule green"><b>2️⃣ I / You / We / They</b><br>Use the verb in its basic form.<div class="structure">I / You / We / They + <b>verb</b></div><div class="grid"><div class="ex">🎒 I <b>pack</b> my bag for school.</div><div class="ex">📚 They <b>study</b> for a test.</div><div class="ex">🏠 We <b>go</b> home after school.</div><div class="ex">🧹 You <b>pick up</b> your room.</div></div></div>
-<div class="rule"><b>3️⃣ He / She / It</b><br>We usually add <b>-s</b> to the verb.<div class="structure">He / She / It + <b>verb + s</b></div><div class="grid"><div class="ex">⏰ Kim <b>gets</b> up at eight.</div><div class="ex">🥪 She <b>makes</b> her lunch.</div><div class="ex">🐕 Alex <b>feeds</b> his pet.</div><div class="ex">🎒 He <b>packs</b> his bag.</div></div></div>
-<div class="tip"><b>⭐ Watch out!</b><br>Some verbs change a little:<br><b>go → goes</b> &nbsp; • &nbsp; <b>do → does</b><br>Example: <i>Coco goes to school at eight o'clock.</i></div>
-<div class="rule green"><b>4️⃣ How often...?</b><br>We use <b>How often...?</b> to ask how frequently someone does something.<br><br>❓ <i>How often do you do your homework?</i><br>💬 <i>I do my homework every day.</i><br><br>With <b>he / she / it</b>, use <b>does</b>:<br>❓ <i>How often does Alex study for a test?</i></div>
-<div class="rule"><b>5️⃣ Adverbs of Frequency</b><br><br>
-🌟 <b>always</b> — 100% &nbsp; → &nbsp; I <b>always</b> do my homework.<br>
-😊 <b>usually</b> — 75% &nbsp; → &nbsp; I <b>usually</b> get up at seven.<br>
-🙂 <b>sometimes</b> — 50% &nbsp; → &nbsp; I <b>sometimes</b> read a book.<br>
-🌙 <b>almost never</b> — 25% &nbsp; → &nbsp; I <b>almost never</b> go to bed late.<br>
-🚫 <b>never</b> — 0% &nbsp; → &nbsp; I <b>never</b> forget my school bag.
-<div class="visual-actions"><button class="visual-btn" onclick="openModal('scaleModal')">⭐ See the Frequency Scale</button></div><br>
-<b>We can also say:</b><br>📅 <b>every day</b><br>1️⃣ <b>once a week</b><br>2️⃣ <b>twice a week</b><br>3️⃣ <b>three times a week</b>
-<div class="visual-actions"><button class="visual-btn calendar" onclick="openCalendar()">📅 Try the Weekly Calendar</button></div></div>
-<div class="tip"><b>💡 Where does the frequency word go?</b><br><br>Before most action verbs:<br><i>I <b>usually do</b> my homework after dinner.</i><br><i>She <b>sometimes feeds</b> her pet in the morning.</i><br><br>But after <b>am / is / are</b>:<br><i>She <b>is never</b> late for school.</i></div>
-<div class="rule green"><b>🎯 Quick recap</b><br>✔ Use Present Simple for routines.<br>✔ Add <b>-s</b> with he, she and it.<br>✔ Use <b>do</b> with I/you/we/they and <b>does</b> with he/she/it in “How often...?” questions.<br>✔ Use words such as <b>always, usually, sometimes, almost never, never</b> to tell how often something happens.</div>
+<h2>📘 Present Simple</h2><p>Learn how we talk about routines, habits and things that happen regularly.</p>
+<div class="ps-tabs"><button class="ps-tab active" onclick="showPS('positive',this)">😊 Positive</button><button class="ps-tab" onclick="showPS('negative',this)">🚫 Negative</button><button class="ps-tab" onclick="showPS('questions',this)">❓ Questions</button></div>
+<div class="ps-panel active" id="ps-positive">
+<div class="lesson-block"><h3>1️⃣ When do we use the Present Simple?</h3>We use the Present Simple to talk about <b>routines</b>, <b>habits</b> and things that happen <b>regularly</b>.<div class="notebook">🌞 <i>I make my bed every morning.</i><br/>🎒 <i>We go to school every day.</i><br/>🐶 <i>Ben feeds his pet after school.</i></div></div>
+<div class="lesson-block"><h3>2️⃣ How do we make positive sentences?</h3><div class="rule-pair"><div class="rule-mini"><b>I / You / We / They</b><div class="formula">+ VERB</div>📚 We <b>read</b> a book.<br/>🦷 They <b>brush</b> their teeth.</div><div class="rule-mini"><b>He / She / It</b><div class="formula">+ VERB + S</div>⏰ He <b>gets</b> up early.<br/>🎒 She <b>packs</b> her school bag.</div></div><div class="notebook"><b>👀 Watch out!</b><br/>go → <b>goes</b> • do → <b>does</b> • brush → <b>brushes</b> • have → <b>has</b></div></div>
+<div class="lesson-block">
+<h3>3️⃣ Watch the Verb! 🔎</h3>
+<p>With <b>he, she</b> and <b>it</b>, the verb usually changes a little.</p>
+<div class="spelling-grid">
+<div class="spelling-card"><b>Most verbs → + s</b><br/>read → <b>reads</b><br/>get → <b>gets</b></div>
+<div class="spelling-card"><b>-sh / -ch / -o → + es</b><br/>brush → <b>brushes</b><br/>go → <b>goes</b></div>
+<div class="spelling-card"><b>consonant + y → y becomes ies</b><br/>study → <b>studies</b><br/>try → <b>tries</b></div>
+<div class="spelling-card"><b>Special one</b><br/>have → <b>has</b><br/>She <b>has</b> breakfast at seven.</div>
+</div>
+<div class="notebook">💡 <b>Remember:</b> We use these changes with <b>he / she / it</b> and one person, such as <b>Alex</b> or <b>Emma</b>.</div>
+</div>
+<div class="lesson-block"><h3>4️⃣ Tap the pictures and discover the sentences!</h3><p>Look at the picture and words first. Then tap the card to check the complete sentence.</p><div class="example-grid"><div class="flip-example" onclick="this.classList.toggle('flipped')"><div class="flip-example-inner"><div class="flip-face"><div class="flip-icon">⏰</div><div class="flip-hint">I (get up)</div></div><div class="flip-face flip-back"><div class="flip-answer">I <b>get up</b> at seven o'clock.</div></div></div></div><div class="flip-example" onclick="this.classList.toggle('flipped')"><div class="flip-example-inner"><div class="flip-face"><div class="flip-icon">🦷</div><div class="flip-hint">You (brush your teeth)</div></div><div class="flip-face flip-back"><div class="flip-answer">You <b>brush your teeth</b> every morning.</div></div></div></div><div class="flip-example" onclick="this.classList.toggle('flipped')"><div class="flip-example-inner"><div class="flip-face"><div class="flip-icon">🎒</div><div class="flip-hint">We (go to school)</div></div><div class="flip-face flip-back"><div class="flip-answer">We <b>go to school</b> at eight o'clock.</div></div></div></div><div class="flip-example" onclick="this.classList.toggle('flipped')"><div class="flip-example-inner"><div class="flip-face"><div class="flip-icon">📚</div><div class="flip-hint">They (read a book)</div></div><div class="flip-face flip-back"><div class="flip-answer">They <b>read a book</b> after school.</div></div></div></div><div class="flip-example" onclick="this.classList.toggle('flipped')"><div class="flip-example-inner"><div class="flip-face"><div class="flip-icon">👕</div><div class="flip-hint">He (get dressed)</div></div><div class="flip-face flip-back"><div class="flip-answer">He <b>gets dressed</b> before breakfast.</div></div></div></div><div class="flip-example" onclick="this.classList.toggle('flipped')"><div class="flip-example-inner"><div class="flip-face"><div class="flip-icon">🥣</div><div class="flip-hint">She (have breakfast)</div></div><div class="flip-face flip-back"><div class="flip-answer">She <b>has breakfast</b> with her family.</div></div></div></div><div class="flip-example" onclick="this.classList.toggle('flipped')"><div class="flip-example-inner"><div class="flip-face"><div class="flip-icon">🛏️</div><div class="flip-hint">Alex (go to bed)</div></div><div class="flip-face flip-back"><div class="flip-answer">Alex <b>goes to bed</b> at nine o'clock.</div></div></div></div><div class="flip-example" onclick="this.classList.toggle('flipped')"><div class="flip-example-inner"><div class="flip-face"><div class="flip-icon">📝</div><div class="flip-hint">Emma and Lily (do homework)</div></div><div class="flip-face flip-back"><div class="flip-answer">Emma and Lily <b>do their homework</b> after school.</div></div></div></div></div></div>
+<div class="quick-practice"><h3>✏️ Quick Practice — Positive</h3><p>Complete the sentences. Use the verb in brackets.</p><div class="qp-row">1. Emma <input id="qp-p1"/> up at seven. <b>(get)</b></div><div class="qp-row">2. We <input id="qp-p2"/> to school every day. <b>(go)</b></div><div class="qp-row">3. Alex <input id="qp-p3"/> his teeth after breakfast. <b>(brush)</b></div><div class="qp-row">4. I <input id="qp-p4"/> my homework after school. <b>(do)</b></div><button class="qp-check" onclick="checkQP('p',['gets','go','brushes','do'])">Check Answers</button> <button class="qp-check" onclick="resetQP('p',4)" style="background:slategray">Reset</button><span class="qp-feedback" id="qp-p-feedback"></span></div>
+<div class="lesson-block">
+<h3>6️⃣ Adverbs of Frequency</h3>
+<div style="line-height:1.9;margin-top:18px">
+🌟 <b>always</b> — 100%   →   I <b>always</b> do my homework.<br/>
+😊 <b>usually</b> — 75%   →   I <b>usually</b> get up at seven.<br/>
+🙂 <b>sometimes</b> — 50%   →   I <b>sometimes</b> read a book.<br/>
+🌙 <b>almost never</b> — 25%   →   I <b>almost never</b> go to bed late.<br/>
+🚫 <b>never</b> — 0%   →   I <b>never</b> forget my school bag.
+</div>
+<div class="visual-actions"><button class="visual-btn" onclick="openModal('scaleModal')">⭐ See the Frequency Scale</button></div>
+<br/>
+<h3>We can also say:</h3>
+📅 <b>every day</b><br/>
+1️⃣ <b>once a week</b><br/>
+2️⃣ <b>twice a week</b><br/>
+3️⃣ <b>three times a week</b>
+<div class="visual-actions"><button class="visual-btn calendar" onclick="openCalendar()">📅 Try the Weekly Calendar</button></div>
+</div>
+</div>
+<div class="ps-panel" id="ps-negative">
+<div class="lesson-block"><h3>1️⃣ How do we make negative sentences?</h3><div class="rule-pair"><div class="rule-mini"><b>I / You / We / They</b><div class="formula">don't + VERB</div>
+🌙 I <b>don't go</b> to bed late.<br/>
+📚 You <b>don't read</b> before school.<br/>
+🎒 We <b>don't go</b> to school on Sunday.<br/>
+🥣 They <b>don't have</b> breakfast at school.
+</div>
+<div class="rule-mini"><b>He / She / It</b><div class="formula">doesn't + VERB</div>
+📚 He <b>doesn't read</b> before school.<br/>
+⏰ She <b>doesn't get up</b> late.<br/>
+🐶 It <b>doesn't sleep</b> outside.<br/>
+🦷 Alex <b>doesn't brush</b> his teeth after lunch.
+</div></div><div class="notebook"><b>⭐ Important:</b> After <b>doesn't</b>, use the verb without <b>-s</b>.<br/>❌ He doesn't <b>gets</b> up late.<br/>✅ He doesn't <b>get</b> up late.</div></div>
+<div class="lesson-block">
+<h3>2️⃣ From Positive to Negative</h3>
+<p>Look at how the sentence changes. Tap <b>Show Answer</b> to check.</p>
+<div class="transform-list">
+<div class="transform-card">⏰ Alex <b>gets up</b> at seven.<br/><button class="reveal-btn" onclick="this.parentElement.classList.toggle('revealed')">Show Answer</button><div class="transform-answer">Alex <b>doesn't get up</b> at seven.</div></div>
+<div class="transform-card">📚 Emma <b>reads</b> after school.<br/><button class="reveal-btn" onclick="this.parentElement.classList.toggle('revealed')">Show Answer</button><div class="transform-answer">Emma <b>doesn't read</b> after school.</div></div>
+<div class="transform-card">🎒 We <b>go</b> to school on Saturday.<br/><button class="reveal-btn" onclick="this.parentElement.classList.toggle('revealed')">Show Answer</button><div class="transform-answer">We <b>don't go</b> to school on Saturday.</div></div>
+<div class="transform-card">🥣 They <b>have</b> breakfast at school.<br/><button class="reveal-btn" onclick="this.parentElement.classList.toggle('revealed')">Show Answer</button><div class="transform-answer">They <b>don't have</b> breakfast at school.</div></div>
+</div>
+<div class="notebook">⭐ Notice: <b>gets → doesn't get</b> and <b>reads → doesn't read</b>. After <b>doesn't</b>, the verb goes back to its simple form.</div>
+</div>
+<div class="quick-practice"><h3>✏️ Quick Practice — Negative</h3><p>Complete with <b>don't</b> or <b>doesn't</b>.</p><div class="qp-row">1. I <input id="qp-n1"/> go to bed late.</div><div class="qp-row">2. Mia <input id="qp-n2"/> read before school.</div><div class="qp-row">3. We <input id="qp-n3"/> have breakfast at school.</div><div class="qp-row">4. Ben <input id="qp-n4"/> get up at nine.</div><button class="qp-check" onclick="checkQP('n',[&quot;don't&quot;,&quot;doesn't&quot;,&quot;don't&quot;,&quot;doesn't&quot;])">Check Answers</button> <button class="qp-check" onclick="resetQP('n',4)" style="background:slategray">Reset</button><span class="qp-feedback" id="qp-n-feedback"></span></div>
+</div>
+<div class="ps-panel" id="ps-questions">
+<div class="lesson-block"><h3>1️⃣ How do we make questions?</h3><div class="rule-pair"><div class="rule-mini"><b>I / you / we / they</b><div class="formula">Do + subject + VERB?</div>
+📚 <b>Do</b> you read a book?<br/>
+🎒 <b>Do</b> we go to school at eight?<br/>
+🥣 <b>Do</b> they have breakfast at home?<br/>
+📝 <b>Do</b> you do your homework after school?
+</div>
+<div class="rule-mini"><b>he / she / it</b><div class="formula">Does + subject + VERB?</div>
+📚 <b>Does</b> she read a book?<br/>
+⏰ <b>Does</b> he get up at seven?<br/>
+🐶 <b>Does</b> it sleep inside?<br/>
+🎒 <b>Does</b> Alex go to school at eight?
+</div></div><div class="notebook"><b>⭐ Important:</b> After <b>does</b>, use the verb without <b>-s</b>.<br/>❌ Does Alex <b>goes</b> to school?<br/>✅ Does Alex <b>go</b> to school?</div></div>
+<div class="lesson-block"><h3>2️⃣ How often...?</h3><b>How often</b> asks about frequency.<br/><br/>📚 <i>How often do you read a book?</i> → Twice a week.<br/>📝 <i>How often does Mia do her homework?</i> → Every day.</div>
+<div class="lesson-block">
+<h3>3️⃣ Question Words</h3>
+<p>We can put a question word before <b>do</b> or <b>does</b> when we want more information.</p>
+<div class="qword-grid">
+<div class="qword"><b>⏰ What time</b><br/><i>What time do you get up?</i></div>
+<div class="qword"><b>📅 When</b><br/><i>When do you do your homework?</i></div>
+<div class="qword"><b>📍 Where</b><br/><i>Where does Ben have breakfast?</i></div>
+<div class="qword"><b>🔁 How often</b><br/><i>How often do you read a book?</i></div>
+</div>
+</div>
+<div class="lesson-block">
+<h3>4️⃣ Short Answers</h3>
+<p>For <b>Do / Does</b> questions, we can give short answers.</p>
+<div class="short-answer-box">
+<b>Do you read after school?</b><br/>✅ Yes, I <b>do</b>.    ❌ No, I <b>don't</b>.<br/><br/>
+<b>Does Emma get up at seven?</b><br/>✅ Yes, she <b>does</b>.    ❌ No, she <b>doesn't</b>.
+</div>
+<div class="notebook">💡 We don't repeat the main verb in a short answer.<br/><b>Does Alex read?</b> → Yes, he <b>does</b>.</div>
+</div>
+<div class="lesson-block">
+<h3>5️⃣ Mini Q&amp;A</h3>
+<p>Read the information and choose the correct short answer.</p>
+<div class="qa-card">📚 <b>Emma reads a book every evening.</b><br/><b>Does Emma read a book every evening?</b>
+<div class="qa-options"><button onclick="checkMiniQA(this,true)">Yes, she does.</button><button onclick="checkMiniQA(this,false)">No, she doesn't.</button></div><div class="qa-result"></div></div>
+<div class="qa-card">🌙 <b>Alex goes to bed at nine. He doesn't go to bed late.</b><br/><b>Does Alex go to bed late?</b>
+<div class="qa-options"><button onclick="checkMiniQA(this,false)">Yes, he does.</button><button onclick="checkMiniQA(this,true)">No, he doesn't.</button></div><div class="qa-result"></div></div>
+</div>
+<div class="quick-practice"><h3>✏️ Quick Practice — Questions</h3><p>Complete with <b>Do</b> or <b>Does</b>.</p><div class="qp-row">1. <input id="qp-q1"/> you get up at seven?</div><div class="qp-row">2. <input id="qp-q2"/> Emma read after school?</div><div class="qp-row">3. <input id="qp-q3"/> they go to school at eight?</div><div class="qp-row">4. <input id="qp-q4"/> Alex brush his teeth after breakfast?</div><button class="qp-check" onclick="checkQP('q',['do','does','do','does'])">Check Answers</button> <button class="qp-check" onclick="resetQP('q',4)" style="background:slategray">Reset</button><span class="qp-feedback" id="qp-q-feedback"></span></div>
+</div>
 </div></div>
 <div id="mc" class="screen"><div class="card"><h2>🎯 Multiple Choice Challenge</h2><p>Choose a challenge. Start with one topic, then try the Mix Challenge!</p><div class="mc-menu">
 <button class="mc-topic mc-present" onclick="startQuiz('present')"><h3>🟢 Present Simple</h3><p>Routines, verb forms, he/she/it, do & does.</p><span class="mc-tag">20 Questions</span></button>
+<button class="mc-topic mc-negative" onclick="startQuiz('negativeQuestions')"><span class="new-badge">NEW</span><h3>🚫❓ Negative & Questions</h3><p>Don't, doesn't, do, does & short answers.</p><span class="mc-tag">15 Questions</span></button>
+<button class="mc-topic mc-allforms" onclick="startQuiz('allForms')"><span class="new-badge">NEW</span><h3>🌟 Present Simple: All Forms</h3><p>Positive • Negative • Questions</p><span class="mc-tag">25 Questions</span></button>
 <button class="mc-topic mc-frequency" onclick="startQuiz('frequency')"><h3>⭐ Adverbs of Frequency</h3><p>Adverbs, stars, weekly expressions, tables and calendars.</p><span class="mc-tag">15 Questions</span></button>
 <button class="mc-topic mc-mix" onclick="startQuiz('mix')"><h3>🔥 Mix Challenge</h3><p>Use Present Simple and frequency language together.</p><span class="mc-tag">15 Questions</span></button>
-<button class="mc-topic mc-pts" onclick="startQuiz('pts')"><h3>🏆 Get Ready for PTS</h3><p>Read, compare and use English in real-life situations.</p><span class="mc-tag">10 Questions</span></button>
+<button class="mc-topic mc-pts" onclick="startQuiz('pts')"><span class="new-badge">NEW QUESTIONS</span><h3>🏆 Get Ready for PTS</h3><p>Read, compare and use English in real-life situations.</p><span class="mc-tag">25 Questions</span></button>
 </div></div></div>
 <div id="quiz" class="screen"><div class="card"><h2 id="quizTitle"></h2><div class="progress"><span id="qProgress"></span><span id="score"></span></div><div id="qVisual"></div><div class="question" id="question"></div><div class="options" id="options"></div><div class="feedback" id="feedback"></div><div class="controls"><button class="ctrl prev" onclick="prevQ()">⬅️ Previous</button><button class="ctrl next" onclick="nextQ()">Next ➡️</button></div></div></div>
-<div id="jumble" class="screen"><div class="card"><h2>🧩 Jumbled Sentences</h2><div class="progress"><span id="jProgress"></span><span>Tap the words in order!</span></div><div class="words" id="bank"></div><div class="answer" id="answer"></div><div class="feedback" id="jFeedback"></div><div class="controls"><button class="ctrl prev" onclick="prevJ()">⬅️ Previous</button><button class="ctrl check" onclick="checkJ()">✅ Check</button><button class="ctrl shuffle" onclick="resetJ()">🔀 Shuffle Again</button><button class="ctrl next" onclick="nextJ()">Next ➡️</button></div></div></div>
+<div id="buildMenu" class="screen"><div class="card"><h2>🧩 Build the Sentence</h2><p>Choose a sentence challenge!</p><div class="build-menu">
+<button class="build-topic build-jumbled" onclick="openJumble()"><h3>🔀 Jumbled Sentences</h3><p>Put the words in the correct order.</p><span class="mc-tag">20 Sentences</span></button>
+<button class="build-topic build-change" onclick="openChangeSentence()"><span class="new-badge">NEW</span><h3>🔄 Change the Sentence</h3><p>Change positive sentences into negatives and questions.</p><span class="mc-tag">10 Challenges</span></button>
+</div></div></div>
+<div id="jumble" class="screen"><div class="card"><h2>🔀 Jumbled Sentences</h2><div class="progress"><span id="jProgress"></span><span>Tap the words in order!</span></div><div class="words" id="bank"></div><div class="answer" id="answer"></div><div class="feedback" id="jFeedback"></div><div class="controls"><button class="ctrl prev" onclick="prevJ()">⬅️ Previous</button><button class="ctrl check" onclick="checkJ()">✅ Check</button><button class="ctrl shuffle" onclick="resetJ()">🔀 Shuffle Again</button><button class="ctrl next" onclick="nextJ()">Next ➡️</button></div></div></div>
+<div id="changeSentence" class="screen"><div class="card"><h2>🔄 Change the Sentence</h2><div class="progress"><span id="cProgress"></span><span id="cType"></span></div><div class="task-box" id="cTask"></div><div class="source-sentence" id="cSource"></div><div class="words" id="cBank"></div><div class="answer" id="cAnswer"></div><div class="feedback" id="cFeedback"></div><div class="controls"><button class="ctrl prev" onclick="prevC()">⬅️ Previous</button><button class="ctrl check" onclick="checkC()">✅ Check</button><button class="ctrl shuffle" onclick="resetC()">🔀 Shuffle Again</button><button class="ctrl next" onclick="nextC()">Next ➡️</button></div></div></div>
 </main><footer>Grade 4 • Compass Unit 1 • Have fun learning! 🌈</footer>
 
 <div id="scaleModal" class="modal" onclick="modalBackdrop(event,'scaleModal')"><div class="modalbox">
@@ -80,6 +230,17 @@ footer{text-align:center;padding:28px 12px;color:#657087}@media(max-width:700px)
 <div id="calendarModal" class="modal" onclick="modalBackdrop(event,'calendarModal')"><div class="modalbox"><button class="closemodal" onclick="closeModal('calendarModal')">×</button><div class="weekly-demo"><h3>📅 How Often?</h3><p>Choose an expression and watch the week change!</p><div class="weekdays" id="weekdays"></div><div class="freq-label" id="freqLabel"></div><div class="freq-example" id="freqExample"></div><div class="freq-choice"><button onclick="setFrequency(7,this)">Every Day</button><button onclick="setFrequency(1,this)">Once a Week</button><button onclick="setFrequency(2,this)">Twice a Week</button><button onclick="setFrequency(3,this)">Three Times a Week</button></div><div class="smallnote">💡 The checked days are examples. The days can be different each week.</div></div></div></div>
 
 <script>
+function checkMiniQA(btn,correct){
+ const card=btn.closest('.qa-card');
+ const result=card.querySelector('.qa-result');
+ card.querySelectorAll('button').forEach(b=>b.disabled=true);
+ if(correct){btn.style.background='lightgreen';result.textContent='✅ Correct!';}
+ else{btn.style.background='mistyrose';result.textContent='Try again next time — read the information carefully.';}
+}
+function showPS(name,btn){if(document.getElementById('learnCalendar')&&!document.getElementById('learnCalendar').innerHTML)setLearnCalendar(7);document.querySelectorAll('.ps-panel').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.ps-tab').forEach(x=>x.classList.remove('active'));document.getElementById('ps-'+name).classList.add('active');btn.classList.add('active')}
+function checkQP(prefix,answers){let c=0;answers.forEach((a,i)=>{let x=document.getElementById('qp-'+prefix+(i+1));let v=x.value.trim().toLowerCase().replace(/[’]/g,"'");if(v===a){c++;x.style.borderColor='green'}else{x.style.borderColor='crimson'}});document.getElementById('qp-'+prefix+'-feedback').textContent=c===answers.length?'🌟 Great job! All correct!':`You got ${c} / ${answers.length}. Try the red ones again!`}
+function resetQP(prefix,count){for(let i=1;i<=count;i++){let x=document.getElementById('qp-'+prefix+i);x.value='';x.style.borderColor='#d8dce6'}document.getElementById('qp-'+prefix+'-feedback').textContent=''}
+
 function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden'} function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow=''} function modalBackdrop(e,id){if(e.target.id===id)closeModal(id)}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal.open').forEach(m=>closeModal(m.id))});
 const freqData={7:{label:'EVERY DAY',example:'I brush my teeth every day.',days:[0,1,2,3,4,5,6]},1:{label:'ONCE A WEEK',example:'I read a book once a week.',days:[2]},2:{label:'TWICE A WEEK',example:'I do my homework twice a week.',days:[1,4]},3:{label:'THREE TIMES A WEEK',example:'I take a shower three times a week.',days:[0,2,4]}};
@@ -87,6 +248,52 @@ function openCalendar(){openModal('calendarModal');setFrequency(7,document.query
 function setFrequency(n,btn){const names=['M','T','W','T','F','S','S'],data=freqData[n],box=document.getElementById('weekdays');box.innerHTML='';names.forEach((name,i)=>{const d=document.createElement('div');d.className='day'+(data.days.includes(i)?' on':'');d.innerHTML=name+'<div class="dot">'+(data.days.includes(i)?'✓':'○')+'</div>';box.appendChild(d)});document.getElementById('freqLabel').textContent=data.label;document.getElementById('freqExample').textContent=data.example;document.querySelectorAll('#calendarModal .freq-choice button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active')}
 
 const quizSets={
+
+negativeQuestions:{title:'🚫❓ Negative & Questions',questions:[
+["Emma ___ get up late on school days.",["don't","isn't","doesn't","not"],2],
+["We ___ go to school on Sundays.",["don't","doesn't","aren't","not"],0],
+["___ Alex brush his teeth after breakfast?",["Is","Do","Are","Does"],3],
+["___ you have breakfast before school?",["Does","Do","Are","Is"],1],
+["Mia doesn't ___ a book before school.",["reads","reading","read","does read"],2],
+["Which sentence is correct?",["Ben doesn't go to bed late.","Ben doesn't goes to bed late.","Ben don't go to bed late.","Ben not goes to bed late."],0],
+["What time ___ your sister get up?",["do","is","are","does"],3],
+["They ___ have breakfast at school.",["doesn't","don't","aren't","isn't"],1],
+["___ Emma and Lily do their homework after school?",["Do","Does","Are","Is"],0],
+["My brother doesn't ___ his hair before breakfast.",["combs","combing","comb","does combs"],2],
+["Does Leo go to school at eight? — Yes, ___.",["he do","he is","he doesn't","he does"],3],
+["Do you read a book after school? — No, ___.",["I doesn't","I don't","I do","I'm not"],1],
+["Which question is correct?",["Does Mia gets dressed before breakfast?","Do Mia get dressed before breakfast?","Does Mia get dressed before breakfast?","Is Mia get dressed before breakfast?"],2],
+["Where ___ they have breakfast?",["do","does","are","is"],0],
+["Which sentence is correct?",["She doesn't brushes her teeth after lunch.","She don't brush her teeth after lunch.","She doesn't brushing her teeth after lunch.","She doesn't brush her teeth after lunch."],3]
+]},
+allForms:{title:'🌟 Present Simple: All Forms',questions:[
+["Lucy ___ dressed before breakfast every morning.",["get","gets","getting","does get"],1],
+["We ___ to school at eight o'clock.",["goes","going","does go","go"],3],
+["Ben doesn't ___ a book in the morning.",["read","reads","reading","does reads"],0],
+["___ your sister brush her teeth after breakfast?",["Do","Is","Does","Are"],2],
+["I ___ have breakfast at school. I have it at home.",["doesn't","don't","am not","not"],1],
+["Which sentence is correct?",["Emma go to bed at nine.","Emma going to bed at nine.","Emma does goes to bed at nine.","Emma goes to bed at nine."],3],
+["___ they do their homework after school?",["Do","Does","Are","Is"],0],
+["My friends ___ books after school.",["reads","does read","read","reading"],2],
+["Alex ___ his teeth before school.",["brush","brushes","brushing","does brushes"],1],
+["She doesn't ___ up at nine on school days.",["get","gets","getting","does get"],0],
+["Does Mia have breakfast with her family? — Yes, ___.",["she do","she has","she is","she does"],3],
+["What time ___ you go to bed?",["does","are","do","is"],2],
+["Which sentence is NOT correct?",["They go to school every day.","They goes to school every day.","We go to school every day.","I go to school every day."],1],
+["Emma and Lily ___ get up late on school days.",["doesn't","aren't","isn't","don't"],3],
+["My brother ___ breakfast at seven every morning.",["has","have","having","does has"],0],
+["Where ___ Ben have breakfast?",["do","is","does","are"],2],
+["Which negative sentence is correct?",["Alex don't reads before bed.","Alex doesn't read before bed.","Alex doesn't reads before bed.","Alex not read before bed."],1],
+["I ___ my hair before I go to school.",["combs","am comb","does comb","comb"],3],
+["Do Emma and Mia read after school? — No, ___.",["they doesn't","they aren't","they don't","they do"],2],
+["Coco ___ to school at eight o'clock every day.",["goes","go","going","does goes"],0],
+["___ your friends take a shower after sports?",["Does","Do","Are","Is"],1],
+["He ___ do his homework before school.",["don't","isn't","not","doesn't"],3],
+["Which question is correct?",["Does Emma go to bed at nine?","Does Emma goes to bed at nine?","Do Emma go to bed at nine?","Is Emma go to bed at nine?"],0],
+["What ___ your parents do in the morning?",["does","are","do","is"],2],
+["Which sentence is correct?",["Mia doesn't gets dressed before breakfast.","Mia doesn't get dressed before breakfast.","Mia don't get dressed before breakfast.","Mia doesn't getting dressed before breakfast."],1]
+]},
+
 present:{title:'🟢 Present Simple Challenge',questions:[
 ["I ___ dressed before breakfast.",["getting","am get","get","gets"],2],
 ["Emma ___ up at seven o'clock every morning.",["gets","get","does gets","getting"],0],
@@ -153,7 +360,22 @@ pts:{title:'🏆 Get Ready for PTS',questions:[
 {q:"Which of the following is CORRECT according to the conversation?",o:["Tom never does his homework.","Tom reads a book every day.","Tom usually goes to bed late.","Tom reads a book twice a week."],a:3,v:'ptsChat'},
 {q:"Which sentence matches the information?",o:["The student always brushes his or her teeth and sometimes reads a book.","The student never brushes his or her teeth.","The student always reads a book.","The student almost never brushes his or her teeth."],a:0,v:'ptsStars'},
 {q:"According to the table, which of the following is CORRECT?",o:["Amy reads every day.","Jack reads three times a week.","Amy reads three times a week.","Amy and Jack read on the same days."],a:2,v:'ptsSchedule'},
-{q:"Which activity is NOT mentioned in Noah's routine?",o:["Brushing his teeth","Having breakfast","Taking a shower","Reading a book"],a:2,v:'ptsBag'}
+{q:"Which activity is NOT mentioned in Noah's routine?",o:["Brushing his teeth","Having breakfast","Taking a shower","Reading a book"],a:2,v:'ptsBag'},
+{q:"Which question can we answer with the information above?",o:["How often does Sophie read a book?","Where does Sophie have breakfast?","What time does Sophie get dressed?","Does Sophie do her homework after school?"],a:2,v:'ptsSophieMorning'},
+{q:"Which sentence is CORRECT according to the table?",o:["Jack brushes his teeth every day.","Jack reads a book every day.","Jack doesn't brush his teeth at the weekend.","Jack reads a book three times a week."],a:0,v:'ptsJackWeek'},
+{q:"Which sentence is CORRECT according to the text?",o:["Nora has breakfast at school.","Nora reads a book every day.","Nora goes to bed late on school nights.","Nora doesn't have breakfast at school."],a:3,v:'ptsNoraReading'},
+{q:"Which sentence is NOT correct according to the text?",o:["Ethan goes to school at eight.","Ethan reads a book after school.","Ethan usually does his homework after school.","Ethan doesn't go to bed late on school nights."],a:1,v:'ptsEthanReading'},
+{q:"Which sentence is CORRECT according to Maya's habits?",o:["Maya sometimes has breakfast.","Maya always goes to bed late.","Maya sometimes reads a book.","Maya never has breakfast."],a:2,v:'ptsHabitTable'},
+{q:"Which question has the answer “No, I don't.”?",o:["Do you read before school?","Does Ben have breakfast at home?","What time do you get up?","Do you get up at seven?"],a:0,v:'ptsQAChat'},
+{q:"Which sentence is CORRECT according to the table?",o:["Ella reads a book twice a week.","Max reads a book every day.","Ella and Max read on the same days.","Ella reads a book three times a week."],a:3,v:'ptsRoutineTable2'},
+{q:"Which sentence is CORRECT according to the table?",o:["Noah and Ella get up at the same time.","Noah and Ella both have breakfast every day.","Noah reads more often than Ella.","Ella doesn't have breakfast every day."],a:1,v:'ptsTwoFriends2'},
+{q:"Which sentence is CORRECT according to the text?",o:["Ruby doesn't take a shower in the morning.","Ruby always reads a book in the morning.","Ruby usually goes to school late.","Ruby doesn't get dressed before breakfast."],a:0,v:'ptsRubyReading'},
+{q:"Which student matches ALL the clues?",o:["Leo","Ava","Mia","Leo and Ava"],a:2,v:'ptsFindStudent'},
+{q:"Which question has the answer “No, he doesn't.”?",o:["Does Liam get dressed at 7:15?","Does Liam have breakfast at 7:30?","Does Liam go to school at 8:00?","Does Liam take a shower in the morning?"],a:3,v:'ptsLiamReading'},
+{q:"Which statement is CORRECT according to the survey?",o:["Emma reads every day.","All three students have breakfast every day.","Only Tom brushes his teeth every day.","Lucy doesn't have breakfast every day."],a:1,v:'ptsSurvey2'},
+{q:"Which sentence is CORRECT according to the text?",o:["Olivia doesn't go to bed late on school nights.","Olivia reads a book every day.","Olivia doesn't do her homework after her snack.","Olivia goes home at eight."],a:0,v:'ptsOliviaReading'},
+{q:"Which question has the answer “No, he doesn't.”?",o:["Does Leo get up at seven?","Does Leo have breakfast at home?","Does Leo read before school?","Does Leo go to school at eight?"],a:2,v:'ptsQuestionTable'},
+{q:"Which sentence is CORRECT according to Amy's weekend?",o:["Amy goes to school on Saturday.","Amy reads a book on Sunday.","Amy never gets up late at the weekend.","Amy doesn't go to school at the weekend."],a:3,v:'ptsWeekendTable'}
 ]}};
 const visuals={
 s5:'<div class="qsource"><div class="starline">⭐⭐⭐⭐⭐</div><div class="percentline">100%</div></div>',s4:'<div class="qsource"><div class="starline">⭐⭐⭐⭐☆</div><div class="percentline">75%</div></div>',s3:'<div class="qsource"><div class="starline">⭐⭐⭐☆☆</div><div class="percentline">50%</div></div>',s1:'<div class="qsource"><div class="starline">⭐☆☆☆☆</div><div class="percentline">25%</div></div>',s0:'<div class="qsource"><div class="starline">☆☆☆☆☆</div><div class="percentline">0%</div></div>',
@@ -174,20 +396,105 @@ ptsMorning:'<div class="qsource"><div class="pts-routine"><div><span class="pts-
 ptsChat:'<div class="qsource pts-chat"><p><b>👧 Ava:</b> What do you do after school?</p><p><b>👦 Tom:</b> I usually do my homework. On Tuesday and Friday, I read a book too.</p><p><b>👧 Ava:</b> Do you go to bed late?</p><p><b>👦 Tom:</b> No. I almost never go to bed late.</p></div>',
 ptsStars:'<div class="qsource pts-cards"><div class="pts-person"><b>🦷 Brush teeth</b><div class="starline">⭐⭐⭐⭐⭐</div><div class="percentline">100%</div></div><div class="pts-person"><b>📚 Read a book</b><div class="starline">⭐⭐⭐☆☆</div><div class="percentline">50%</div></div></div>',
 ptsSchedule:'<div class="qsource"><table class="mini-table"><tr><th></th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th></tr><tr><td>👧 Amy<br>📚 Read</td><td>✓</td><td>—</td><td>✓</td><td>—</td><td>✓</td></tr><tr><td>👦 Jack<br>📚 Read</td><td>—</td><td>✓</td><td>—</td><td>✓</td><td>—</td></tr></table></div>',
-ptsBag:'<div class="qsource pts-reading"><h3>🎒 Ready for School</h3>Every evening, Noah gets his school bag ready. He <b>usually reads a book</b> before bed. He <b>always brushes his teeth</b>, but he <b>almost never goes to bed late</b>. In the morning, he gets dressed and has breakfast before he goes to school.</div>'
+ptsBag:'<div class="qsource pts-reading"><h3>🎒 Ready for School</h3>Every evening, Noah gets his school bag ready. He <b>usually reads a book</b> before bed. He <b>always brushes his teeth</b>, but he <b>almost never goes to bed late</b>. In the morning, he gets dressed and has breakfast before he goes to school.</div>',
+ptsNoraReading:'<div class="qsource pts-reading"><h3>📚 Nora\'s School Day</h3>Nora gets up at seven on school days. She <b>doesn\'t have breakfast at school</b>; she has it at home with her family. She goes to school at eight. After school, she <b>usually does her homework</b>. She <b>doesn\'t read a book every day</b>. She reads on Monday, Wednesday and Friday. Nora never goes to bed late on school nights.</div>',
+ptsRoutineTable2:'<div class="qsource"><table class="mini-table"><tr><th></th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th></tr><tr><td>👧 Ella<br>📚 Read</td><td>✓</td><td>—</td><td>✓</td><td>—</td><td>✓</td></tr><tr><td>👦 Max<br>📚 Read</td><td>—</td><td>✓</td><td>—</td><td>✓</td><td>—</td></tr><tr><td>🦷 Both<br>Brush teeth</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr></table></div>',
+ptsSophieMorning:'<div class="qsource"><table class="mini-table"><tr><th>Time</th><th>Sophie\'s Activity</th></tr><tr><td>7:00</td><td>⏰ Get up</td></tr><tr><td>7:15</td><td>👕 Get dressed</td></tr><tr><td>7:30</td><td>🥣 Have breakfast</td></tr><tr><td>8:00</td><td>🎒 Go to school</td></tr></table></div>',
+ptsJackWeek:'<div class="qsource"><table class="mini-table"><tr><th>Jack</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th><th>SUN</th></tr><tr><td>🦷 Brush teeth</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr><tr><td>📚 Read</td><td>—</td><td>✓</td><td>—</td><td>—</td><td>✓</td><td>—</td><td>—</td></tr></table></div>',
+ptsEthanReading:'<div class="qsource pts-reading"><h3>🌤️ Ethan\'s Day</h3>Ethan gets up at seven on school days. He has breakfast with his family and goes to school at eight. After school, he <b>usually does his homework</b>. He <b>doesn\'t read a book after school</b>; he reads before bed. He <b>doesn\'t go to bed late</b> on school nights.</div>',
+ptsHabitTable:'<div class="qsource"><table class="mini-table"><tr><th>Maya</th><th>Frequency</th></tr><tr><td>🥣 Have breakfast</td><td>⭐⭐⭐⭐⭐ 100%</td></tr><tr><td>📚 Read a book</td><td>⭐⭐⭐☆☆ 50%</td></tr><tr><td>🌙 Go to bed late</td><td>☆☆☆☆☆ 0%</td></tr></table></div>',
+ptsQAChat:'<div class="qsource pts-chat"><p><b>👧 Mia:</b> What time do you get up?</p><p><b>👦 Ben:</b> At seven o\'clock.</p><p><b>👧 Mia:</b> Do you have breakfast at home?</p><p><b>👦 Ben:</b> Yes, I do.</p><p><b>👧 Mia:</b> Do you read before school?</p><p><b>👦 Ben:</b> No, I don\'t.</p></div>',
+ptsTwoFriends2:'<div class="qsource"><table class="mini-table"><tr><th></th><th>Get up</th><th>Breakfast</th><th>Read</th></tr><tr><td>👦 Noah</td><td>7:00</td><td>Every day</td><td>Twice a week</td></tr><tr><td>👧 Ella</td><td>7:30</td><td>Every day</td><td>Three times a week</td></tr></table></div>',
+ptsRubyReading:'<div class="qsource pts-reading"><h3>🌅 Ruby\'s Morning</h3>Ruby always gets up at seven. She usually gets dressed before breakfast. She sometimes reads a book in the morning, but she <b>never goes to school late</b>. She doesn\'t take a shower in the morning.</div>',
+ptsFindStudent:'<div class="qsource"><div class="pts-note">🔎 This student <b>doesn\'t get up late</b>, <b>always has breakfast</b> and <b>reads twice a week</b>.</div><table class="mini-table"><tr><th>Student</th><th>Gets up late</th><th>Has breakfast</th><th>Reads</th></tr><tr><td>Mia</td><td>Never</td><td>Always</td><td>2 days</td></tr><tr><td>Leo</td><td>Sometimes</td><td>Always</td><td>3 days</td></tr><tr><td>Ava</td><td>Never</td><td>Sometimes</td><td>2 days</td></tr></table></div>',
+ptsLiamReading:'<div class="qsource pts-reading"><h3>🎒 Liam\'s School Morning</h3>Liam gets up at 7:00 and gets dressed at 7:15. He has breakfast at 7:30. He <b>doesn\'t take a shower in the morning</b>. He goes to school at 8:00.</div>',
+ptsSurvey2:'<div class="qsource"><table class="mini-table"><tr><th>Activity</th><th>Emma</th><th>Tom</th><th>Lucy</th></tr><tr><td>🥣 Have breakfast every day</td><td>✓</td><td>✓</td><td>✓</td></tr><tr><td>📚 Read every day</td><td>—</td><td>✓</td><td>—</td></tr><tr><td>🦷 Brush teeth every day</td><td>✓</td><td>✓</td><td>✓</td></tr></table></div>',
+ptsOliviaReading:'<div class="qsource pts-reading"><h3>🌙 Olivia After School</h3>Olivia goes home at four. She <b>doesn\'t do her homework immediately</b>. First, she has a snack. Then she does her homework. She reads a book on Tuesday and Thursday. She <b>doesn\'t go to bed late</b> on school nights.</div>',
+ptsQuestionTable:'<div class="qsource"><table class="mini-table"><tr><th>Leo</th><th>Answer</th></tr><tr><td>⏰ Get up</td><td>7:00</td></tr><tr><td>🥣 Have breakfast at home?</td><td>Yes</td></tr><tr><td>📚 Read before school?</td><td>No</td></tr><tr><td>🎒 Go to school</td><td>8:00</td></tr></table></div>',
+ptsWeekendTable:'<div class="qsource"><table class="mini-table"><tr><th>Amy</th><th>SAT</th><th>SUN</th></tr><tr><td>⏰ Get up late</td><td>✓</td><td>✓</td></tr><tr><td>📚 Read a book</td><td>✓</td><td>—</td></tr><tr><td>🎒 Go to school</td><td>—</td><td>—</td></tr></table></div>'
 };
-let activeQuiz='present',qIndex=0,quizAnswers={present:Array(20).fill(null),frequency:Array(15).fill(null),mix:Array(15).fill(null),pts:Array(10).fill(null)};
+let activeQuiz='present',qIndex=0,quizAnswers={present:Array(20).fill(null),negativeQuestions:Array(15).fill(null),allForms:Array(25).fill(null),frequency:Array(15).fill(null),mix:Array(15).fill(null),pts:Array(25).fill(null)};
 function nq(x){return Array.isArray(x)?{q:x[0],o:x[1],a:x[2],v:x[3]||null}:x}
 function openScreen(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.getElementById('globalBack').style.display=id==='home'?'none':'inline-block';window.scrollTo({top:0,behavior:'smooth'})}
-function goHome(){openScreen('home')} function goBack(){document.getElementById('quiz').classList.contains('active')?openScreen('mc'):goHome()} function openMC(){openScreen('mc')} function startQuiz(t){activeQuiz=t;qIndex=0;openScreen('quiz');renderQ()}
+function goHome(){openScreen('home')}
+function goBack(){
+if(document.getElementById('quiz').classList.contains('active'))openScreen('mc');
+else if(document.getElementById('jumble').classList.contains('active')||document.getElementById('changeSentence').classList.contains('active'))openScreen('buildMenu');
+else goHome()
+}
+function openMC(){openScreen('mc')}
+function openBuildMenu(){openScreen('buildMenu')}
+function startQuiz(t){activeQuiz=t;qIndex=0;openScreen('quiz');renderQ()}
 function renderQ(){const set=quizSets[activeQuiz],q=nq(set.questions[qIndex]),ans=quizAnswers[activeQuiz],sel=ans[qIndex];document.getElementById('quizTitle').textContent=set.title;document.getElementById('qProgress').textContent=`Question ${qIndex+1} / ${set.questions.length}`;let attempted=ans.filter(x=>x!==null).length,correct=ans.reduce((s,a,i)=>s+(a===nq(set.questions[i]).a?1:0),0);document.getElementById('score').textContent=`Score: ${correct} / ${attempted}`;document.getElementById('qVisual').innerHTML=q.v?visuals[q.v]:'';document.getElementById('question').textContent=`${qIndex+1}. ${q.q}`;let box=document.getElementById('options');box.innerHTML='';q.o.forEach((o,i)=>{let b=document.createElement('button');b.className='option';b.innerHTML=`<b>${String.fromCharCode(65+i)}.</b> ${o}`;if(sel!==null){if(i===q.a)b.classList.add('correct');if(i===sel&&sel!==q.a)b.classList.add('wrong')}b.onclick=()=>answerQ(i);box.appendChild(b)});let f=document.getElementById('feedback');f.textContent=sel===null?'':sel===q.a?'🌟 Great job! That is correct!':`❌ Good try! The correct answer is ${String.fromCharCode(65+q.a)}: ${q.o[q.a]}.`}
 function answerQ(i){let a=quizAnswers[activeQuiz];if(a[qIndex]===null){a[qIndex]=i;renderQ()}} function nextQ(){if(qIndex<quizSets[activeQuiz].questions.length-1){qIndex++;renderQ()}} function prevQ(){if(qIndex>0){qIndex--;renderQ()}else openScreen('mc')}
 
-const jumbles=[["I","make","my","bed","every","morning"],["Kim","gets","up","at","eight","o'clock"],["We","go","to","school","every","day"],["Ben","feeds","his","pet","after","school"],["I","usually","do","my","homework","after","dinner"],["She","is","never","late","for","school"],["How","often","do","you","pick","up","your","room"],["I","pack","my","bag","for","school","every","night"],["My","sister","makes","her","lunch","in","the","morning"],["We","study","for","a","test","twice","a","week"]];
+const jumbles=[
+["Emma","doesn't","get","up","late","on","school","days"],
+["We","don't","go","to","school","on","Sundays"],
+["Ben","doesn't","read","a","book","before","school"],
+["They","don't","have","breakfast","at","school"],
+["Mia","doesn't","go","to","bed","late"],
+["Does","Alex","brush","his","teeth","after","breakfast"],
+["Do","you","have","breakfast","before","school"],
+["Does","Emma","read","a","book","after","school"],
+["Do","they","do","their","homework","in","the","evening"],
+["Does","Leo","go","to","school","at","eight"],
+["Do","Emma","and","Lily","get","dressed","before","breakfast"],
+["Does","your","brother","comb","his","hair","in","the","morning"],
+["Do","your","friends","read","books","after","school"],
+["Does","Mia","take","a","shower","in","the","morning"],
+["Do","you","brush","your","teeth","before","bed"],
+["What","time","do","you","get","up"],
+["What","does","Emma","do","after","school"],
+["What","time","does","Ben","go","to","bed"],
+["What","do","they","have","for","breakfast"],
+["What","does","Mia","do","before","school"]
+];
 let jIndex=0,jStates=Array.from({length:jumbles.length},()=>null);
 function shuffle(arr){let a=[...arr];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a} function newJState(i){return{bank:shuffle(jumbles[i].map((w,n)=>({w,n}))),chosen:[]}}
 function openJumble(){jIndex=0;if(!jStates[0])jStates[0]=newJState(0);openScreen('jumble');renderJ()}
 function renderJ(){if(!jStates[jIndex])jStates[jIndex]=newJState(jIndex);document.getElementById('jProgress').textContent=`Sentence ${jIndex+1} / ${jumbles.length}`;const state=jStates[jIndex],bank=document.getElementById('bank'),ans=document.getElementById('answer');bank.innerHTML='';ans.innerHTML='';state.bank.forEach(obj=>bank.appendChild(makeWord(obj,'bank')));state.chosen.forEach(obj=>ans.appendChild(makeWord(obj,'chosen')));document.getElementById('jFeedback').textContent=''}
 function makeWord(obj,where){const b=document.createElement('button');b.className='word';b.textContent=obj.w;b.onclick=()=>{const s=jStates[jIndex];if(where==='bank'){s.bank=s.bank.filter(x=>x.n!==obj.n);s.chosen.push(obj)}else{s.chosen=s.chosen.filter(x=>x.n!==obj.n);s.bank.push(obj)}renderJ()};return b}
-function checkJ(){const got=jStates[jIndex].chosen.map(x=>x.w).join(' '),target=jumbles[jIndex].join(' ');document.getElementById('jFeedback').textContent=got===target?'🌟 Perfect! Your sentence is correct!':'🤔 Not quite yet. Try changing the word order!'} function resetJ(){jStates[jIndex]=newJState(jIndex);renderJ()} function nextJ(){if(jIndex<jumbles.length-1){jIndex++;if(!jStates[jIndex])jStates[jIndex]=newJState(jIndex);renderJ()}} function prevJ(){if(jIndex>0){jIndex--;renderJ()}else goHome()}
+function checkJ(){const got=jStates[jIndex].chosen.map(x=>x.w).join(' '),target=jumbles[jIndex].join(' ');document.getElementById('jFeedback').textContent=got===target?'🌟 Perfect! Your sentence is correct!':'🤔 Not quite yet. Try changing the word order!'} function resetJ(){jStates[jIndex]=newJState(jIndex);renderJ()} function nextJ(){if(jIndex<jumbles.length-1){jIndex++;if(!jStates[jIndex])jStates[jIndex]=newJState(jIndex);renderJ()}} function prevJ(){if(jIndex>0){jIndex--;renderJ()}else openScreen('buildMenu')}
+
+const changeSentences=[
+{type:"negative",source:"Emma gets up at seven every morning.",target:["Emma","doesn't","get","up","at","seven","every","morning"]},
+{type:"negative",source:"Ben brushes his teeth after breakfast.",target:["Ben","doesn't","brush","his","teeth","after","breakfast"]},
+{type:"negative",source:"Mia goes to bed late on school days.",target:["Mia","doesn't","go","to","bed","late","on","school","days"]},
+{type:"negative",source:"They have breakfast at school.",target:["They","don't","have","breakfast","at","school"]},
+{type:"negative",source:"We read a book before school.",target:["We","don't","read","a","book","before","school"]},
+{type:"question",source:"Alex brushes his teeth after breakfast.",target:["Does","Alex","brush","his","teeth","after","breakfast"]},
+{type:"question",source:"Emma reads a book after school.",target:["Does","Emma","read","a","book","after","school"]},
+{type:"question",source:"Leo goes to school at eight.",target:["Does","Leo","go","to","school","at","eight"]},
+{type:"question",source:"They do their homework in the evening.",target:["Do","they","do","their","homework","in","the","evening"]},
+{type:"question",source:"You have breakfast before school.",target:["Do","you","have","breakfast","before","school"]}
+];
+let cIndex=0,cStates=Array.from({length:changeSentences.length},()=>null);
+function newCState(i){return{bank:shuffle(changeSentences[i].target.map((w,n)=>({w,n}))),chosen:[]}}
+function openChangeSentence(){cIndex=0;if(!cStates[0])cStates[0]=newCState(0);openScreen('changeSentence');renderC()}
+function renderC(){
+if(!cStates[cIndex])cStates[cIndex]=newCState(cIndex);
+const item=changeSentences[cIndex],state=cStates[cIndex];
+document.getElementById('cProgress').textContent=`Challenge ${cIndex+1} / ${changeSentences.length}`;
+document.getElementById('cType').textContent=item.type==='negative'?'🚫 Make it negative':'❓ Make it a question';
+document.getElementById('cTask').innerHTML=item.type==='negative'?"<b>Make it negative.</b> Remember: after <b>don't / doesn't</b>, use the verb without -s.":"<b>Make it a question.</b> Remember: after <b>Do / Does</b>, use the verb without -s.";
+document.getElementById('cSource').textContent=item.source;
+const bank=document.getElementById('cBank'),ans=document.getElementById('cAnswer');
+bank.innerHTML='';ans.innerHTML='';
+state.bank.forEach(obj=>bank.appendChild(makeCWord(obj,'bank')));
+state.chosen.forEach(obj=>ans.appendChild(makeCWord(obj,'chosen')));
+document.getElementById('cFeedback').textContent='';
+}
+function makeCWord(obj,where){
+const b=document.createElement('button');b.className='word';b.textContent=obj.w;
+b.onclick=()=>{const s=cStates[cIndex];if(where==='bank'){s.bank=s.bank.filter(x=>x.n!==obj.n);s.chosen.push(obj)}else{s.chosen=s.chosen.filter(x=>x.n!==obj.n);s.bank.push(obj)}renderC()};return b
+}
+function checkC(){
+const got=cStates[cIndex].chosen.map(x=>x.w).join(' '),target=changeSentences[cIndex].target.join(' ');
+document.getElementById('cFeedback').textContent=got===target?"🌟 Perfect! You changed the sentence correctly!":"🤔 Not quite yet. Check do/does or don't/doesn't and the verb form."
+}
+function resetC(){cStates[cIndex]=newCState(cIndex);renderC()}
+function nextC(){if(cIndex<changeSentences.length-1){cIndex++;if(!cStates[cIndex])cStates[cIndex]=newCState(cIndex);renderC()}}
+function prevC(){if(cIndex>0){cIndex--;renderC()}else openScreen('buildMenu')}
+
 </script></body></html>
