@@ -177,6 +177,7 @@ header p{
 .hint-image-wrap{display:none;justify-content:center;margin:14px 0 4px}
 .hint-image-wrap.show{display:flex}
 .hint-image{width:min(100%,330px);height:230px;object-fit:cover;border-radius:18px;border:3px solid white;box-shadow:0 5px 15px #18315326}
+.hint-emoji{display:none;width:min(100%,330px);height:230px;border-radius:18px;border:3px solid white;box-shadow:0 5px 15px #18315326;background:#fffdf8;align-items:center;justify-content:center;font-size:96px}
 .front small,.back small{font-size:11px;color:#718096;margin-top:10px}
 .back strong{font-size:19px;line-height:1.25;margin-bottom:10px}
 .back p{margin:0;font-size:15px;line-height:1.45}
@@ -347,6 +348,7 @@ header p{
 
     <div id="hintImageWrap" class="hint-image-wrap">
       <img id="hintImage" class="hint-image" src="" alt="">
+      <div id="hintEmoji" class="hint-emoji" aria-label="Vocabulary hint"></div>
     </div>
 
     <div id="unscrambleMessage" class="unscramble-message"></div>
@@ -464,15 +466,36 @@ function makeLetterOrder(answer){
 
 
 const week2HintImages = {"feed a pet": "images/week2/feed-a-pet.jpg", "tidy up your room": "images/week2/tidy-up-your-room.jpg", "pack your bag": "images/week2/pack-your-bag.jpg", "study for a test": "images/week2/study-for-a-test.jpg", "catch the bus": "images/week2/catch-the-bus.jpg", "visit grandparents": "images/week2/visit-grandparents.jpg", "take a picture": "images/week2/take-a-picture.jpg", "put on my pyjamas": "images/week2/put-on-my-pyjamas.jpg", "turn off the alarm": "images/week2/turn-off-the-alarm.jpg", "dry my hair": "images/week2/dry-my-hair.jpg"};
+const reviewHintEmojis = {
+  "brush my teeth": "🦷",
+  "go to school": "🏫",
+  "read a book": "📖",
+  "wake up": "⏰",
+  "have breakfast": "🥣"
+};
 let hintVisible = false;
 
 function showUnscrambleHint(){
   const answer = unscrambleItems[unscrambleIndex].answer;
   const src = week2HintImages[answer];
-  if(!src) return;
+  const emoji = reviewHintEmojis[answer];
   const wrap = document.getElementById("hintImageWrap");
   const img = document.getElementById("hintImage");
-  img.src = src;
+  const emojiBox = document.getElementById("hintEmoji");
+
+  img.style.display = "none";
+  emojiBox.style.display = "none";
+
+  if(src){
+    img.src = src;
+    img.style.display = "block";
+  } else if(emoji){
+    emojiBox.textContent = emoji;
+    emojiBox.style.display = "flex";
+  } else {
+    return;
+  }
+
   wrap.classList.add("show");
   hintVisible = true;
 }
