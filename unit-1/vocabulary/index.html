@@ -6,91 +6,200 @@
 <title>Grade 4 • Unit 1 Vocabulary Lab</title>
 <link rel="icon" type="image/png" href="../../skaya-logo-white-bg-purple-favicon.png">
 <style>
-:root{--ink:#183153;--blue:#75d5e8;--yellow:#ffd86b;--pink:#f2a6c9;--purple:#c8b4f5;--green:#9bd47a;--paper:#fffdf8}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:linear-gradient(135deg,#fff5c9,#e9f9ff);min-height:100vh}
-button{font:inherit;color:inherit}.top{position:sticky;top:0;z-index:20;display:flex;gap:10px;padding:12px 16px;background:#ffffffed;box-shadow:0 3px 12px #18315318}
-.nav{border:0;border-radius:14px;padding:10px 15px;font-weight:800;cursor:pointer;background:#edf2f7}
-header{text-align:center;padding:28px 16px 12px}header h1{font-size:clamp(30px,5vw,48px);margin:8px 0}.eyebrow{display:inline-block;background:var(--green);color:white;border-radius:999px;padding:7px 14px;font-weight:800}
-.wrap{max-width:1050px;margin:auto;padding:18px}.screen{display:none}.screen.active{display:block}.panel{background:#fffffff2;border-radius:28px;padding:24px;box-shadow:0 12px 32px #1831531c}
-.weekgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:20px}.week{position:relative;border:0;border-radius:23px;padding:23px 16px;text-align:left;cursor:pointer;box-shadow:0 6px 0 #1831531b;min-height:180px}.week h3{font-size:21px;margin:8px 0}.week p{line-height:1.4}.w1{background:#fff0b5}.w2{background:#dff5d5}.w3{background:#f8ddec}.bonus{background:#e7ddff}.tag,.new{display:inline-block;background:white;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:800}.new{position:absolute;right:12px;top:12px;color:#d6426c}
-.hero{width:100%;max-height:260px;object-fit:cover;border-radius:22px;margin-top:20px}
-.activitygrid{display:grid;grid-template-columns:repeat(5,1fr);gap:13px;margin-top:20px}.activity{border:0;border-radius:20px;padding:20px 12px;cursor:pointer;font-weight:800;box-shadow:0 5px 0 #18315317;background:#f5f8fc}.activity span{display:block;font-size:31px;margin-bottom:8px}.activity small{display:block;font-weight:500;margin-top:7px;line-height:1.35}
-.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:13px}.flip{height:215px;perspective:900px;cursor:pointer}.inner{position:relative;width:100%;height:100%;transition:.5s;transform-style:preserve-3d}.flip.flipped .inner{transform:rotateY(180deg)}.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:20px;padding:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 5px 15px #1831531c;border:2px solid #e8edf3;background:white}.back{transform:rotateY(180deg);background:#f2edff}.pic{font-size:72px;line-height:1}.back b{font-size:20px;margin-bottom:10px}.back p{margin:0;line-height:1.45}
-.progress{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;background:#f2f5f9;border-radius:14px;padding:12px 14px;font-weight:800;margin-bottom:17px}.question{font-size:22px;line-height:1.5;margin:17px 0}.options{display:grid;grid-template-columns:1fr 1fr;gap:11px}.option{border:2px solid transparent;border-radius:15px;padding:14px;text-align:left;background:#f3f6fa;cursor:pointer}.option.good{background:#dff5d5;border-color:#70b650}.option.bad{background:#ffe0e0;border-color:#df7070}.feedback{min-height:45px;padding-top:13px;font-weight:800}
-.controls{display:flex;justify-content:space-between;gap:9px;flex-wrap:wrap;margin-top:15px}.ctrl{border:0;border-radius:13px;padding:11px 15px;font-weight:800;cursor:pointer}.prev{background:#e9edf3}.next{background:var(--blue)}.reset{background:var(--yellow)}.check{background:var(--green)}
-.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.matchcol{display:grid;gap:9px}.matchbtn{border:2px solid transparent;border-radius:15px;padding:13px;background:#f4f7fb;cursor:pointer;text-align:left}.matchbtn.selected{border-color:#7a5cd6;background:#eee8ff}.matchbtn.done{opacity:.35;pointer-events:none}
-.letters,.answer{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;min-height:70px;padding:13px;border-radius:16px}.letters{background:#f1f5f9}.answer{border:3px dashed #adb9c8;margin-top:12px}.letter{border:0;border-radius:12px;padding:11px 13px;background:white;box-shadow:0 2px 8px #18315322;font-weight:800;cursor:pointer}.sentence{font-size:22px;background:#fff8d8;border-radius:16px;padding:17px;line-height:1.55}
-.score{text-align:center;font-size:26px;padding:24px;background:#eef9e8;border-radius:20px}
-@media(max-width:850px){.weekgrid{grid-template-columns:1fr 1fr}.activitygrid,.cards{grid-template-columns:repeat(2,1fr)}}@media(max-width:550px){.weekgrid,.activitygrid,.cards,.options,.matchgrid{grid-template-columns:1fr}}
-</style></head>
+:root{
+  --ink:#183153;
+  --blue:#75d5e8;
+  --yellow:#ffd86b;
+  --pink:#f2a6c9;
+  --purple:#c8b4f5;
+  --green:#9bd47a;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--ink);
+  background:linear-gradient(135deg,#fff5c9,#e9f9ff);
+}
+button{font:inherit;color:inherit}
+.top{
+  position:sticky;
+  top:0;
+  z-index:20;
+  display:flex;
+  gap:10px;
+  padding:12px 16px;
+  background:#ffffffed;
+  box-shadow:0 3px 12px #18315318;
+}
+.nav{
+  border:0;
+  border-radius:14px;
+  padding:10px 15px;
+  font-weight:800;
+  cursor:pointer;
+  background:#edf2f7;
+}
+header{
+  text-align:center;
+  padding:28px 16px 12px;
+}
+header h1{
+  font-size:clamp(30px,5vw,48px);
+  margin:8px 0;
+}
+header p{
+  margin:10px 0 0;
+  font-size:17px;
+}
+.eyebrow{
+  display:inline-block;
+  background:var(--green);
+  color:white;
+  border-radius:999px;
+  padding:7px 14px;
+  font-weight:800;
+}
+.wrap{
+  max-width:1050px;
+  margin:auto;
+  padding:18px;
+}
+.panel{
+  background:#fffffff2;
+  border-radius:28px;
+  padding:24px;
+  box-shadow:0 12px 32px #1831531c;
+}
+.panel h2{
+  margin-top:0;
+}
+.weekgrid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-top:20px;
+}
+.week{
+  position:relative;
+  border:0;
+  border-radius:23px;
+  padding:23px 16px;
+  text-align:left;
+  cursor:pointer;
+  box-shadow:0 6px 0 #1831531b;
+  min-height:180px;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.week:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 18px #1831531b;
+}
+.week h3{
+  font-size:21px;
+  margin:8px 0;
+}
+.week p{
+  line-height:1.4;
+  margin-bottom:0;
+}
+.w1{background:#fff0b5}
+.w2{background:#dff5d5}
+.w3{background:#f8ddec}
+.w4{background:#e7ddff}
+.tag{
+  display:inline-block;
+  background:white;
+  border-radius:999px;
+  padding:5px 9px;
+  font-size:12px;
+  font-weight:800;
+}
+.empty{
+  opacity:.78;
+  cursor:default;
+}
+.empty:hover{
+  transform:none;
+  box-shadow:0 6px 0 #1831531b;
+}
+
+.new-badge{
+  position:absolute;
+  top:14px;
+  right:14px;
+  background:#ff6f91;
+  color:white;
+  border-radius:999px;
+  padding:6px 10px;
+  font-size:11px;
+  font-weight:900;
+  box-shadow:0 3px 8px #18315322;
+}
+.lock-icon{
+  display:block;
+  font-size:28px;
+  margin-top:14px;
+}
+.wip-text{
+  display:block;
+  margin-top:7px;
+  font-size:13px;
+  font-weight:800;
+  color:#65758b;
+}
+
+@media(max-width:850px){
+  .weekgrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:550px){
+  .weekgrid{grid-template-columns:1fr}
+}
+</style>
+</head>
 <body>
-<div class="top"><button class="nav" onclick="goHome()">🏠 Home</button><button id="back" class="nav" onclick="goBack()" style="display:none">⬅️ Back</button></div>
-<header><span class="eyebrow">COMPASS • UNIT 1</span><h1>📖 Vocabulary Lab</h1><p>Learn the words • Practise them • Master them! 🚀</p></header>
+<header>
+  <span class="eyebrow">COMPASS • UNIT 1</span>
+  <h1>📖 Vocabulary Lab</h1>
+  <p>Learn the words • Practise them • Master them! 🚀</p>
+</header>
+
 <main class="wrap">
-<section id="home" class="screen active"><div class="panel"><h2>🌟 Choose a Week</h2><p>Practise one week at a time, then try the Unit 1 Bonus Challenge!</p>
-<div class="weekgrid">
-<button class="week w1" onclick="location.href='week1.html'"><span class="tag">10 WORDS</span><h3>🌅 WEEK 1</h3><b>Daily Activities</b><p>Original Vocabulary Lab</p></button>
-<button class="week w2" onclick="openWeek(2)"><span class="new">NEW</span><span class="tag">10 WORDS</span><h3>🎒 WEEK 2</h3><b>Daily Routines</b><p>Learn and practise the new routine words.</p></button>
-<button class="week w3" onclick="openWeek(3)"><span class="new">NEW</span><span class="tag">10 WORDS</span><h3>🎉 WEEK 3</h3><b>Special-Day Activities</b><p>Celebrations, meals and invitations.</p></button>
-<button class="week bonus" onclick="openBonus()"><span class="new">BONUS</span><span class="tag">30 WORDS</span><h3>🏆 UNIT 1</h3><b>Bonus Challenge</b><p>Mix Week 1, Week 2 and Week 3.</p></button>
-</div><img class="hero" src="assets/unit1-vocab-hero.png" alt="Colourful vocabulary learning activities"></div></section>
+  <section class="panel">
+    <h2>🌟 Choose a Week</h2>
+    <p>Choose a week to practise your Unit 1 vocabulary.</p>
 
-<section id="weekMenu" class="screen"><div class="panel"><h2 id="weekTitle"></h2><p>Choose how you want to practise.</p><div class="activitygrid">
-<button class="activity" onclick="openCards()"><span>🃏</span>Learn the Words<small>Picture → word + meaning</small></button>
-<button class="activity" onclick="openMatch()"><span>🧠</span>Match It!<small>Match words and meanings</small></button>
-<button class="activity" onclick="openQuiz()"><span>🎯</span>Choose the Word<small>Pictures, meanings & sentences</small></button>
-<button class="activity" onclick="openSpell()"><span>🔤</span>Spell the Word<small>Unscramble the letters</small></button>
-<button class="activity" onclick="openUse()"><span>✏️</span>Use the Word<small>Complete the sentence</small></button>
-</div></div></section>
+    <div class="weekgrid">
+      <button class="week w1" onclick="location.href='week1.html'">
+        <span class="tag">10 WORDS</span>
+        <h3>🌅 WEEK 1</h3>
+        <b>Daily Activities</b>
+        <p>Original Vocabulary Lab</p>
+      </button>
 
-<section id="cards" class="screen"><div class="panel"><h2>🃏 Learn the Words</h2><p><b>Look at the picture first.</b> Say the word, then flip the card to check.</p><div id="cardGrid" class="cards"></div></div></section>
-<section id="match" class="screen"><div class="panel"><h2>🧠 Match It!</h2><div class="progress"><span id="matchProgress"></span><span>Match each word with its meaning.</span></div><div class="matchgrid"><div id="matchWords" class="matchcol"></div><div id="matchDefs" class="matchcol"></div></div><div id="matchFeedback" class="feedback"></div></div></section>
-<section id="quiz" class="screen"><div class="panel"><h2>🎯 Choose the Word</h2><div class="progress"><span id="qProgress"></span><span id="qMode"></span></div><div id="qQuestion" class="question"></div><div id="qOptions" class="options"></div><div id="qFeedback" class="feedback"></div><div class="controls"><button class="ctrl prev" onclick="moveQ(-1)">⬅️ Previous</button><button class="ctrl next" onclick="moveQ(1)">Next ➡️</button></div></div></section>
-<section id="spell" class="screen"><div class="panel"><h2>🔤 Spell the Word</h2><div class="progress"><span id="sProgress"></span><span>Build the vocabulary word.</span></div><div id="sClue" class="question"></div><div id="sLetters" class="letters"></div><div id="sAnswer" class="answer"></div><div id="sFeedback" class="feedback"></div><div class="controls"><button class="ctrl prev" onclick="moveS(-1)">⬅️ Previous</button><button class="ctrl check" onclick="checkSpell()">✅ Check</button><button class="ctrl reset" onclick="resetSpell()">🔀 Shuffle</button><button class="ctrl next" onclick="moveS(1)">Next ➡️</button></div></div></section>
-<section id="use" class="screen"><div class="panel"><h2>✏️ Use the Word</h2><div class="progress"><span id="uProgress"></span><span>Choose the word that completes the sentence.</span></div><div id="uSentence" class="sentence"></div><div id="uOptions" class="options" style="margin-top:15px"></div><div id="uFeedback" class="feedback"></div><div class="controls"><button class="ctrl prev" onclick="moveU(-1)">⬅️ Previous</button><button class="ctrl next" onclick="moveU(1)">Next ➡️</button></div></div></section>
-<section id="bonus" class="screen"><div class="panel"><h2>🏆 Unit 1 Bonus Challenge</h2><p>20 mixed questions from all three weeks.</p><div class="progress"><span id="bProgress"></span><span>Week 1 + Week 2 + Week 3</span></div><div id="bQuestion" class="question"></div><div id="bOptions" class="options"></div><div id="bFeedback" class="feedback"></div><div class="controls"><button class="ctrl prev" onclick="moveB(-1)">⬅️ Previous</button><button class="ctrl next" onclick="moveB(1)">Next ➡️</button></div></div></section>
+      <button class="week w2" type="button" onclick="location.href='week2.html'">
+        <span class="new-badge">NEW</span>
+        <span class="tag">10 WORDS</span>
+        <h3>🎒 WEEK 2</h3>
+        <b>Daily Routines</b>
+        <p>Vocabulary Practice</p>
+      </button>
+
+      <button class="week w3 empty" type="button" aria-disabled="true">
+        <span class="tag">WEEK 3</span>
+        <h3>🎉 WEEK 3</h3>
+        <span class="lock-icon">🔒</span>
+        <span class="wip-text">Work in Progress</span>
+      </button>
+
+      <button class="week w4 empty" type="button">
+        <span class="tag">WEEK 4</span>
+        <h3>⭐ WEEK 4</h3>
+      </button>
+    </div>
+  </section>
 </main>
-<script>
-const vocab={"2": [["feed a pet", "To give your pet something to eat.", "🐶"], ["tidy up your room", "To make your bedroom clean and tidy.", "🧹"], ["pack your bag", "To put books and school supplies into your bag.", "🎒"], ["study for a test", "To prepare for an exam.", "📝"], ["catch the bus", "To get on the bus before it leaves.", "🚌"], ["visit grandparents", "To spend time with your grandparents.", "👵"], ["take a picture", "To use a camera or phone to capture an image.", "📷"], ["put on my pyjamas", "To put on clothes for sleeping.", "🌙"], ["turn off the alarm", "To stop the alarm ringing.", "⏰"], ["dry my hair", "To make your hair dry.", "💨"]], "3": [["accept", "To say \"yes\" to an invitation or offer.", "👍"], ["candy", "Sweet food made with sugar.", "🍬"], ["have breakfast", "A meal you eat in the morning.", "🥣"], ["fireworks", "Bright, colourful lights that explode in the sky during celebrations.", "🎆"], ["dress up", "To wear nice or special clothes.", "👗"], ["have lunch", "A meal you eat in the middle of the day.", "🥪"], ["invitation", "A card or message asking someone to come to an event.", "💌"], ["have dinner", "A meal you eat in the evening.", "🍽️"], ["special meal", "A meal prepared for a celebration or important occasion.", "🎉"], ["refuse", "To say \"no\" to an invitation or offer.", "👎"]]};
-const weekNames={2:"🎒 Week 2 — Daily Routines",3:"🎉 Week 3 — Special-Day Activities"};
-let currentWeek=2, qIndex=0,sIndex=0,uIndex=0,bIndex=0,selectedWord=null,matchDone=new Set(),spellState=null;
-const week1Bonus=[
-["have breakfast","To eat food in the morning.","🥣"],["wake up","To stop sleeping in the morning.","⏰"],["read a book","To look at and understand the words in a book.","📚"],["take a shower","To wash your body with water.","🚿"],["get dressed","To put on your clothes.","👕"],["do homework","To finish schoolwork at home.","📝"],["brush my teeth","To clean your teeth with a toothbrush.","🦷"],["comb my hair","To make your hair neat with a comb.","🪮"],["go to school","To travel to school to learn.","🎒"],["go to bed","To lie down and sleep at night.","🛏️"]
-];
-function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
-function show(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.getElementById('back').style.display=id==='home'?'none':'inline-block';scrollTo(0,0)}
-function goHome(){show('home')}
-function goBack(){let id=document.querySelector('.screen.active').id;if(['cards','match','quiz','spell','use'].includes(id))show('weekMenu');else show('home')}
-function openWeek(w){currentWeek=w;document.getElementById('weekTitle').textContent=weekNames[w];show('weekMenu')}
-function items(){return vocab[currentWeek]}
-function openCards(){document.getElementById('cardGrid').innerHTML=items().map(x=>`<button class="flip" onclick="this.classList.toggle('flipped')"><span class="inner"><span class="face"><span class="pic">${x[2]}</span></span><span class="face back"><b>${x[0]}</b><p>${x[1]}</p></span></span></button>`).join('');show('cards')}
-function openMatch(){matchDone=new Set();selectedWord=null;renderMatch();show('match')}
-let matchOrder=[];
-function renderMatch(){if(!matchOrder.length||matchDone.size===0)matchOrder=shuffle(items().map((x,i)=>i));document.getElementById('matchProgress').textContent=`${matchDone.size} / 10 matched`;document.getElementById('matchWords').innerHTML=items().map((x,i)=>`<button class="matchbtn ${matchDone.has(i)?'done':''}" onclick="pickWord(${i},this)">${x[0]}</button>`).join('');document.getElementById('matchDefs').innerHTML=matchOrder.map(i=>`<button class="matchbtn ${matchDone.has(i)?'done':''}" onclick="pickDef(${i},this)">${items()[i][1]}</button>`).join('')}
-function pickWord(i,b){if(matchDone.has(i))return;document.querySelectorAll('#matchWords .matchbtn').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');selectedWord=i}
-function pickDef(i,b){if(selectedWord===null)return;if(i===selectedWord){matchDone.add(i);document.getElementById('matchFeedback').textContent='🌟 Great match!';selectedWord=null;renderMatch()}else document.getElementById('matchFeedback').textContent='🤔 Try again!'}
-function distract(correct){return shuffle(items().filter(x=>x[0]!==correct).map(x=>x[0])).slice(0,3)}
-function openQuiz(){qIndex=0;renderQ();show('quiz')}
-function renderQ(){let x=items()[qIndex],mode=qIndex%3;document.getElementById('qProgress').textContent=`Question ${qIndex+1} / 10`;document.getElementById('qMode').textContent=['🖼️ Picture → Word','📖 Meaning → Word','💬 Context → Word'][mode];let q=mode===0?`<div class="pic">${x[2]}</div> What is this?`:mode===1?`Which word means: <b>${x[1]}</b>`:`Which vocabulary item best matches this clue?<br><b>${x[1]}</b>`;document.getElementById('qQuestion').innerHTML=q;let opts=shuffle([x[0],...distract(x[0])]);document.getElementById('qOptions').innerHTML=opts.map(o=>`<button class="option" onclick="answer(this,'${esc(o)}','${esc(x[0])}','qFeedback')">${o}</button>`).join('');document.getElementById('qFeedback').textContent=''}
-function esc(s){return s.replaceAll("'","\\'")}
-function answer(btn,val,correct,fb){document.querySelectorAll(`#${fb}`).forEach(()=>{});if(val===correct){btn.classList.add('good');document.getElementById(fb).textContent='🌟 Correct!'}else{btn.classList.add('bad');document.getElementById(fb).textContent=`Try again. Think about: ${correct}`}}
-function moveQ(d){qIndex=Math.max(0,Math.min(9,qIndex+d));renderQ()}
-function openSpell(){sIndex=0;resetSpell();show('spell')}
-function makeSpell(){let word=items()[sIndex][0].toUpperCase();let chars=[...word].filter(c=>c!==' ');spellState={target:word,bank:shuffle(chars.map((c,i)=>({c,i}))),chosen:[]}}
-function resetSpell(){makeSpell();renderSpell()}
-function renderSpell(){let x=items()[sIndex];document.getElementById('sProgress').textContent=`Word ${sIndex+1} / 10`;document.getElementById('sClue').innerHTML=`<span class="pic">${x[2]}</span><br>${x[1]}`;document.getElementById('sLetters').innerHTML=spellState.bank.map(o=>`<button class="letter" onclick="spellPick(${o.i},true)">${o.c}</button>`).join('');document.getElementById('sAnswer').innerHTML=spellState.chosen.map(o=>`<button class="letter" onclick="spellPick(${o.i},false)">${o.c}</button>`).join('');document.getElementById('sFeedback').textContent=''}
-function spellPick(i,fromBank){let a=fromBank?spellState.bank:spellState.chosen,b=fromBank?spellState.chosen:spellState.bank,idx=a.findIndex(x=>x.i===i);b.push(a.splice(idx,1)[0]);renderSpell()}
-function checkSpell(){let got=spellState.chosen.map(x=>x.c).join(''),target=spellState.target.replaceAll(' ','');document.getElementById('sFeedback').textContent=got===target?'🌟 Perfect spelling!':'🤔 Not quite. Try moving the letters again.'}
-function moveS(d){sIndex=Math.max(0,Math.min(9,sIndex+d));resetSpell()}
-const useSentences={
-2:["I ___ before I leave home because my cat is hungry.","Please ___ before bedtime so the floor is clean.","I ___ with my books and pencils before school.","I ___ the night before an important exam.","I run to ___ before it leaves.","We ___ on Sunday and spend time together.","I ___ with my phone when I see something beautiful.","At night, I ___ before I go to bed.","In the morning, I ___ when it starts ringing.","After my shower, I ___ with a towel or hair dryer."],
-3:["I ___ the invitation because I want to go.","The children eat ___ at the party.","We ___ before we go to school.","We watch ___ in the sky during the celebration.","We ___ in nice clothes for the party.","We ___ at midday.","Emma sends an ___ to her friends.","We ___ in the evening.","Our family has a ___ for the celebration.","I ___ the invitation because I cannot go."]
-};
-function openUse(){uIndex=0;renderUse();show('use')}
-function renderUse(){let x=items()[uIndex];document.getElementById('uProgress').textContent=`Sentence ${uIndex+1} / 10`;document.getElementById('uSentence').textContent=useSentences[currentWeek][uIndex];let opts=shuffle([x[0],...distract(x[0])]);document.getElementById('uOptions').innerHTML=opts.map(o=>`<button class="option" onclick="answer(this,'${esc(o)}','${esc(x[0])}','uFeedback')">${o}</button>`).join('');document.getElementById('uFeedback').textContent=''}
-function moveU(d){uIndex=Math.max(0,Math.min(9,uIndex+d));renderUse()}
-let bonusQuestions=[];
-function openBonus(){let all=[...week1Bonus,...vocab[2],...vocab[3]];bonusQuestions=shuffle(all).slice(0,20);bIndex=0;renderB();show('bonus')}
-function renderB(){let x=bonusQuestions[bIndex],all=[...week1Bonus,...vocab[2],...vocab[3]],others=shuffle(all.filter(y=>y[0]!==x[0])).slice(0,3).map(y=>y[0]);document.getElementById('bProgress').textContent=`Question ${bIndex+1} / 20`;document.getElementById('bQuestion').innerHTML=`<span class="pic">${x[2]}</span><br>Which word matches this meaning?<br><b>${x[1]}</b>`;document.getElementById('bOptions').innerHTML=shuffle([x[0],...others]).map(o=>`<button class="option" onclick="answer(this,'${esc(o)}','${esc(x[0])}','bFeedback')">${o}</button>`).join('');document.getElementById('bFeedback').textContent=''}
-function moveB(d){bIndex=Math.max(0,Math.min(19,bIndex+d));renderB()}
-</script></body></html>
+
+</body>
+</html>

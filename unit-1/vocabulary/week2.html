@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grade 4 • Unit 1 • Week 2 Vocabulary Lab</title>
+<link rel="icon" type="image/png" href="../../skaya-logo-white-bg-purple-favicon.png">
+<style>
+:root{
+  --ink:#183153;
+  --blue:#75d5e8;
+  --yellow:#ffd86b;
+  --pink:#f2a6c9;
+  --purple:#c8b4f5;
+  --green:#9bd47a;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--ink);
+  background:linear-gradient(135deg,#fff5c9,#e9f9ff);
+}
+button{font:inherit;color:inherit}
+.top{
+  position:sticky;
+  top:0;
+  z-index:20;
+  display:flex;
+  gap:10px;
+  padding:12px 16px;
+  background:#ffffffed;
+  box-shadow:0 3px 12px #18315318;
+}
+.nav{
+  border:0;
+  border-radius:14px;
+  padding:10px 15px;
+  font-weight:800;
+  cursor:pointer;
+  background:#edf2f7;
+}
+header{
+  text-align:center;
+  padding:28px 16px 12px;
+}
+header h1{
+  font-size:clamp(30px,5vw,48px);
+  margin:8px 0;
+}
+header p{
+  margin:10px 0 0;
+  font-size:17px;
+}
+.eyebrow{
+  display:inline-block;
+  background:var(--green);
+  color:white;
+  border-radius:999px;
+  padding:7px 14px;
+  font-weight:800;
+}
+.wrap{
+  max-width:1050px;
+  margin:auto;
+  padding:18px;
+}
+.panel{
+  background:#fffffff2;
+  border-radius:28px;
+  padding:24px;
+  box-shadow:0 12px 32px #1831531c;
+}
+.panel h2{margin-top:0}
+.activitygrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:20px;
+}
+.activity{
+  border:0;
+  border-radius:23px;
+  padding:24px 16px;
+  min-height:180px;
+  text-align:left;
+  cursor:pointer;
+  box-shadow:0 6px 0 #1831531b;
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.activity:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 18px #1831531b;
+}
+.practice{background:#fff0b5}
+.quiz{background:#dff5d5}
+.unscramble{background:#f8ddec}
+.icon{
+  display:block;
+  font-size:34px;
+  margin-bottom:10px;
+}
+.activity h3{
+  margin:5px 0 8px;
+  font-size:21px;
+}
+.activity p{
+  margin:0;
+  line-height:1.4;
+}
+.tag{
+  display:inline-block;
+  background:white;
+  border-radius:999px;
+  padding:5px 9px;
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+
+
+.unscramble-screen{display:none}
+.unscramble-screen.active{display:block}
+.unscramble-progress{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#f1f5f9;border-radius:14px;padding:12px 15px;font-weight:800;margin-bottom:18px}
+.word-slots{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:28px;margin:28px 0;min-height:72px}
+.word-slot{display:flex;gap:7px;justify-content:center}
+.letter-space{width:32px;height:48px;border-bottom:3px solid #183153;display:flex;align-items:center;justify-content:center}
+.placed-letter{border:0;background:transparent;width:100%;height:100%;font-size:22px;font-weight:900;cursor:pointer;color:#183153}
+.letter-bank{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;min-height:70px;margin:22px 0}
+.letter-tile{border:0;border-radius:12px;min-width:43px;height:48px;padding:0 11px;font-size:20px;font-weight:900;cursor:pointer;background:#fff0b5;box-shadow:0 4px 0 #1831531c}
+.letter-tile.used{visibility:hidden}
+.unscramble-message{min-height:36px;text-align:center;font-size:18px;font-weight:800}
+.unscramble-message.good{color:#438d36}
+.unscramble-message.bad{color:#c84e4e}
+.unscramble-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:15px 0}
+.small-action{border:0;border-radius:14px;padding:11px 16px;font-weight:800;cursor:pointer;background:#edf2f7}
+.hint-button{background:#dff5d5}
+.shuffle-button{background:#e7ddff}
+.check-button{background:#75d5e8}
+.unscramble-nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+.quiz-screen{display:none}
+.quiz-screen.active{display:block}
+.quizbar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#f1f5f9;border-radius:14px;padding:12px 15px;font-weight:800;margin-bottom:18px}
+.question{font-size:23px;line-height:1.5;margin:20px 0}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.option{border:3px solid transparent;background:white;border-radius:17px;padding:15px;text-align:left;font-size:17px;cursor:pointer;color:#183153;box-shadow:0 3px 10px #18315312}
+.option:hover:not(:disabled){border-color:#75d5e8}
+.option.correct{background:#dff5d5;border-color:#64aa4c}
+.option.wrong{background:#ffe0e0;border-color:#df7070}
+.option:disabled{cursor:default;opacity:1}
+.feedback{min-height:52px;padding-top:14px;font-size:17px;font-weight:800}
+.feedback.good{color:#438d36}
+.feedback.bad{color:#c84e4e}
+.quiz-controls{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.quiz-nav{border:0;border-radius:14px;padding:12px 18px;font-weight:800;cursor:pointer;color:#183153}
+.quiz-prev{background:#e8edf3}
+.quiz-next{background:#75d5e8}
+.quiz-nav:disabled{opacity:.45;cursor:default}
+@media(max-width:650px){.options{grid-template-columns:1fr}}
+
+.practice-screen{display:none}
+.practice-screen.active{display:block}
+.menu-screen.hidden{display:none}
+.section-title{background:#eaf4ff;border-radius:18px;padding:17px 20px;margin-bottom:20px}
+.section-title h2{font-size:30px;margin:0 0 5px}
+.section-title p{margin:0;font-size:17px}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
+.flip-card{height:225px;border:0;background:transparent;padding:0;perspective:1000px;cursor:pointer}
+.flip-inner{display:block;position:relative;width:100%;height:100%;transition:transform .55s;transform-style:preserve-3d}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:20px;padding:15px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 5px 15px #1831531c;border:2px solid #e8edf3;background:white}
+.front{background:#fffdf8}
+.back{transform:rotateY(180deg);background:#f2edff;border-color:#d7c9f8}
+.vocab-image{width:100%;height:165px;object-fit:cover;border-radius:15px;margin-bottom:9px}
+.hint-image-wrap{display:none;justify-content:center;margin:14px 0 4px}
+.hint-image-wrap.show{display:flex}
+.hint-image{width:min(100%,330px);height:230px;object-fit:cover;border-radius:18px;border:3px solid white;box-shadow:0 5px 15px #18315326}
+.front small,.back small{font-size:11px;color:#718096;margin-top:10px}
+.back strong{font-size:19px;line-height:1.25;margin-bottom:10px}
+.back p{margin:0;font-size:15px;line-height:1.45}
+.practice-back{border:0;border-radius:14px;padding:10px 15px;font-weight:800;cursor:pointer;background:#edf2f7;margin-bottom:18px}
+@media(max-width:950px){.cards{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:650px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:440px){.cards{grid-template-columns:1fr}}
+
+@media(max-width:750px){
+  .activitygrid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="top">
+  <button class="nav" onclick="location.href='index.html'">⬅️ Weeks</button>
+</div>
+
+<header>
+  <span class="eyebrow">COMPASS • UNIT 1 • WEEK 2</span>
+  <h1>📖 Vocabulary Lab</h1>
+  <p>Learn the words • Practise them • Master them! 🚀</p>
+</header>
+
+<main class="wrap">
+  <section id="menuScreen" class="panel menu-screen">
+    <h2>🌟 Choose an Activity</h2>
+    <p>Choose how you want to practise your Week 2 vocabulary.</p>
+
+    <div class="activitygrid">
+      <button class="activity practice" type="button" onclick="openPractice()">
+        <span class="tag">LEARN</span>
+        <span class="icon">🃏</span>
+        <h3>Vocabulary Practice</h3>
+        <p>Learn the Week 2 words.</p>
+      </button>
+
+      <button class="activity quiz" type="button" onclick="openQuiz()">
+        <span class="tag">PRACTISE</span>
+        <span class="icon">📝</span>
+        <h3>Multiple Choice</h3>
+        <p>Test yourself with Week 2 vocabulary.</p>
+      </button>
+
+      <button class="activity unscramble" type="button" onclick="openUnscramble()">
+        <span class="tag">SPELL</span>
+        <span class="icon">🔤</span>
+        <h3>Unscramble the Words</h3>
+        <p>Put the letters in the correct order.</p>
+      </button>
+    </div>
+  </section>
+
+  <section id="practiceScreen" class="panel practice-screen">
+    <button class="practice-back" type="button" onclick="closePractice()">⬅️ Back to Activities</button>
+    <div class="section-title">
+      <h2>🃏 Vocabulary Practice</h2>
+      <p>Look at the picture and say the word. Click the card to see the word and its meaning.</p>
+    </div>
+    <div class="cards">
+      <button class="flip-card" type="button" onclick="this.classList.toggle('flipped')">
+      <span class="flip-inner">
+        <span class="face front"><img class="vocab-image" src="images/week2/feed-a-pet.jpg" alt=""><small>Click to flip ↻</small></span>
+        <span class="face back"><strong>feed a pet</strong><p>To give your pet something to eat.</p><small>Click again to go back ↻</small></span>
+      </span>
+    </button>
+<button class="flip-card" type="button" onclick="this.classList.toggle('flipped')">
+      <span class="flip-inner">
+        <span class="face front"><img class="vocab-image" src="images/week2/tidy-up-your-room.jpg" alt=""><small>Click to flip ↻</small></span>
+        <span class="face back"><strong>tidy up your room</strong><p>To make your bedroom clean and tidy.</p><small>Click again to go back ↻</small></span>
+      </span>
+    </button>
+<button class="flip-card" type="button" onclick="this.classList.toggle('flipped')">
+      <span class="flip-inner">
+        <span class="face front"><img class="vocab-image" src="images/week2/pack-your-bag.jpg" alt=""><small>Click to flip ↻</small></span>
+        <span class="face back"><strong>pack your bag</strong><p>To put books and school supplies into your bag.</p><small>Click again to go back ↻</small></span>
+      </span>
+    </button>
+<button class="flip-card" type="button" onclick="this.classList.toggle('flipped')">
+      <span class="flip-inner">
+        <span class="face front"><img class="vocab-image" src="images/week2/study-for-a-test.jpg" alt=""><small>Click to flip ↻</small></span>
+        <span class="face back"><strong>study for a test</strong><p>To prepare for an exam.</p><small>Click again to go back ↻</small></span>
+      </span>
+    </button>
+<button class="flip-card" type="button" onclick="this.classList.toggle('flipped')">
+      <span class="flip-inner">
+        <span class="face front"><img class="vocab-image" src="images/week2/catch-the-bus.jpg" alt=""><small>Click to flip ↻</small></span>
+        <span class="face back"><strong>catch the bus</strong><p>To get on the bus before it leaves.</p><small>Click again to go back ↻</small></span>
+      </span>
+    </button>
+<button class="flip-card" type="button" onclick="this.classList.toggle('flipped')">
+      <span class="flip-inner">
+        <span class="face front"><img class="vocab-image" src="images/week2/visit-grandparents.jpg" alt=""><small>Click to flip ↻</small></span>
+        <span class="face back"><strong>visit grandparents</strong><p>To spend time with your grandparents.</p><small>Click again to go back ↻</small></span>
+      </span>
+    </button>
+<button class="flip-card" type="button" onclick="this.classList.toggle('flipped')">
+      <span class="flip-inner">
+        <span class="face front"><img class="vocab-image" src="images/week2/take-a-picture.jpg" alt=""><small>Click to flip ↻</small></span>
+        <span class="face back"><strong>take a picture</strong><p>To use a camera or phone to capture an image.</p><small>Click again to go back ↻</small></span>
+      </span>
+    </button>
+<button class="flip-card" type="button" onclick="this.classList.toggle('flipped')">
+      <span class="flip-inner">
+        <span class="face front"><img class="vocab-image" src="images/week2/put-on-my-pyjamas.jpg" alt=""><small>Click to flip ↻</small></span>
+        <span class="face back"><strong>put on my pyjamas</strong><p>To put on clothes for sleeping.</p><small>Click again to go back ↻</small></span>
+      </span>
+    </button>
+<button class="flip-card" type="button" onclick="this.classList.toggle('flipped')">
+      <span class="flip-inner">
+        <span class="face front"><img class="vocab-image" src="images/week2/turn-off-the-alarm.jpg" alt=""><small>Click to flip ↻</small></span>
+        <span class="face back"><strong>turn off the alarm</strong><p>To stop the alarm ringing.</p><small>Click again to go back ↻</small></span>
+      </span>
+    </button>
+<button class="flip-card" type="button" onclick="this.classList.toggle('flipped')">
+      <span class="flip-inner">
+        <span class="face front"><img class="vocab-image" src="images/week2/dry-my-hair.jpg" alt=""><small>Click to flip ↻</small></span>
+        <span class="face back"><strong>dry my hair</strong><p>To make your hair dry.</p><small>Click again to go back ↻</small></span>
+      </span>
+    </button>
+    </div>
+  </section>
+
+
+  <section id="quizScreen" class="panel quiz-screen">
+    <button class="practice-back" type="button" onclick="closeQuiz()">⬅️ Back to Activities</button>
+    <div class="section-title">
+      <h2>📝 Multiple Choice</h2>
+      <p>Choose the best answer. Your answers stay saved while you move between questions.</p>
+    </div>
+
+    <div class="quizbar">
+      <span id="quizProgress">Question 1 / 20</span>
+      <span id="quizType">📖 Meaning → Word</span>
+    </div>
+
+    <div id="quizQuestion" class="question"></div>
+    <div id="quizOptions" class="options"></div>
+    <div id="quizFeedback" class="feedback"></div>
+
+    <div class="quiz-controls">
+      <button id="quizPrev" class="quiz-nav quiz-prev" type="button" onclick="moveQuiz(-1)">⬅️ Back</button>
+      <button id="quizNext" class="quiz-nav quiz-next" type="button" onclick="moveQuiz(1)">Next ➡️</button>
+    </div>
+  </section>
+
+
+  <section id="unscrambleScreen" class="panel unscramble-screen">
+    <button class="practice-back" type="button" onclick="closeUnscramble()">⬅️ Back to Activities</button>
+    <div class="section-title">
+      <h2>🔤 Unscramble the Words</h2>
+      <p>Click the letters in the correct order. Click a placed letter to send it back.</p>
+    </div>
+
+    <div class="unscramble-progress">
+      <span id="unscrambleCount">Word 1 / 15</span>
+      <span>🧩 Build the chunk</span>
+    </div>
+
+    <div id="wordSlots" class="word-slots"></div>
+    <div id="letterBank" class="letter-bank"></div>
+
+    <div class="unscramble-actions">
+      <button class="small-action hint-button" type="button" onclick="showUnscrambleHint()">💡 Hint</button>
+      <button class="small-action shuffle-button" type="button" onclick="shuffleUnscramble()">🔀 Shuffle</button>
+      <button class="small-action check-button" type="button" onclick="checkUnscramble()">✓ Check</button>
+    </div>
+
+    <div id="hintImageWrap" class="hint-image-wrap">
+      <img id="hintImage" class="hint-image" src="" alt="">
+    </div>
+
+    <div id="unscrambleMessage" class="unscramble-message"></div>
+
+    <div class="unscramble-nav">
+      <button id="unscramblePrev" class="quiz-nav quiz-prev" type="button" onclick="moveUnscramble(-1)">⬅️ Back</button>
+      <button id="unscrambleNext" class="quiz-nav quiz-next" type="button" onclick="moveUnscramble(1)">Next ➡️</button>
+    </div>
+  </section>
+
+</main>
+
+
+<script>
+function openPractice(){
+  document.getElementById("menuScreen").classList.add("hidden");
+  document.getElementById("practiceScreen").classList.add("active");
+  window.scrollTo(0,0);
+}
+function closePractice(){
+  document.getElementById("practiceScreen").classList.remove("active");
+  document.getElementById("menuScreen").classList.remove("hidden");
+  document.querySelectorAll(".flip-card").forEach(card => card.classList.remove("flipped"));
+  window.scrollTo(0,0);
+}
+
+
+const quizQuestions = [{"type": "📖 Meaning → Word", "q": "Which phrase means: “To use a camera or phone to capture an image.”", "opts": ["dry my hair", "take a picture", "pack your bag", "visit grandparents"], "a": 1}, {"type": "📖 Meaning → Word", "q": "Which phrase means: “To stop the alarm ringing.”", "opts": ["turn off the alarm", "feed a pet", "study for a test", "catch the bus"], "a": 0}, {"type": "📖 Meaning → Word", "q": "Which phrase means: “To spend time with your grandparents.”", "opts": ["pack your bag", "tidy up your room", "visit grandparents", "put on my pyjamas"], "a": 2}, {"type": "📖 Meaning → Word", "q": "Which phrase means: “To make your hair dry.”", "opts": ["take a picture", "catch the bus", "feed a pet", "dry my hair"], "a": 3}, {"type": "📖 Meaning → Word", "q": "Which phrase means: “To put books and school supplies into your bag.”", "opts": ["pack your bag", "study for a test", "turn off the alarm", "visit grandparents"], "a": 0}, {"type": "📖 Meaning → Word", "q": "Which phrase means: “To give your pet something to eat.”", "opts": ["tidy up your room", "feed a pet", "dry my hair", "take a picture"], "a": 1}, {"type": "📖 Meaning → Word", "q": "Which phrase means: “To get on the bus before it leaves.”", "opts": ["put on my pyjamas", "visit grandparents", "pack your bag", "catch the bus"], "a": 3}, {"type": "📖 Meaning → Word", "q": "Which phrase means: “To prepare for an exam.”", "opts": ["take a picture", "study for a test", "tidy up your room", "turn off the alarm"], "a": 1}, {"type": "📖 Meaning → Word", "q": "Which phrase means: “To put on clothes for sleeping.”", "opts": ["dry my hair", "feed a pet", "put on my pyjamas", "catch the bus"], "a": 2}, {"type": "📖 Meaning → Word", "q": "Which phrase means: “To make your bedroom clean and tidy.”", "opts": ["visit grandparents", "pack your bag", "turn off the alarm", "tidy up your room"], "a": 3}, {"type": "💬 Sentence → Word", "q": "My bedroom is messy. Before my friends arrive, I always ______.", "opts": ["tidy up my room", "take a picture", "catch the bus", "study for a test"], "a": 0}, {"type": "💬 Sentence → Word", "q": "Mia has just washed her hair. Before she gets dressed, she ______ with a towel.", "opts": ["feeds her pet", "dries her hair", "visits her grandparents", "packs her bag"], "a": 1}, {"type": "💬 Sentence → Word", "q": "Your dog is hungry. Before you leave for school, you ______.", "opts": ["turn off the alarm", "feed your pet", "catch the bus", "dry your hair"], "a": 1}, {"type": "💬 Sentence → Word", "q": "It is bedtime for Emma. After brushing her teeth, she ______ and gets into bed.", "opts": ["takes a picture", "visits her grandparents", "puts on her pyjamas", "studies for a test"], "a": 2}, {"type": "💬 Sentence → Word", "q": "The school bus leaves at 7:30. Alex leaves home early because he needs to ______.", "opts": ["catch the bus", "tidy up his room", "dry his hair", "pack his bag"], "a": 0}, {"type": "💬 Sentence → Word", "q": "We have an English exam tomorrow, so tonight we ______ together.", "opts": ["take a picture", "visit our grandparents", "pack our bags", "study for the test"], "a": 3}, {"type": "💬 Sentence → Word", "q": "At 7:00, Noah’s alarm starts ringing. He reaches over and ______.", "opts": ["packs his bag", "feeds his pet", "turns off the alarm", "takes a picture"], "a": 2}, {"type": "💬 Sentence → Word", "q": "Before school, they put their books and pencil cases inside and ______.", "opts": ["visit their grandparents", "pack their bags", "dry their hair", "catch the bus"], "a": 1}, {"type": "💬 Sentence → Word", "q": "The rainbow looks beautiful. I get my phone out and ______.", "opts": ["study for a test", "tidy up my room", "take a picture", "turn off the alarm"], "a": 2}, {"type": "💬 Sentence → Word", "q": "Lily and Ben’s grandparents live nearby. They go to their house every Sunday to ______.", "opts": ["feed their pet", "put on their pyjamas", "pack their bags", "visit their grandparents"], "a": 3}];
+let quizIndex = 0;
+const quizAnswers = new Array(quizQuestions.length).fill(null);
+
+function openQuiz(){
+  document.getElementById("menuScreen").classList.add("hidden");
+  document.getElementById("practiceScreen").classList.remove("active");
+  document.getElementById("quizScreen").classList.add("active");
+  renderQuiz();
+  window.scrollTo(0,0);
+}
+
+function closeQuiz(){
+  document.getElementById("quizScreen").classList.remove("active");
+  document.getElementById("menuScreen").classList.remove("hidden");
+  window.scrollTo(0,0);
+}
+
+function renderQuiz(){
+  const item = quizQuestions[quizIndex];
+  const saved = quizAnswers[quizIndex];
+
+  document.getElementById("quizProgress").textContent = `Question ${quizIndex + 1} / ${quizQuestions.length}`;
+  document.getElementById("quizType").textContent = item.type;
+  document.getElementById("quizQuestion").textContent = item.q;
+
+  const letters = ["A","B","C","D"];
+  document.getElementById("quizOptions").innerHTML = item.opts.map((option, i) => {
+    let cls = "option";
+    if(saved !== null){
+      if(i === item.a) cls += " correct";
+      if(i === saved && saved !== item.a) cls += " wrong";
+    }
+    return `<button class="${cls}" type="button" ${saved !== null ? "disabled" : ""} onclick="answerQuiz(${i})"><b>${letters[i]}.</b> ${option}</button>`;
+  }).join("");
+
+  const fb = document.getElementById("quizFeedback");
+  fb.className = "feedback";
+  fb.textContent = "";
+
+  if(saved !== null){
+    if(saved === item.a){
+      const good = ["🎉 Great job!","⭐ Amazing!","😊 Excellent!"];
+      fb.textContent = good[quizIndex % good.length];
+      fb.classList.add("good");
+    } else {
+      fb.textContent = `❌ Oops! 😊 The correct answer is: ${letters[item.a]}. ${item.opts[item.a]}`;
+      fb.classList.add("bad");
+    }
+  }
+
+  document.getElementById("quizPrev").disabled = quizIndex === 0;
+  document.getElementById("quizNext").disabled = quizIndex === quizQuestions.length - 1;
+}
+
+function answerQuiz(choice){
+  if(quizAnswers[quizIndex] !== null) return;
+  quizAnswers[quizIndex] = choice;
+  renderQuiz();
+}
+
+function moveQuiz(direction){
+  const next = quizIndex + direction;
+  if(next < 0 || next >= quizQuestions.length) return;
+  quizIndex = next;
+  renderQuiz();
+  window.scrollTo(0,0);
+}
+
+const unscrambleItems = [{"answer": "catch the bus", "chunks": [{"answer": "catch", "letters": ["a", "t", "c", "h", "c"]}, {"answer": "the", "letters": ["h", "e", "t"]}, {"answer": "bus", "letters": ["u", "s", "b"]}]}, {"answer": "brush my teeth", "chunks": [{"answer": "brush", "letters": ["r", "u", "s", "h", "b"]}, {"answer": "my", "letters": ["y", "m"]}, {"answer": "teeth", "letters": ["e", "e", "t", "h", "t"]}]}, {"answer": "take a picture", "chunks": [{"answer": "take", "letters": ["a", "k", "e", "t"]}, {"answer": "a", "letters": ["a"]}, {"answer": "picture", "letters": ["i", "c", "t", "u", "r", "e", "p"]}]}, {"answer": "go to school", "chunks": [{"answer": "go", "letters": ["o", "g"]}, {"answer": "to", "letters": ["o", "t"]}, {"answer": "school", "letters": ["c", "h", "o", "o", "l", "s"]}]}, {"answer": "feed a pet", "chunks": [{"answer": "feed", "letters": ["e", "e", "d", "f"]}, {"answer": "a", "letters": ["a"]}, {"answer": "pet", "letters": ["e", "t", "p"]}]}, {"answer": "put on my pyjamas", "chunks": [{"answer": "put", "letters": ["u", "t", "p"]}, {"answer": "on", "letters": ["n", "o"]}, {"answer": "my", "letters": ["y", "m"]}, {"answer": "pyjamas", "letters": ["y", "j", "a", "m", "a", "s", "p"]}]}, {"answer": "read a book", "chunks": [{"answer": "read", "letters": ["e", "a", "d", "r"]}, {"answer": "a", "letters": ["a"]}, {"answer": "book", "letters": ["o", "o", "k", "b"]}]}, {"answer": "dry my hair", "chunks": [{"answer": "dry", "letters": ["r", "y", "d"]}, {"answer": "my", "letters": ["y", "m"]}, {"answer": "hair", "letters": ["a", "i", "r", "h"]}]}, {"answer": "visit grandparents", "chunks": [{"answer": "visit", "letters": ["i", "s", "i", "t", "v"]}, {"answer": "grandparents", "letters": ["r", "a", "n", "d", "p", "a", "r", "e", "n", "t", "s", "g"]}]}, {"answer": "wake up", "chunks": [{"answer": "wake", "letters": ["a", "k", "e", "w"]}, {"answer": "up", "letters": ["p", "u"]}]}, {"answer": "study for a test", "chunks": [{"answer": "study", "letters": ["t", "u", "d", "y", "s"]}, {"answer": "for", "letters": ["o", "r", "f"]}, {"answer": "a", "letters": ["a"]}, {"answer": "test", "letters": ["e", "s", "t", "t"]}]}, {"answer": "turn off the alarm", "chunks": [{"answer": "turn", "letters": ["u", "r", "n", "t"]}, {"answer": "off", "letters": ["f", "f", "o"]}, {"answer": "the", "letters": ["h", "e", "t"]}, {"answer": "alarm", "letters": ["l", "a", "r", "m", "a"]}]}, {"answer": "pack your bag", "chunks": [{"answer": "pack", "letters": ["a", "c", "k", "p"]}, {"answer": "your", "letters": ["o", "u", "r", "y"]}, {"answer": "bag", "letters": ["a", "g", "b"]}]}, {"answer": "have breakfast", "chunks": [{"answer": "have", "letters": ["a", "v", "e", "h"]}, {"answer": "breakfast", "letters": ["r", "e", "a", "k", "f", "a", "s", "t", "b"]}]}, {"answer": "tidy up your room", "chunks": [{"answer": "tidy", "letters": ["i", "d", "y", "t"]}, {"answer": "up", "letters": ["p", "u"]}, {"answer": "your", "letters": ["o", "u", "r", "y"]}, {"answer": "room", "letters": ["o", "o", "m", "r"]}]}];
+let unscrambleIndex = 0;
+let unscrambleState = unscrambleItems.map(item => Array(answerLetters(item.answer).length).fill(null));
+let letterOrders = unscrambleItems.map(item => makeLetterOrder(item.answer));
+
+function answerLetters(answer){
+  return answer.replaceAll(" ", "").split("");
+}
+
+function makeLetterOrder(answer){
+  const letters = answerLetters(answer).map((letter,id) => ({letter,id}));
+  for(let i=letters.length-1;i>0;i--){
+    const j=(i*7+3)%(i+1);
+    [letters[i],letters[j]]=[letters[j],letters[i]];
+  }
+  if(letters.map(x=>x.letter).join("") === answer.replaceAll(" ","")) letters.reverse();
+  return letters;
+}
+
+
+const week2HintImages = {"feed a pet": "images/week2/feed-a-pet.jpg", "tidy up your room": "images/week2/tidy-up-your-room.jpg", "pack your bag": "images/week2/pack-your-bag.jpg", "study for a test": "images/week2/study-for-a-test.jpg", "catch the bus": "images/week2/catch-the-bus.jpg", "visit grandparents": "images/week2/visit-grandparents.jpg", "take a picture": "images/week2/take-a-picture.jpg", "put on my pyjamas": "images/week2/put-on-my-pyjamas.jpg", "turn off the alarm": "images/week2/turn-off-the-alarm.jpg", "dry my hair": "images/week2/dry-my-hair.jpg"};
+let hintVisible = false;
+
+function showUnscrambleHint(){
+  const answer = unscrambleItems[unscrambleIndex].answer;
+  const src = week2HintImages[answer];
+  if(!src) return;
+  const wrap = document.getElementById("hintImageWrap");
+  const img = document.getElementById("hintImage");
+  img.src = src;
+  wrap.classList.add("show");
+  hintVisible = true;
+}
+
+function hideUnscrambleHint(){
+  const wrap = document.getElementById("hintImageWrap");
+  if(wrap) wrap.classList.remove("show");
+  hintVisible = false;
+}
+
+function openUnscramble(){
+  document.getElementById("menuScreen").classList.add("hidden");
+  document.getElementById("practiceScreen").classList.remove("active");
+  document.getElementById("quizScreen").classList.remove("active");
+  document.getElementById("unscrambleScreen").classList.add("active");
+  renderUnscramble();
+  window.scrollTo(0,0);
+}
+
+function closeUnscramble(){
+  hideUnscrambleHint();
+  document.getElementById("unscrambleScreen").classList.remove("active");
+  document.getElementById("menuScreen").classList.remove("hidden");
+  window.scrollTo(0,0);
+}
+
+function renderUnscramble(){
+  const item = unscrambleItems[unscrambleIndex];
+  const answerWords = item.answer.split(" ");
+  const state = unscrambleState[unscrambleIndex];
+
+  document.getElementById("unscrambleCount").textContent = `Word ${unscrambleIndex+1} / ${unscrambleItems.length}`;
+
+  let position = 0;
+  document.getElementById("wordSlots").innerHTML = answerWords.map(word => {
+    const slots = [...word].map(() => {
+      const placed = state[position];
+      const slotIndex = position++;
+      return `<span class="letter-space">${placed ? `<button class="placed-letter" type="button" onclick="returnLetter(${slotIndex})">${placed.letter.toUpperCase()}</button>` : ""}</span>`;
+    }).join("");
+    return `<div class="word-slot">${slots}</div>`;
+  }).join("");
+
+  const used = new Set(state.filter(Boolean).map(x => x.id));
+  document.getElementById("letterBank").innerHTML = letterOrders[unscrambleIndex].map(obj =>
+    `<button class="letter-tile ${used.has(obj.id) ? "used" : ""}" type="button" onclick="placeLetter(${obj.id})">${obj.letter.toUpperCase()}</button>`
+  ).join("");
+
+  const msg=document.getElementById("unscrambleMessage");
+  msg.textContent="";
+  msg.className="unscramble-message";
+  document.getElementById("unscramblePrev").disabled=unscrambleIndex===0;
+  document.getElementById("unscrambleNext").disabled=unscrambleIndex===unscrambleItems.length-1;
+}
+
+function placeLetter(letterId){
+  const state=unscrambleState[unscrambleIndex];
+  const obj=letterOrders[unscrambleIndex].find(x=>x.id===letterId);
+  const empty=state.findIndex(x=>!x);
+  if(empty===-1 || !obj) return;
+  state[empty]=obj;
+  renderUnscramble();
+}
+
+function returnLetter(slotIndex){
+  unscrambleState[unscrambleIndex][slotIndex]=null;
+  renderUnscramble();
+}
+
+function shuffleArray(arr){
+  for(let i=arr.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]]=[arr[j],arr[i]];
+  }
+}
+
+function shuffleUnscramble(){
+  unscrambleState[unscrambleIndex] = Array(answerLetters(unscrambleItems[unscrambleIndex].answer).length).fill(null);
+  shuffleArray(letterOrders[unscrambleIndex]);
+  renderUnscramble();
+}
+
+
+function checkUnscramble(){
+  const item=unscrambleItems[unscrambleIndex];
+  const state=unscrambleState[unscrambleIndex];
+  const expected=item.answer.replaceAll(" ","");
+  const built=state.map(x=>x ? x.letter : "").join("");
+  const msg=document.getElementById("unscrambleMessage");
+
+  if(state.filter(Boolean).length<expected.length){
+    msg.textContent="😊 Keep going! Use all the letters.";
+    msg.className="unscramble-message bad";
+  } else if(built===expected){
+    msg.textContent="🎉 Great job! That's correct!";
+    msg.className="unscramble-message good";
+  } else {
+    msg.textContent="❌ Not quite. Try again!";
+    msg.className="unscramble-message bad";
+  }
+}
+
+function moveUnscramble(direction){
+  const next=unscrambleIndex+direction;
+  if(next<0 || next>=unscrambleItems.length) return;
+  unscrambleIndex=next;
+  hideUnscrambleHint();
+  renderUnscramble();
+  window.scrollTo(0,0);
+}
+</script>
+
+</body>
+</html>
