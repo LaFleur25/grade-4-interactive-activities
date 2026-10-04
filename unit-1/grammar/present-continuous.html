@@ -1,0 +1,1398 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Present Continuous • Unit 1 Grammar Lab</title>
+    <link rel="icon" type="image/png" href="../../skaya-logo-white-bg-purple-favicon.png">
+    <style>
+        :root {
+            --ink: #25304a;
+            --pink: #ef83b8;
+            --green: #79bd4b;
+            --yellow: #ffd86b;
+            --blue: #70d0e3;
+            --purple: #b79bea;
+            --good: #dff5d5;
+            --bad: #ffe0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--ink);
+            background: linear-gradient(135deg, #fff4c7, #e8f8ff);
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+        .topnav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            gap: 10px;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, .9);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 3px 12px rgba(37, 48, 74, .1);
+        }
+
+        .navbtn {
+            border: 0;
+            border-radius: 14px;
+            padding: 9px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            background: #edf1f7;
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        header {
+            text-align: center;
+            padding: 35px 16px 16px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--green);
+            color: white;
+            padding: 7px 15px;
+            border-radius: 999px;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: clamp(30px, 6vw, 50px);
+            margin: 12px 0 5px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            margin: 0 auto;
+            max-width: 760px;
+        }
+
+        .wrap {
+            max-width: 950px;
+            margin: auto;
+            padding: 18px;
+        }
+
+        .screen {
+            display: none;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        .homecard,
+        .card {
+            background: rgba(255, 255, 255, .94);
+            border-radius: 28px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(37, 48, 74, .12);
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 22px;
+        }
+
+        .bigbtn {
+            position: relative;
+            border: 0;
+            border-radius: 25px;
+            padding: 28px 14px;
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--ink);
+            box-shadow: 0 7px 0 rgba(37, 48, 74, .13);
+            transition: .15s;
+        }
+
+        .bigbtn.enabled {
+            cursor: pointer;
+        }
+
+        .bigbtn.enabled:hover {
+            transform: translateY(-3px);
+        }
+
+        .bigbtn.locked {
+            opacity: .65;
+            cursor: not-allowed;
+        }
+
+        .learnbtn {
+            background: var(--yellow);
+        }
+
+        .mcbtn {
+            background: var(--blue);
+        }
+
+        .buildbtn {
+            background: var(--pink);
+        }
+
+        .menu-tag {
+            position: absolute;
+            top: 10px;
+            right: 11px;
+            background: white;
+            border-radius: 999px;
+            padding: 5px 8px;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: .5px;
+            box-shadow: 0 2px 7px rgba(37, 48, 74, .16);
+        }
+
+        .wip {
+            display: inline-block;
+            margin-top: 9px;
+            padding: 5px 9px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .8);
+            font-size: 11px;
+            letter-spacing: .5px;
+        }
+
+        /* Multiple Choice */
+        .mc-menu { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:18px; }
+        .mc-topic { position:relative; border:0; border-radius:22px; padding:22px 18px; text-align:left; cursor:pointer; box-shadow:0 6px 0 rgba(37,48,74,.12); color:var(--ink); transition:.15s; }
+        .mc-topic:not(:disabled):hover { transform:translateY(-3px); }
+        .mc-topic h3 { margin:0 0 7px; font-size:22px; }
+        .mc-topic p { margin:0; line-height:1.45; }
+        .mc-positive { background:#e8f7df; }
+        .mc-negative { background:#ffe7e7; }
+        .mc-mix { background:#e4f5fb; }
+        .mc-pts { background:#efe8ff; }
+        .mc-pts:disabled { cursor:not-allowed; opacity:.7; }
+        .mc-tag { display:inline-block; margin-top:10px; padding:5px 10px; border-radius:999px; background:white; font-size:13px; font-weight:bold; }
+        .new-badge { position:absolute; top:10px; right:11px; background:white; border-radius:999px; padding:5px 8px; font-size:10px; font-weight:bold; letter-spacing:.5px; box-shadow:0 2px 7px rgba(37,48,74,.16); }
+        .progress { display:flex; justify-content:space-between; gap:12px; font-weight:bold; margin:8px 0 18px; }
+        .question { font-size:22px; font-weight:bold; line-height:1.45; margin:16px 0; }
+        .quiz-visual { width:100%; max-width:560px; max-height:360px; object-fit:contain; display:block; margin:14px auto 18px; border-radius:18px; border:2px solid #e4e6ef; background:white; }
+        .question-context { font-size:17px; font-weight:normal; line-height:1.55; margin-top:10px; padding:12px 14px; background:#f7f8fc; border-radius:14px; }
+        .question-context strong { color:#4f3f82; }
+
+        /* PTS question presentation */
+        .pts-question-wrap { display:grid; gap:16px; }
+        .pts-prompt { font-size:21px; font-weight:800; line-height:1.45; color:var(--ink); }
+        .pts-context-card { background:#f7f8fc; border:2px solid #e1e5ef; border-radius:18px; padding:16px 18px; font-size:17px; font-weight:500; line-height:1.6; }
+        .pts-card-label { display:inline-block; margin-bottom:12px; padding:6px 10px; border-radius:999px; background:white; border:1px solid #e1e5ef; color:#563d8f; font-size:13px; font-weight:800; letter-spacing:.2px; }
+        .pts-context-card p { margin:0 0 10px; }
+        .pts-context-card p:last-child { margin-bottom:0; }
+        .pts-dialogue { display:grid; gap:9px; }
+        .pts-line { background:white; border:2px solid #e4e6ef; border-radius:15px; padding:10px 13px; font-size:16px; line-height:1.5; }
+        .pts-line strong { color:#563d8f; }
+        .pts-message { background:#eef7ff; border:2px solid #cfe4f5; border-radius:18px; padding:15px 17px; font-size:16px; font-weight:500; line-height:1.6; }
+        .pts-message::before { content:'💬 Message'; display:block; font-size:12px; font-weight:800; letter-spacing:.5px; color:#48657d; margin-bottom:7px; text-transform:uppercase; }
+        .pts-info-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; }
+        .pts-info-item { background:white; border:2px solid #e4e6ef; border-radius:14px; padding:11px 13px; font-size:15px; }
+        .pts-info-item strong { display:block; color:#563d8f; margin-bottom:2px; }
+        .pts-situation { background:#fff8df; border-left:6px solid #e4bd4f; border-radius:16px; padding:14px 16px; font-size:16px; font-weight:500; line-height:1.6; }
+        .pts-visual-question .quiz-visual { margin:0 auto 2px; }
+        @media (max-width:650px){ .pts-info-grid{grid-template-columns:1fr;} }
+        .options { display:grid; gap:11px; }
+        .option { border:2px solid #d8dce6; background:white; border-radius:16px; padding:14px 16px; text-align:left; font-size:17px; cursor:pointer; color:var(--ink); }
+        .option:hover { border-color:#8ab9e8; }
+        .option.correct { background:#dff5d5; border-color:#64aa4c; }
+        .option.wrong { background:#ffe0e0; border-color:#df7070; }
+        .feedback { min-height:28px; margin:14px 0; font-weight:bold; }
+        .controls { display:flex; justify-content:space-between; gap:12px; margin-top:12px; }
+        .ctrl { border:0; border-radius:14px; padding:11px 16px; font-weight:bold; cursor:pointer; color:white; }
+        .ctrl.prev { background:slategray; } .ctrl.next { background:royalblue; }
+
+        h2 {
+            font-size: 31px;
+            margin: 0 0 14px;
+        }
+
+        h3 {
+            margin-top: 0;
+        }
+
+        .intro {
+            background: #f8f3ff;
+            border-left: 7px solid var(--purple);
+            border-radius: 18px;
+            padding: 17px;
+            margin: 14px 0 18px;
+            line-height: 1.6;
+            font-size: 18px;
+        }
+
+        .now-word {
+            display: inline-block;
+            background: #ffe1ea;
+            border-radius: 999px;
+            padding: 3px 10px;
+            font-weight: bold;
+        }
+
+        .time-section {
+            margin: 18px 0;
+            background: #fff8d8;
+            border-radius: 20px;
+            padding: 18px;
+        }
+
+        .time-section h3 {
+            margin-bottom: 12px;
+        }
+
+        .time-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .time-chip {
+            background: white;
+            border-radius: 999px;
+            padding: 10px 15px;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(37, 48, 74, .1);
+        }
+
+        .time-example {
+            margin: 15px 0 0;
+            line-height: 1.6;
+        }
+
+        .pc-tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 22px 0;
+        }
+
+        .pc-tab {
+            border: 0;
+            border-radius: 999px;
+            padding: 11px 18px;
+            font-weight: bold;
+            cursor: pointer;
+            background: #eef1f6;
+            color: var(--ink);
+        }
+
+        .pc-tab.active {
+            background: #d9ccff;
+        }
+
+        .pc-panel {
+            display: none;
+        }
+
+        .pc-panel.active {
+            display: block;
+        }
+
+        .lesson-block {
+            background: #f8f9fc;
+            border-radius: 20px;
+            padding: 18px;
+            margin: 15px 0;
+            line-height: 1.65;
+        }
+
+        .formula {
+            text-align: center;
+            background: white;
+            border-radius: 16px;
+            padding: 14px;
+            margin: 12px 0;
+            font-size: 19px;
+            font-weight: bold;
+            border: 1px solid #e1e5ee;
+        }
+
+        .subject-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .subject-card {
+            background: white;
+            border: 1px solid #e1e5ee;
+            border-radius: 17px;
+            padding: 15px 18px;
+            text-align: left;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .subject-card b {
+            font-size: 18px;
+        }
+
+        .example-list {
+            display: grid;
+            gap: 9px;
+            margin-top: 12px;
+        }
+
+        .example {
+            background: white;
+            border-radius: 14px;
+            padding: 12px 14px;
+            border: 1px solid #e1e5ee;
+        }
+
+        .spelling-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .spelling-card {
+            background: white;
+            border: 1px solid #e1e5ee;
+            border-radius: 16px;
+            padding: 14px;
+        }
+
+        .watchout {
+            background: #fff4ca;
+            border-left: 6px solid var(--yellow);
+            border-radius: 14px;
+            padding: 14px;
+            margin-top: 14px;
+        }
+
+        .visual-flashcards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 12px;
+        }
+
+        .visual-flashcard {
+            min-height: 305px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .visual-flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 305px;
+            transition: transform .5s ease;
+            transform-style: preserve-3d;
+        }
+
+        .visual-flashcard.flipped .visual-flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .visual-flashcard-front,
+        .visual-flashcard-back {
+            position: absolute;
+            inset: 0;
+            border: 1px solid #e1e5ee;
+            border-radius: 18px;
+            overflow: hidden;
+            backface-visibility: hidden;
+            background: white;
+            box-shadow: 0 8px 20px rgba(70, 72, 95, .08);
+        }
+
+        .visual-flashcard-front {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .visual-flashcard-front img {
+            width: 100%;
+            height: 215px;
+            object-fit: cover;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .visual-card-copy {
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            line-height: 1.45;
+        }
+
+        .visual-card-copy small {
+            display: block;
+            margin-top: 5px;
+            color: #7657d6;
+            font-weight: bold;
+        }
+
+        .visual-flashcard-back {
+            transform: rotateY(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 22px;
+            text-align: center;
+            background: #eee9ff;
+            font-size: 19px;
+            font-weight: bold;
+            line-height: 1.55;
+        }
+
+        .transform-list {
+            display: grid;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .transform-card {
+            background: white;
+            border: 1px solid #e1e5ee;
+            border-radius: 16px;
+            padding: 14px;
+        }
+
+        .reveal-btn {
+            border: 0;
+            border-radius: 10px;
+            padding: 8px 12px;
+            background: #7657d6;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 9px;
+        }
+
+        .transform-answer {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 12px;
+            background: #eee9ff;
+            font-weight: bold;
+        }
+
+        .transform-card.revealed .transform-answer {
+            display: block;
+        }
+
+        .short-answer-box {
+            background: white;
+            border: 1px solid #e1e5ee;
+            border-radius: 16px;
+            padding: 14px;
+            margin-top: 12px;
+            line-height: 1.9;
+        }
+
+        .quick-practice {
+            background: #eee9ff;
+            border-radius: 20px;
+            padding: 18px;
+            margin: 16px 0;
+        }
+
+        .qp-row {
+            background: white;
+            border-radius: 14px;
+            padding: 12px;
+            margin: 9px 0;
+            line-height: 1.6;
+        }
+
+        .qp-row input {
+            width: 130px;
+            max-width: 45%;
+            padding: 8px;
+            border: 2px solid #d8dce6;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .qp-check {
+            border: 0;
+            border-radius: 12px;
+            padding: 10px 16px;
+            background: #7657d6;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .qp-reset {
+            background: slategray;
+        }
+
+        .qp-feedback {
+            display: inline-block;
+            margin-left: 8px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 28px 12px;
+            color: #657087;
+        }
+
+        @media(max-width:760px) {
+            .menu,
+            .subject-grid,
+            .spelling-grid,
+            .visual-flashcards {
+                grid-template-columns: 1fr;
+            }
+
+            .topnav {
+                position: static;
+            }
+        }
+            @media (max-width:700px) { .mc-menu { grid-template-columns:1fr; } }
+
+        /* Build the Sentence */
+        .build-menu {
+            display:grid;
+            grid-template-columns:repeat(2,minmax(0,1fr));
+            gap:16px;
+            margin-top:18px;
+        }
+        .build-topic {
+            position:relative;
+            border:0;
+            border-radius:22px;
+            padding:24px 18px;
+            text-align:left;
+            cursor:pointer;
+            color:var(--ink);
+            box-shadow:0 6px 0 rgba(37,48,74,.12);
+            transition:transform .15s ease, box-shadow .15s ease;
+        }
+        .build-topic:hover { transform:translateY(-3px); box-shadow:0 9px 0 rgba(37,48,74,.10); }
+        .build-topic h3 { margin:0 0 7px; font-size:22px; }
+        .build-topic p { margin:0; line-height:1.45; }
+        .build-jumbled { background:#ffe4f1; }
+        .build-change { background:#e9e2ff; }
+        .build-progress {
+            display:flex;
+            justify-content:space-between;
+            gap:12px;
+            flex-wrap:wrap;
+            font-weight:bold;
+            background:#f4f6fa;
+            padding:12px 14px;
+            border-radius:14px;
+            margin:0 0 18px;
+        }
+        .build-instruction {
+            background:#fff8d8;
+            border-left:6px solid var(--yellow);
+            border-radius:16px;
+            padding:14px 16px;
+            margin:12px 0 16px;
+            font-size:17px;
+            line-height:1.5;
+        }
+        .source-sentence {
+            background:#f4f6fa;
+            border:2px solid #e3e7ef;
+            border-radius:16px;
+            padding:16px;
+            margin-bottom:16px;
+            font-size:20px;
+            font-weight:bold;
+            text-align:center;
+        }
+        .word-bank, .sentence-answer {
+            display:flex;
+            flex-wrap:wrap;
+            gap:10px;
+            min-height:72px;
+            padding:15px;
+            border-radius:18px;
+        }
+        .word-bank { background:#f4f6fa; border:2px solid #eef0f5; }
+        .sentence-answer {
+            margin-top:14px;
+            background:white;
+            border:3px dashed #adb7c8;
+        }
+        .sentence-answer::before {
+            content:"Your sentence";
+            width:100%;
+            color:#7a8497;
+            font-size:12px;
+            font-weight:bold;
+            text-transform:uppercase;
+            letter-spacing:.6px;
+        }
+        .build-word {
+            border:0;
+            background:white;
+            border-radius:13px;
+            padding:11px 14px;
+            box-shadow:0 2px 8px rgba(37,48,74,.16);
+            font-size:17px;
+            font-weight:600;
+            cursor:pointer;
+            color:var(--ink);
+            transition:.12s;
+        }
+        .build-word:hover { transform:translateY(-2px); }
+        .sentence-answer .build-word { background:#f4efff; box-shadow:0 2px 7px rgba(86,61,143,.14); }
+        .build-feedback { min-height:34px; margin:14px 0 2px; font-size:17px; font-weight:bold; }
+        .build-controls { display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:15px; }
+        .build-control { border:0; border-radius:14px; padding:11px 16px; font-weight:bold; cursor:pointer; color:var(--ink); }
+        .build-control.prev { background:#e7ebf2; }
+        .build-control.check { background:var(--green); color:white; }
+        .build-control.shuffle { background:var(--yellow); }
+        .build-control.next { background:var(--blue); }
+        @media(max-width:700px) {
+            .build-menu { grid-template-columns:1fr; }
+            .build-control { flex:1 1 45%; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="navbtn" href="index.html">⬅️ Unit 1 Topics</a>
+        <button class="navbtn" id="activityBack" onclick="goBack()" style="display:none">⬅️ Activities</button>
+    </div>
+
+    <header>
+        <span class="badge">COMPASS • UNIT 1</span>
+        <h1>Present Continuous 🚀</h1>
+        <p class="subtitle">Actions happening now • am / is / are + verb-ing</p>
+    </header>
+
+    <main class="wrap">
+        <!-- Activity Menu -->
+        <section id="home" class="screen active">
+            <div class="homecard">
+                <h2>🌟 What would you like to do?</h2>
+                <p>Learn the grammar first. More challenges are coming soon!</p>
+
+                <div class="menu">
+                    <button class="bigbtn learnbtn enabled" onclick="openLearn()">
+                        <span class="menu-tag">READY</span>
+                        📘<br>Learn
+                    </button>
+
+                    <button class="bigbtn mcbtn enabled" onclick="openMC()">
+                        <span class="menu-tag">READY</span>
+                        🎯<br>Multiple Choice
+                    </button>
+
+                    <button class="bigbtn buildbtn enabled" onclick="openBuildMenu()">
+                        <span class="menu-tag">READY</span>
+                        🧩<br>Build the Sentence
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learn -->
+        <section id="learn" class="screen">
+            <div class="card">
+                <h2>📘 Present Continuous</h2>
+
+                <div class="intro">
+                    We use the Present Continuous for actions happening <span class="now-word">NOW</span>.
+                    <br><br>
+                    Emma <b>is reading</b> a book now.<br>
+                    They <b>are having</b> lunch at the moment.
+                </div>
+
+                <div class="time-section">
+                    <h3>⏰ Time Expressions</h3>
+                    <div class="time-chips">
+                        <span class="time-chip">now</span>
+                        <span class="time-chip">right now</span>
+                        <span class="time-chip">at the moment</span>
+                    </div>
+                    <div class="example-list" style="margin-top:15px">
+                        <div class="example">📖 Emma is reading a book <b>now</b>.</div>
+                        <div class="example">📝 Ben is doing his homework <b>right now</b>.</div>
+                        <div class="example">🍽️ They are having lunch <b>at the moment</b>.</div>
+                    </div>
+                </div>
+
+                <div class="pc-tabs">
+                    <button class="pc-tab active" onclick="showPC('positive', this)">😊 Positive</button>
+                    <button class="pc-tab" onclick="showPC('negative', this)">🚫 Negative</button>
+                    <button class="pc-tab" onclick="showPC('questions', this)">❓ Questions</button>
+                </div>
+
+                <!-- Positive -->
+                <div id="pc-positive" class="pc-panel active">
+                    <div class="lesson-block">
+                        <h3>1️⃣ Present Continuous (+)</h3>
+                        <div class="formula">Subject + am / is / are + verb-ing</div>
+
+                        <div class="subject-grid">
+                            <div class="subject-card"><b>I + am</b> → I <b>am playing</b>.</div>
+                            <div class="subject-card"><b>He / She / It + is</b> → She <b>is playing</b>.</div>
+                            <div class="subject-card"><b>You / We / They + are</b> → They <b>are playing</b>.</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson-block">
+                        <h3>2️⃣ More Examples</h3>
+                        <div class="example-list">
+                            <div class="example">📚 Emma <b>is reading</b> a book.</div>
+                            <div class="example">⚽ Ben and Leo <b>are playing</b> football.</div>
+                            <div class="example">📝 I <b>am doing</b> my homework.</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson-block">
+                        <h3>3️⃣ Verb + ING 🔎</h3>
+                        <div class="spelling-grid">
+                            <div class="spelling-card">
+                                <b>Most verbs → + ing</b><br><br>
+                                play → <b>playing</b><br>
+                                read → <b>reading</b>
+                            </div>
+                            <div class="spelling-card">
+                                <b>Final -e → remove e</b><br><br>
+                                make → <b>making</b><br>
+                                write → <b>writing</b>
+                            </div>
+                            <div class="spelling-card">
+                                <b>Some short verbs → double</b><br><br>
+                                run → <b>running</b><br>
+                                swim → <b>swimming</b>
+                            </div>
+                        </div>
+
+                        <div class="watchout">
+                            ⭐ <b>Watch out!</b><br>
+                            ❌ She is play football.<br>
+                            ✅ She is <b>playing</b> football.
+                        </div>
+                    </div>
+
+                    <div class="lesson-block">
+                        <h3>4️⃣ Visual Examples 👀</h3>
+                        <div class="visual-flashcards">
+                            <div class="visual-flashcard" onclick="flipVisualCard(this)">
+                                <div class="visual-flashcard-inner">
+                                    <div class="visual-flashcard-front"><img src="images/present-continuous/reading.png" alt="A girl reading a book"><div class="visual-card-copy">read a book / now<small>Tap to check</small></div></div>
+                                    <div class="visual-flashcard-back">Emma is reading a book now.</div>
+                                </div>
+                            </div>
+                            <div class="visual-flashcard" onclick="flipVisualCard(this)">
+                                <div class="visual-flashcard-inner">
+                                    <div class="visual-flashcard-front"><img src="images/present-continuous/homework.png" alt="A boy doing his homework"><div class="visual-card-copy">do homework / right now<small>Tap to check</small></div></div>
+                                    <div class="visual-flashcard-back">Ben is doing his homework right now.</div>
+                                </div>
+                            </div>
+                            <div class="visual-flashcard" onclick="flipVisualCard(this)">
+                                <div class="visual-flashcard-inner">
+                                    <div class="visual-flashcard-front"><img src="images/present-continuous/football.png" alt="A boy playing football"><div class="visual-card-copy">play football / at the moment<small>Tap to check</small></div></div>
+                                    <div class="visual-flashcard-back">Leo is playing football at the moment.</div>
+                                </div>
+                            </div>
+                            <div class="visual-flashcard" onclick="flipVisualCard(this)">
+                                <div class="visual-flashcard-inner">
+                                    <div class="visual-flashcard-front"><img src="images/present-continuous/lunch.png" alt="A girl eating lunch"><div class="visual-card-copy">eat lunch / now<small>Tap to check</small></div></div>
+                                    <div class="visual-flashcard-back">Mia is eating lunch now.</div>
+                                </div>
+                            </div>
+                            <div class="visual-flashcard" onclick="flipVisualCard(this)">
+                                <div class="visual-flashcard-inner">
+                                    <div class="visual-flashcard-front"><img src="images/present-continuous/photos.png" alt="A child taking photos"><div class="visual-card-copy">take photos / right now<small>Tap to check</small></div></div>
+                                    <div class="visual-flashcard-back">Alex is taking photos right now.</div>
+                                </div>
+                            </div>
+                            <div class="visual-flashcard" onclick="flipVisualCard(this)">
+                                <div class="visual-flashcard-inner">
+                                    <div class="visual-flashcard-front"><img src="images/present-continuous/dishes.png" alt="A girl washing the dishes"><div class="visual-card-copy">wash the dishes / at the moment<small>Tap to check</small></div></div>
+                                    <div class="visual-flashcard-back">Sally is washing the dishes at the moment.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-practice">
+                        <h3>✏️ Quick Practice — Positive</h3>
+                        <div class="qp-row">1. Emma <input id="qp-p1"> reading a book. <b>(be)</b></div>
+                        <div class="qp-row">2. They <input id="qp-p2"> playing football. <b>(be)</b></div>
+                        <div class="qp-row">3. Ben is <input id="qp-p3"> in the park. <b>(run)</b></div>
+                        <div class="qp-row">4. I <input id="qp-p4"> doing my homework. <b>(be)</b></div>
+                        <button class="qp-check" onclick="checkQP('p',['is','are','running','am'])">Check Answers</button>
+                        <button class="qp-check qp-reset" onclick="resetQP('p',4)">Reset</button>
+                        <span class="qp-feedback" id="qp-p-feedback"></span>
+                    </div>
+                </div>
+
+                <!-- Negative -->
+                <div id="pc-negative" class="pc-panel">
+                    <div class="lesson-block">
+                        <h3>1️⃣ Present Continuous (-)</h3>
+                        <div class="formula">Subject + am / is / are + not + verb-ing</div>
+
+                        <div class="example-list">
+                            <div class="example">I <b>am not sleeping</b>.</div>
+                            <div class="example">She <b>isn't sleeping</b>.</div>
+                            <div class="example">They <b>aren't sleeping</b>.</div>
+                        </div>
+
+                        <div class="watchout">
+                            <b>is not = isn't</b><br>
+                            <b>are not = aren't</b>
+                        </div>
+                    </div>
+
+                    <div class="lesson-block">
+                        <h3>2️⃣ Make it Negative 🔄</h3>
+                        <div class="transform-list">
+                            <div class="transform-card">
+                                Emma <b>is reading</b> a book.<br>
+                                <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="transform-answer">Emma <b>isn't reading</b> a book.</div>
+                            </div>
+                            <div class="transform-card">
+                                Ben and Leo <b>are playing</b> football.<br>
+                                <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="transform-answer">Ben and Leo <b>aren't playing</b> football.</div>
+                            </div>
+                            <div class="transform-card">
+                                I <b>am watching</b> TV.<br>
+                                <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                                <div class="transform-answer">I <b>am not watching</b> TV.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-practice">
+                        <h3>✏️ Quick Practice — Negative</h3>
+                        <div class="qp-row">1. Mia <input id="qp-n1"> watching TV. <b>(-)</b></div>
+                        <div class="qp-row">2. They <input id="qp-n2"> eating dinner. <b>(-)</b></div>
+                        <div class="qp-row">3. I <input id="qp-n3"> sleeping. <b>(-)</b></div>
+                        <div class="qp-row">4. Ben <input id="qp-n4"> running. <b>(-)</b></div>
+                        <button class="qp-check" onclick="checkNegative()">Check Answers</button>
+                        <button class="qp-check qp-reset" onclick="resetQP('n',4)">Reset</button>
+                        <span class="qp-feedback" id="qp-n-feedback"></span>
+                    </div>
+                </div>
+
+                <!-- Questions -->
+                <div id="pc-questions" class="pc-panel">
+                    <div class="lesson-block">
+                        <h3>1️⃣ Present Continuous (?)</h3>
+                        <div class="formula">Am / Is / Are + subject + verb-ing?</div>
+
+                        <div class="example-list">
+                            <div class="example"><b>Are</b> you <b>reading</b>?</div>
+                            <div class="example"><b>Is</b> Emma <b>sleeping</b>?</div>
+                            <div class="example"><b>Are</b> they <b>playing</b>?</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson-block">
+                        <h3>2️⃣ Short Answers</h3>
+                        <div class="short-answer-box">
+                            <b>Is Ben playing football?</b><br>
+                            ✅ Yes, he <b>is</b>.<br>
+                            ❌ No, he <b>isn't</b>.<br><br>
+
+                            <b>Are they eating?</b><br>
+                            ✅ Yes, they <b>are</b>.<br>
+                            ❌ No, they <b>aren't</b>.
+                        </div>
+                    </div>
+
+                    <div class="lesson-block">
+                        <h3>3️⃣ What are they doing? 💬</h3>
+                        <div class="example-list">
+                            <div class="example">
+                                <b>What are you doing?</b><br>
+                                I'm doing my homework.
+                            </div>
+                            <div class="example">
+                                <b>What is Mia doing?</b><br>
+                                She's taking a picture.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-practice">
+                        <h3>✏️ Quick Practice — Questions</h3>
+                        <div class="qp-row">1. <input id="qp-q1"> Emma reading?</div>
+                        <div class="qp-row">2. <input id="qp-q2"> they playing football?</div>
+                        <div class="qp-row">3. <input id="qp-q3"> you doing your homework?</div>
+                        <div class="qp-row">4. <input id="qp-q4"> Ben sleeping?</div>
+                        <button class="qp-check" onclick="checkQP('q',['is','are','are','is'])">Check Answers</button>
+                        <button class="qp-check qp-reset" onclick="resetQP('q',4)">Reset</button>
+                        <span class="qp-feedback" id="qp-q-feedback"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Multiple Choice Menu -->
+        <section id="mc" class="screen">
+            <div class="card">
+                <h2>🎯 Multiple Choice Challenge</h2>
+                <p>Choose a challenge. Start with one topic, then try the Mix Challenge!</p>
+                <div class="mc-menu">
+                    <button class="mc-topic mc-positive" onclick="startQuiz('positive')">
+                        <h3>😊 Positive Practice</h3>
+                        <p>am / is / are, verb-ing and actions happening now.</p>
+                        <span class="mc-tag">15 Questions</span>
+                    </button>
+                    <button class="mc-topic mc-negative" onclick="startQuiz('negativeQuestions')">
+                        <h3>🚫❓ Negative & Questions</h3>
+                        <p>Negative forms, questions and short answers.</p>
+                        <span class="mc-tag">15 Questions</span>
+                    </button>
+                    <button class="mc-topic mc-mix" onclick="startQuiz('mix')">
+                        <h3>🎯 Present Continuous Mix</h3>
+                        <p>Positive • Negative • Questions • Time expressions</p>
+                        <span class="mc-tag">15 Questions</span>
+                    </button>
+                    <button class="mc-topic mc-pts" onclick="startQuiz('pts')">
+                        <span class="new-badge">NEW</span>
+                        <h3>🏆 Get Ready for PTS</h3>
+                        <p>Reading • Visuals • Context • Present Continuous</p>
+                        <span class="mc-tag">15 Questions</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Multiple Choice Quiz -->
+        <section id="quiz" class="screen">
+            <div class="card">
+                <h2 id="quizTitle"></h2>
+                <div class="progress"><span id="qProgress"></span><span id="score"></span></div>
+                <div class="question" id="question"></div>
+                <div class="options" id="options"></div>
+                <div class="feedback" id="feedback"></div>
+                <div class="controls">
+                    <button class="ctrl prev" onclick="prevQ()">⬅️ Previous</button>
+                    <button class="ctrl next" onclick="nextQ()">Next ➡️</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Build the Sentence -->
+        <section id="buildMenu" class="screen">
+            <div class="card">
+                <h2>🧩 Build the Sentence</h2>
+                <p>Choose a sentence challenge!</p>
+                <div class="build-menu">
+                    <button class="build-topic build-jumbled" onclick="openJumble()">
+                        <h3>🔀 Jumbled Sentences</h3>
+                        <p>Put the words in the correct order.</p>
+                        <span class="mc-tag">20 Sentences</span>
+                    </button>
+                    <button class="build-topic build-change" onclick="openChangeSentence()">
+                        <span class="new-badge">NEW</span>
+                        <h3>🔄 Change the Sentence</h3>
+                        <p>Change positive sentences into negatives and questions.</p>
+                        <span class="mc-tag">10 Challenges</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="jumble" class="screen">
+            <div class="card">
+                <h2>🔀 Jumbled Sentences</h2>
+                <div class="build-progress"><span id="jProgress"></span><span>Tap the words in order!</span></div>
+                <div class="build-instruction">Build a correct Present Continuous sentence.</div>
+                <div class="word-bank" id="jBank"></div>
+                <div class="sentence-answer" id="jAnswer"></div>
+                <div class="build-feedback" id="jFeedback"></div>
+                <div class="build-controls">
+                    <button class="build-control prev" onclick="prevJ()">⬅️ Previous</button>
+                    <button class="build-control check" onclick="checkJ()">✅ Check</button>
+                    <button class="build-control shuffle" onclick="resetJ()">🔀 Shuffle Again</button>
+                    <button class="build-control next" onclick="nextJ()">Next ➡️</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="changeSentence" class="screen">
+            <div class="card">
+                <h2>🔄 Change the Sentence</h2>
+                <div class="build-progress"><span id="cProgress"></span><span id="cType"></span></div>
+                <div class="build-instruction" id="cTask"></div>
+                <div class="source-sentence" id="cSource"></div>
+                <div class="word-bank" id="cBank"></div>
+                <div class="sentence-answer" id="cAnswer"></div>
+                <div class="build-feedback" id="cFeedback"></div>
+                <div class="build-controls">
+                    <button class="build-control prev" onclick="prevC()">⬅️ Previous</button>
+                    <button class="build-control check" onclick="checkC()">✅ Check</button>
+                    <button class="build-control shuffle" onclick="resetC()">🔀 Shuffle Again</button>
+                    <button class="build-control next" onclick="nextC()">Next ➡️</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>Grade 4 • Unit 1 Grammar Lab</footer>
+
+    <script>
+        const quizSets = {
+            positive: { title: '😊 Positive Practice', questions: [
+                ["Look! Emma ___ a book in the library.", ["reads","is reading","reading","are reading"], 1],
+                ["Which sentence is correct?", ["Ben is run in the park.","Ben running in the park.","Ben are running in the park.","Ben is running in the park."], 3],
+                ["Mia and Lucy ___ lunch at the moment.", ["are eating","is eating","eating","eats"], 0],
+                ["I ___ my homework right now.", ["doing","is doing","am doing","are doing"], 2],
+                ["Choose the correct sentence.", ["We are makeing a cake.","We are making a cake.","We making a cake.","We is making a cake."], 1],
+                ["Tom ___ in the swimming pool now.", ["swim","are swimming","swimming","is swimming"], 3],
+                ["Which sentence talks about something happening now?", ["Lily is taking a photo.","Lily takes photos every weekend.","Lily took a photo yesterday.","Lily can take good photos."], 0],
+                ["The children ___ football right now.", ["is playing","plays","are playing","playing"], 2],
+                ["My brother ___ a message at the moment.", ["is writing","is writeing","writing","are writing"], 0],
+                ["The girls ___ pictures right now.", ["is taking","takes","taking","are taking"], 3],
+                ["Sarah and I ___ a picture now.", ["am drawing","are drawing","is drawing","drawing"], 1],
+                ["Choose the correct sentence.", ["He am drinking water now.","He drinking water now.","He is drinking water now.","He are drinking water now."], 2],
+                ["Dad is in the kitchen. He ___ dinner right now.", ["is cooking","cooks","are cooking","cooking"], 0],
+                ["Look! Our teacher ___ on the board.", ["write","writes","writing","is writing"], 3],
+                ["You ___ very fast at the moment!", ["is running","are running","am running","runs"], 1]
+            ]},
+            negativeQuestions: { title: '🚫❓ Negative & Questions', questions: [
+                ["Emma ___ TV now. She is reading a book.", ["aren't watching","doesn't watching","isn't watching","not watching"], 2],
+                ["___ Ben playing football at the moment?", ["Is","Are","Am","Does"], 0],
+                ["‘They are eating lunch.’ Make it negative.", ["They not are eating lunch.","They isn't eating lunch.","They don't eating lunch.","They aren't eating lunch."], 3],
+                ["Are Mia and Lucy doing their homework? — Yes, ___.", ["she is","they are","they do","they is"], 1],
+                ["Which question is correct?", ["Is Tom running now?","Tom is running now?","Does Tom running now?","Are Tom running now?"], 0],
+                ["I ___ sleeping. I'm doing my homework.", ["isn't","don't","aren't","am not"], 3],
+                ["___ you listening to me right now?", ["Is","Are","Am","Do"], 1],
+                ["Is Sally washing the dishes? — No, ___.", ["she not","she doesn't","she isn't","she aren't"], 2],
+                ["Which sentence is negative?", ["We aren't playing basketball now.","We are playing basketball now.","Are we playing basketball now?","We play basketball after school."], 0],
+                ["Leo and Jack ___ running at the moment. They are walking.", ["isn't","aren't","doesn't","not"], 1],
+                ["Choose the correct question.", ["Is they eating dinner?","Do they eating dinner?","They are eating dinner?","Are they eating dinner?"], 3],
+                ["___ I speaking too loudly?", ["Is","Are","Am","Do"], 2],
+                ["‘She is taking a photo.’ Which is the correct question?", ["Is she taking a photo?","Does she taking a photo?","Are she taking a photo?","She is taking a photo?"], 0],
+                ["Are the children sleeping? — No, ___.", ["they don't","they isn't","they aren't","they not"], 2],
+                ["Which sentence is correct?", ["Mia isn't write a message.","Mia isn't writing a message.","Mia not writing a message.","Mia doesn't writing a message."], 1]
+            ]},
+            mix: { title: '🎯 Present Continuous Mix', questions: [
+                ["Look at Anna! She ___ her bike right now.", ["rides","riding","is riding","are riding"], 2],
+                ["Which sentence is correct?", ["They are swimming at the moment.","They swimming at the moment.","They is swimming at the moment.","They are swim at the moment."], 0],
+                ["Jack is on the sofa with his eyes closed. He ___ TV.", ["aren't watching","isn't watching","doesn't watching","not watching"], 1],
+                ["___ your friends waiting for the bus right now?", ["Is","Am","Do","Are"], 3],
+                ["Choose the correct -ing form of make.", ["making","makeing","makking","makes"], 0],
+                ["‘Is Lucy doing her homework?’ Choose the correct short answer.", ["Yes, she does.","Yes, she is doing.","Yes, she is.","Yes, Lucy are."], 2],
+                ["Which sentence describes an action happening at the moment?", ["We play tennis on Saturdays.","We are playing tennis.","We played tennis yesterday.","We like playing tennis."], 1],
+                ["I ___ a sandwich now because I'm hungry.", ["is eating","eating","are eating","am eating"], 3],
+                ["Which sentence is NOT correct?", ["He is writeing an email.","He is writing an email.","They are writing emails.","I am writing a message."], 0],
+                ["Emma and Kate are in the library. They ___ loudly.", ["isn't talking","aren't talking","doesn't talk","not talking"], 1],
+                ["Which question matches this answer: ‘Yes, they are.’?", ["Do they play football?","Is they playing football?","Are they playing football?","They are playing football?"], 2],
+                ["Listen! The baby ___.", ["crys","cry","are crying","is crying"], 3],
+                ["Which sentence has the correct word order?", ["Mia is now what doing?","What doing Mia is now?","What is doing Mia now?","What is Mia doing now?"], 3],
+                ["Look outside! It ___ at the moment.", ["is raining","rains","raining","are raining"], 0],
+                ["Tom usually walks to school, but today he ___ the bus.", ["takes","is taking","taking","take"], 1]
+            ]},
+            pts: { title: '🏆 Get Ready for PTS', questions: [
+                ["Which sentence is correct according to the chat?", ["Everyone is spending time outside.","Two children are making food.","Someone is studying at the moment.","Nobody is staying at home."], 2],
+                ["Which student should choose the Sports Club?", ["I enjoy drawing and using colours.","I want to practise shooting the ball.","I love reading exciting stories.","I want to sing with my friends."], 1],
+                ["Why is Kate looking for a book?", ["She wants a new storybook.","She is choosing a present.","She is helping the librarian.","She needs it for a science project."], 3],
+                ["Which sentence is correct?", ["The family is preparing for the party.","The guests are eating the cake.","The party is finishing early.","Everyone is bowling at the café."], 0],
+                ["Why is Sam waiting inside?", ["His practice is starting soon.","He is waiting for another game.","It is raining heavily.","He is doing his homework."], 2],
+                ["Which sentence is TRUE according to the text?", ["The whole family is doing the same activity.","Everyone is getting ready for the day.","The children are having breakfast downstairs.","Dad is preparing food in the kitchen."], 1],
+                ["Why are the children finishing their project today?", ["They are giving it to a friend.","They are starting a new project tomorrow.","They are going to an art club.","They need it at school tomorrow."], 3],
+                ["What is the text mainly about?", ["A family spending a rainy afternoon at home","A family having a busy morning","Children preparing for school","Children playing outside after the rain"], 0],
+                ["Why are the students doing these activities inside?", ["School is finishing early.","The playground is closed.","They are preparing for a party.","Their teachers are having lunch."], 1],
+                ["What is Mum doing at the moment?", ["She's doing homework.","She's making a sandwich.","She's coming home.","She's talking on the phone."], 3],
+                ["Which title is best for this message?", ["A Rainy School Day","Getting Ready for Dinner","A Day by the Sea","A Busy Day at the Library"], 2],
+                ["Where should the student go?", ["Room 2","Room 1","The garden","The hall"], 0],
+                ["Which sentence best describes the situation?", ["The family is relaxing together.","The family is doing housework while Max is resting.","Everyone is playing with Max.","The children are looking for their dog."], 1],
+                ["Which club can help?", ["Book Club","Comic Club","Research Club","Writing Club"], 2],
+                ["Which sentence is TRUE according to the email?", ["The writer's sister is filling the water bottles.","Dad is making sandwiches.","The writer is filling the water bottles.","Mum is looking for a helmet."], 0]
+            ]}
+        };
+        let activeQuiz = 'positive';
+        let qIndex = 0;
+        const quizAnswers = {
+            positive: Array(quizSets.positive.questions.length).fill(null),
+            negativeQuestions: Array(quizSets.negativeQuestions.questions.length).fill(null),
+            mix: Array(quizSets.mix.questions.length).fill(null),
+            pts: Array(quizSets.pts.questions.length).fill(null)
+        };
+
+        function openScreen(id) {
+            document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            document.getElementById('activityBack').style.display = id === 'home' ? 'none' : 'inline-block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function openMC() { openScreen('mc'); }
+        function startQuiz(type) { activeQuiz = type; qIndex = 0; openScreen('quiz'); renderQ(); }
+        function renderQ() {
+            const set = quizSets[activeQuiz], q = set.questions[qIndex], answers = quizAnswers[activeQuiz], selected = answers[qIndex];
+            document.getElementById('quizTitle').textContent = set.title;
+            document.getElementById('qProgress').textContent = `Question ${qIndex + 1} / ${set.questions.length}`;
+            const attempted = answers.filter(a => a !== null).length;
+            const correct = answers.reduce((sum,a,i) => sum + (a === set.questions[i][2] ? 1 : 0), 0);
+            document.getElementById('score').textContent = `Score: ${correct} / ${attempted}`;
+            const questionEl = document.getElementById('question');
+            if (activeQuiz === 'pts') {
+                questionEl.innerHTML = renderPTSQuestion(qIndex, q);
+            } else {
+                questionEl.innerHTML = `<div>${qIndex + 1}. ${q[0]}</div>` + (q[3] ? `<img class="quiz-visual" src="${q[3]}" alt="Question ${qIndex + 1} visual">` : '');
+            }
+            const box = document.getElementById('options'); box.innerHTML = '';
+            q[1].forEach((option,i) => {
+                const b=document.createElement('button'); b.className='option'; b.innerHTML=`<b>${String.fromCharCode(65+i)}.</b> ${option}`;
+                if (selected !== null) { if (i===q[2]) b.classList.add('correct'); if (i===selected && selected!==q[2]) b.classList.add('wrong'); }
+                b.onclick=()=>answerQ(i); box.appendChild(b);
+            });
+            const f=document.getElementById('feedback');
+            f.textContent = selected===null ? '' : selected===q[2] ? '🌟 Great job! That is correct!' : `❌ Good try! The correct answer is ${String.fromCharCode(65+q[2])}: ${q[1][q[2]]}`;
+        }
+
+        function renderPTSQuestion(index, q) {
+            const n = index + 1;
+            const prompt = (text) => `<div class="pts-prompt">${n}. ${text}</div>`;
+            const dialogue = (lines) => `<div class="pts-dialogue">${lines.map(([who,text]) => `<div class="pts-line"><strong>${who}:</strong> ${text}</div>`).join('')}</div>`;
+            const card = (html, label='') => `<div class="pts-context-card">${label ? `<div class="pts-card-label">${label}</div>` : ''}${html}</div>`;
+            switch(index) {
+                case 0: return `<div class="pts-question-wrap">${card(dialogue([['Mia','Hi! What is everyone doing?'],['Leo',"I'm helping Dad in the garden. 🌱"],['Emma',"I'm making cookies with my sister. 🍪"],['Ben',"I'm doing my homework. I can't play now. 📚"],['Mia',"I'm watching a film with my brother. 🎬"]]),'💬 Weekend Fun')}${prompt(q[0])}</div>`;
+                case 1: return `<div class="pts-question-wrap">${card(`<div class="pts-info-grid"><div class="pts-info-item"><strong>🎨 Art Club</strong>Students are painting posters.</div><div class="pts-info-item"><strong>🏀 Sports Club</strong>Students are practising basketball.</div><div class="pts-info-item"><strong>📚 Book Club</strong>Students are reading adventure stories.</div><div class="pts-info-item"><strong>🎵 Music Club</strong>Students are practising new songs.</div></div>`,'📋 After-School Clubs')}${prompt(q[0])}</div>`;
+                case 2: return `<div class="pts-question-wrap">${card(dialogue([['Mum','Hi, Ella. Are you coming home?'],['Ella',"Not yet. I'm at the library with Kate."],['Mum','Are you doing your homework?'],['Ella',"I am, but Kate isn't. She's looking for a book for our science project."],['Mum','OK. See you later!']]),'💬 Dialogue')}${prompt(q[0])}</div>`;
+                case 3: return `<div class="pts-question-wrap">${card(`<div><strong>🎂 BIRTHDAY PARTY</strong><br>Saturday, 17 October<br>🕒 3:00–5:00 p.m.<br>📍 Happy Kids Café<br><br>🎳 Bowling &nbsp; • &nbsp; 🍕 Pizza &nbsp; • &nbsp; 🎂 Cake</div>`,'🎉 Invitation')}<div class="pts-message"><strong>2:30 p.m.</strong><br>We're getting ready now! Dad is carrying the cake to the car and Mum is checking the party bags. See you soon!</div>${prompt(q[0])}</div>`;
+                case 4: return `<div class="pts-question-wrap">${card(dialogue([['Dad','Where are you?'],['Sam','At the sports centre.'],['Dad','Is basketball practice finished?'],['Sam',"Yes, but I can't leave yet. It's raining heavily and I'm waiting inside."],['Dad',"OK. I'm coming to get you. 🚗"]]),'📱 Text Messages')}${prompt(q[0])}</div>`;
+                case 5: return `<div class="pts-question-wrap">${card(`<p>It is Saturday morning and the Green family is very busy. Mum is preparing breakfast in the kitchen. Dad is cleaning the car outside. The children are upstairs. One is tidying the bedroom while the other is packing a sports bag.</p><p>They are all getting ready because they are leaving home after breakfast.</p>`,'📖 A Busy Saturday Morning')}${prompt(q[0])}</div>`;
+                case 6: return `<div class="pts-question-wrap">${card(`<p><strong>Hi Mum! ❤️</strong></p><p>I'm at Lucy's house. We are working on our school project. Lucy is drawing the pictures and I'm writing the information. We are finishing it today because we need it at school tomorrow.</p><p>See you at 6!</p>`,'📝 A Note')}${prompt(q[0])}</div>`;
+                case 7: return `<div class="pts-question-wrap">${card(`<p>It is raining outside, so the children aren't playing in the garden. They are spending the afternoon inside. Two children are making a puzzle on the floor. Their little sister is drawing at the table. Mum is making hot chocolate in the kitchen.</p><p>Everyone is enjoying the afternoon at home.</p>`,'🌧️ A Rainy Afternoon')}${prompt(q[0])}</div>`;
+                case 8: return `<div class="pts-question-wrap">${card(`<p><strong>The playground is closed today.</strong></p><div class="pts-info-grid"><div class="pts-info-item"><strong>Grade 4A</strong>Students are reading in the library. 📚</div><div class="pts-info-item"><strong>Grade 4B</strong>Students are watching a science video. 🔬</div><div class="pts-info-item"><strong>Grade 4C</strong>Students are playing board games. 🎲</div></div>`,'📢 Rainy Break Time')}${prompt(q[0])}</div>`;
+                case 9: return `<div class="pts-question-wrap">${card(dialogue([['Dad','Hi! Is everything OK at home?'],['Lucy',"Yes! I'm doing my homework in my room."],['Dad','What about your brother?'],['Lucy',"He's making a sandwich in the kitchen."],['Dad','And what about Mum?'],['Lucy',"She's talking to Grandma on the phone. ☎️"],['Dad',"Great. I'm coming home now."]]),'📱 Text Messages')}${prompt(q[0])}</div>`;
+                case 10: return `<div class="pts-question-wrap">${card(`<p><strong>Hi Lucy,</strong></p><p>We're having a great time by the sea! ☀️ Dad is swimming and Mum is reading under an umbrella. My brother is building a sandcastle. I'm sitting at a café and drinking lemonade.</p><p>The weather is beautiful today!</p><p>See you next week!</p>`,'✉️ Holiday Message')}${prompt(q[0])}</div>`;
+                case 11: return `<div class="pts-question-wrap">${card(`<div class="pts-info-grid"><div class="pts-info-item"><strong>🎨 Room 1</strong>Students are making masks.</div><div class="pts-info-item"><strong>🧁 Room 2</strong>Students are decorating cupcakes.</div><div class="pts-info-item"><strong>⚽ Garden</strong>Students are playing games.</div><div class="pts-info-item"><strong>🎵 Hall</strong>Students are singing songs.</div></div><p style="margin-top:14px"><strong>A student wants to make something and eat it afterwards.</strong></p>`,'🎪 School Fair')}${prompt(q[0])}</div>`;
+                case 12: return `<div class="pts-question-wrap">${card(`<p>The family is cleaning the house this afternoon. Dad is vacuuming the living room and Mum is washing the dishes. The children are putting their toys away.</p><p>But Max, their dog, isn't helping! He is lying under the table and watching everyone.</p>`,'🐶 Where Is Max?')}${prompt(q[0])}</div>`;
+                case 13: return `<div class="pts-question-wrap">${card(`<div class="pts-info-grid"><div class="pts-info-item"><strong>📖 Book Club</strong>Students are talking about <em>The Secret Island</em>.</div><div class="pts-info-item"><strong>🎨 Comic Club</strong>Students are creating comic books.</div><div class="pts-info-item"><strong>💻 Research Club</strong>Students are finding information about animals online.</div><div class="pts-info-item"><strong>✍️ Writing Club</strong>Students are writing short stories.</div></div><p style="margin-top:14px"><strong>A student needs information about dolphins for homework.</strong></p>`,'📚 Library This Afternoon')}${prompt(q[0])}</div>`;
+                case 14: return `<div class="pts-question-wrap">${card(`<p><strong>Subject: Saturday Bike Ride 🚲</strong></p><p>Hi!</p><p>We're getting ready for our bike ride. Mum is making sandwiches in the kitchen. Dad is putting our bikes on the car. My sister is filling the water bottles, and I'm looking for my helmet.</p><p>We're leaving in twenty minutes.</p><p>See you on Monday!</p>`,'✉️ Email')}${prompt(q[0])}</div>`;
+                default: return `<div>${n}. ${q[0]}</div>`;
+            }
+        }
+
+        function answerQ(i) { if (quizAnswers[activeQuiz][qIndex]===null) { quizAnswers[activeQuiz][qIndex]=i; renderQ(); } }
+        function nextQ() { if (qIndex < quizSets[activeQuiz].questions.length-1) { qIndex++; renderQ(); } }
+        function prevQ() { if (qIndex>0) { qIndex--; renderQ(); } else { openScreen('mc'); } }
+        function goBack() {
+            if (document.getElementById('quiz').classList.contains('active')) openScreen('mc');
+            else if (document.getElementById('jumble').classList.contains('active') || document.getElementById('changeSentence').classList.contains('active')) openScreen('buildMenu');
+            else showHome();
+        }
+
+        function openLearn() {
+            document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
+            document.getElementById('learn').classList.add('active');
+            document.getElementById('activityBack').style.display = 'inline-block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showHome() {
+            document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
+            document.getElementById('home').classList.add('active');
+            document.getElementById('activityBack').style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showPC(name, button) {
+            document.querySelectorAll('.pc-panel').forEach(panel => panel.classList.remove('active'));
+            document.querySelectorAll('.pc-tab').forEach(tab => tab.classList.remove('active'));
+
+            document.getElementById('pc-' + name).classList.add('active');
+            button.classList.add('active');
+        }
+
+        function flipVisualCard(card) {
+            card.classList.toggle('flipped');
+        }
+
+        function toggleAnswer(button) {
+            const card = button.closest('.transform-card');
+            card.classList.toggle('revealed');
+            button.textContent = card.classList.contains('revealed') ? 'Hide Answer' : 'Show Answer';
+        }
+
+        function normalise(value) {
+            return value.trim().toLowerCase().replace(/[’']/g, "'");
+        }
+
+        function checkQP(prefix, answers) {
+            let correct = 0;
+
+            answers.forEach((answer, index) => {
+                const input = document.getElementById(`qp-${prefix}${index + 1}`);
+                if (normalise(input.value) === answer) {
+                    input.style.borderColor = '#64aa4c';
+                    input.style.background = '#dff5d5';
+                    correct++;
+                } else {
+                    input.style.borderColor = '#df7070';
+                    input.style.background = '#ffe0e0';
+                }
+            });
+
+            const feedback = document.getElementById(`qp-${prefix}-feedback`);
+            feedback.textContent = correct === answers.length
+                ? '🎉 Perfect!'
+                : `${correct} / ${answers.length} correct`;
+        }
+
+        function checkNegative() {
+            const accepted = [
+                ["isn't", "is not"],
+                ["aren't", "are not"],
+                ["am not"],
+                ["isn't", "is not"]
+            ];
+
+            let correct = 0;
+
+            accepted.forEach((answers, index) => {
+                const input = document.getElementById(`qp-n${index + 1}`);
+                const value = normalise(input.value);
+
+                if (answers.includes(value)) {
+                    input.style.borderColor = '#64aa4c';
+                    input.style.background = '#dff5d5';
+                    correct++;
+                } else {
+                    input.style.borderColor = '#df7070';
+                    input.style.background = '#ffe0e0';
+                }
+            });
+
+            const feedback = document.getElementById('qp-n-feedback');
+            feedback.textContent = correct === accepted.length
+                ? '🎉 Perfect!'
+                : `${correct} / ${accepted.length} correct`;
+        }
+
+        function resetQP(prefix, count) {
+            for (let i = 1; i <= count; i++) {
+                const input = document.getElementById(`qp-${prefix}${i}`);
+                input.value = '';
+                input.style.borderColor = '#d8dce6';
+                input.style.background = 'white';
+            }
+
+            document.getElementById(`qp-${prefix}-feedback`).textContent = '';
+        }
+
+        // Build the Sentence
+        const jumbles = [
+            ["Emma","is","reading","a","book","now"],
+            ["I","am","doing","my","homework","right","now"],
+            ["They","are","playing","football","at","the","moment"],
+            ["Ben","is","running","in","the","park","now"],
+            ["We","are","having","lunch","right","now"],
+            ["Mia","isn't","watching","TV","at","the","moment"],
+            ["The","children","aren't","sleeping","now"],
+            ["I","am","not","using","the","computer","right","now"],
+            ["Leo","isn't","eating","lunch","at","the","moment"],
+            ["You","aren't","listening","to","music","now"],
+            ["Is","Emma","reading","a","book","now"],
+            ["Are","they","playing","football","right","now"],
+            ["Is","Ben","sleeping","at","the","moment"],
+            ["Are","you","doing","your","homework","now"],
+            ["Is","Mia","taking","a","photo","right","now"],
+            ["What","are","you","doing","now"],
+            ["What","is","Lucy","doing","at","the","moment"],
+            ["Where","are","they","going","right","now"],
+            ["Why","is","Tom","running","now"],
+            ["What","are","the","children","eating","at","the","moment"]
+        ];
+        let jIndex = 0;
+        let jStates = Array.from({length:jumbles.length},()=>null);
+        function shuffleBuild(arr){ let a=[...arr]; for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+        function newJState(i){ return {bank:shuffleBuild(jumbles[i].map((w,n)=>({w,n}))),chosen:[]}; }
+        function openBuildMenu(){ openScreen('buildMenu'); }
+        function openJumble(){ jIndex=0; if(!jStates[0]) jStates[0]=newJState(0); openScreen('jumble'); renderJ(); }
+        function renderJ(){
+            if(!jStates[jIndex]) jStates[jIndex]=newJState(jIndex);
+            document.getElementById('jProgress').textContent=`Sentence ${jIndex+1} / ${jumbles.length}`;
+            const state=jStates[jIndex], bank=document.getElementById('jBank'), answer=document.getElementById('jAnswer');
+            bank.innerHTML=''; answer.innerHTML='';
+            state.bank.forEach(obj=>bank.appendChild(makeJWord(obj,'bank')));
+            state.chosen.forEach(obj=>answer.appendChild(makeJWord(obj,'chosen')));
+            document.getElementById('jFeedback').textContent='';
+        }
+        function makeJWord(obj,where){
+            const b=document.createElement('button'); b.className='build-word'; b.textContent=obj.w;
+            b.onclick=()=>{ const state=jStates[jIndex]; if(where==='bank'){ state.bank=state.bank.filter(x=>x.n!==obj.n); state.chosen.push(obj); } else { state.chosen=state.chosen.filter(x=>x.n!==obj.n); state.bank.push(obj); } renderJ(); };
+            return b;
+        }
+        function checkJ(){
+            const got=jStates[jIndex].chosen.map(x=>x.w).join(' '), target=jumbles[jIndex].join(' ');
+            document.getElementById('jFeedback').textContent=got===target?'🌟 Perfect! Your sentence is correct!':'🤔 Not quite yet. Check the word order and try again!';
+        }
+        function resetJ(){ jStates[jIndex]=newJState(jIndex); renderJ(); }
+        function nextJ(){ if(jIndex<jumbles.length-1){ jIndex++; if(!jStates[jIndex]) jStates[jIndex]=newJState(jIndex); renderJ(); } }
+        function prevJ(){ if(jIndex>0){ jIndex--; renderJ(); } else openScreen('buildMenu'); }
+
+        const changeSentences = [
+            {type:"negative",source:"Emma is reading a book now.",target:["Emma","isn't","reading","a","book","now"]},
+            {type:"negative",source:"Ben is playing football right now.",target:["Ben","isn't","playing","football","right","now"]},
+            {type:"negative",source:"They are having lunch at the moment.",target:["They","aren't","having","lunch","at","the","moment"]},
+            {type:"negative",source:"We are watching a film now.",target:["We","aren't","watching","a","film","now"]},
+            {type:"negative",source:"Mia is doing her homework right now.",target:["Mia","isn't","doing","her","homework","right","now"]},
+            {type:"question",source:"Emma is reading a book now.",target:["Is","Emma","reading","a","book","now"]},
+            {type:"question",source:"Ben is running in the park.",target:["Is","Ben","running","in","the","park"]},
+            {type:"question",source:"They are playing football.",target:["Are","they","playing","football"]},
+            {type:"question",source:"Lucy is writing a message.",target:["Is","Lucy","writing","a","message"]},
+            {type:"question",source:"The children are eating lunch.",target:["Are","the","children","eating","lunch"]}
+        ];
+        let cIndex=0;
+        let cStates=Array.from({length:changeSentences.length},()=>null);
+        function newCState(i){ return {bank:shuffleBuild(changeSentences[i].target.map((w,n)=>({w,n}))),chosen:[]}; }
+        function openChangeSentence(){ cIndex=0; if(!cStates[0]) cStates[0]=newCState(0); openScreen('changeSentence'); renderC(); }
+        function renderC(){
+            if(!cStates[cIndex]) cStates[cIndex]=newCState(cIndex);
+            const item=changeSentences[cIndex], state=cStates[cIndex];
+            document.getElementById('cProgress').textContent=`Challenge ${cIndex+1} / ${changeSentences.length}`;
+            document.getElementById('cType').textContent=item.type==='negative'?'🚫 Make it negative':'❓ Make it a question';
+            document.getElementById('cTask').innerHTML=item.type==='negative'
+                ? '<b>Make it negative.</b> Use <b>am not / isn\'t / aren\'t + verb-ing</b>.'
+                : '<b>Make it a question.</b> Move <b>Am / Is / Are</b> before the subject.';
+            document.getElementById('cSource').textContent=item.source;
+            const bank=document.getElementById('cBank'), answer=document.getElementById('cAnswer');
+            bank.innerHTML=''; answer.innerHTML='';
+            state.bank.forEach(obj=>bank.appendChild(makeCWord(obj,'bank')));
+            state.chosen.forEach(obj=>answer.appendChild(makeCWord(obj,'chosen')));
+            document.getElementById('cFeedback').textContent='';
+        }
+        function makeCWord(obj,where){
+            const b=document.createElement('button'); b.className='build-word'; b.textContent=obj.w;
+            b.onclick=()=>{ const state=cStates[cIndex]; if(where==='bank'){ state.bank=state.bank.filter(x=>x.n!==obj.n); state.chosen.push(obj); } else { state.chosen=state.chosen.filter(x=>x.n!==obj.n); state.bank.push(obj); } renderC(); };
+            return b;
+        }
+        function checkC(){
+            const got=cStates[cIndex].chosen.map(x=>x.w).join(' '), target=changeSentences[cIndex].target.join(' ');
+            document.getElementById('cFeedback').textContent=got===target?'🌟 Perfect! You changed the sentence correctly!':'🤔 Not quite yet. Check am / is / are and the word order.';
+        }
+        function resetC(){ cStates[cIndex]=newCState(cIndex); renderC(); }
+        function nextC(){ if(cIndex<changeSentences.length-1){ cIndex++; if(!cStates[cIndex]) cStates[cIndex]=newCState(cIndex); renderC(); } }
+        function prevC(){ if(cIndex>0){ cIndex--; renderC(); } else openScreen('buildMenu'); }
+    </script>
+</body>
+
+</html>
