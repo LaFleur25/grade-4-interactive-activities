@@ -28,7 +28,7 @@
       box-shadow:0 10px 30px rgba(37,48,74,.12)
     }
     .panel h2{font-size:31px;margin:0 0 8px}
-    .topics{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}
+    .topics{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px}
     .topic{
       position:relative;display:block;text-decoration:none;color:var(--ink);
       border-radius:25px;padding:34px 22px;box-shadow:0 7px 0 rgba(37,48,74,.13);
@@ -40,11 +40,9 @@
     .icon{font-size:44px}
     .topic h3{font-size:26px;margin:10px 0 7px}
     .topic p{margin:0;line-height:1.5;font-size:17px}
-    .new{
-      position:absolute;right:14px;top:13px;background:#ef5b78;color:white;
-      font-size:11px;font-weight:bold;letter-spacing:.7px;padding:6px 9px;
-      border-radius:999px;box-shadow:0 2px 6px rgba(37,48,74,.15)
-    }
+    .new{position:absolute;right:14px;top:13px;background:#ef5b78;color:white;font-size:11px;font-weight:bold;letter-spacing:.7px;padding:6px 9px;border-radius:999px;box-shadow:0 2px 6px rgba(37,48,74,.15);animation:newPulse 2.2s ease-in-out infinite}
+    @keyframes newPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.09)}}
+    .revision{background:linear-gradient(135deg,#efe9ff,#fff0f7)}
     footer{text-align:center;padding:30px 12px;color:#657087}
     @media(max-width:700px){.topics{grid-template-columns:1fr}.topic{padding:28px 20px}}
   </style>
@@ -66,10 +64,15 @@
           <p>Daily routines • habits • adverbs of frequency</p>
         </a>
         <a class="topic continuous" href="present-continuous.html">
-          <span class="new">NEW</span>
           <div class="icon">⏳</div>
           <h3>Present Continuous</h3>
           <p>Actions happening now • am / is / are + verb-ing</p>
+        </a>
+        <a class="topic revision" href="revision.html">
+          <span class="new">NEW</span>
+          <div class="icon">🚀</div>
+          <h3>Revision</h3>
+          <p>Review • practise • build sentences • prepare for your PTS</p>
         </a>
       </div>
     </section>
