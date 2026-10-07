@@ -1230,7 +1230,39 @@
                 grid-template-columns: 1fr
             }
         }
-    </style>
+    
+/* Mobile compact layout — desktop unchanged */
+@media (max-width: 700px) {
+  header { padding: 22px 12px 10px !important; }
+  .badge { padding: 5px 11px !important; font-size: 11px !important; }
+  h1 { font-size: 29px !important; margin: 8px 0 4px !important; }
+  .subtitle { font-size: 14px !important; line-height: 1.35 !important; }
+
+  main, .wrap { padding-left: 12px !important; padding-right: 12px !important; }
+  .panel, .homecard, .card { padding: 16px !important; border-radius: 21px !important; }
+
+  .panel h2, .home-intro h2 { font-size: 22px !important; margin-bottom: 5px !important; }
+  .home-intro { margin-bottom: 13px !important; }
+  .home-intro p { font-size: 14px !important; }
+
+  .topics, .menu, .main-menu { gap: 11px !important; margin-top: 14px !important; }
+  .topic, .bigbtn, .hub-card {
+    min-height: 0 !important;
+    padding: 15px !important;
+    border-radius: 19px !important;
+  }
+  .topic .icon, .hub-card .icon { font-size: 29px !important; line-height: 1 !important; }
+  .topic h3, .hub-card h3 {
+    font-size: 20px !important;
+    margin: 6px 0 4px !important;
+    line-height: 1.15 !important;
+  }
+  .topic p, .hub-card p { font-size: 14px !important; line-height: 1.35 !important; }
+  .hub-card .start { margin-top: 9px !important; font-size: 13px !important; }
+  .pts-divider { margin: 20px 0 11px !important; }
+}
+
+</style>
 </head>
 
 <body>

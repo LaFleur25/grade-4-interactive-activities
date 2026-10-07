@@ -31,7 +31,40 @@
 .pts-menu{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.pts-card{position:relative;border:0;border-radius:21px;padding:22px;text-align:left;cursor:pointer;box-shadow:0 5px 0 rgba(38,50,74,.1);transition:.18s}.pts-card:hover{transform:translateY(-3px)}.pts-card h3{margin:9px 0 6px;font-size:21px}.pts-card p{margin:0;line-height:1.45;color:#4d5870}.pts-training{background:var(--green2)}.pts-challenge{background:var(--blue2)}.pts-mock{background:var(--purple2)}
 .pts-option.selected{border-color:var(--purple);background:var(--purple2);box-shadow:0 0 0 2px rgba(128,103,216,.08)}.pts-nav{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 18px}.pts-num{width:34px;height:34px;border:0;border-radius:10px;background:#edf1f6;font-weight:900;cursor:pointer}.pts-num.done{background:#e6f4df}.pts-num.current{outline:3px solid #b9aaf0}.skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin:20px auto;max-width:650px;text-align:left}.skill-row{background:#f5f7fa;border-radius:15px;padding:14px;font-weight:800}.skill-row span{float:right}.result-note{max-width:680px;margin:0 auto 18px;line-height:1.55}.review-list{max-width:760px;margin:18px auto;text-align:left}.review-item{border:1px solid var(--line);border-radius:15px;padding:13px;margin:9px 0;background:#fff}.review-item.good{border-left:5px solid var(--green)}.review-item.miss{border-left:5px solid var(--red)}
 @media(max-width:760px){.pts-menu,.skill-grid{grid-template-columns:1fr}.mobile-pts-jump{display:inline-flex!important;align-items:center;gap:5px;background:linear-gradient(135deg,#eee8ff,#fff0c9);color:#5d4a9d;box-shadow:0 3px 10px rgba(94,72,160,.15);animation:mobilePtsBeat 2.2s ease-in-out infinite}.mobile-pts-jump .down{display:inline-block;animation:mobilePtsDown 1.7s ease-in-out infinite}.topnav{align-items:center}.homebtn{margin-left:auto}}
+.mobile-pts-jump.mobile-pts-hidden{display:none!important}
 .mobile-pts-jump{display:none}@keyframes mobilePtsBeat{0%,100%{transform:scale(1)}12%{transform:scale(1.07)}24%{transform:scale(1)}36%{transform:scale(1.045)}48%{transform:scale(1)}}@keyframes mobilePtsDown{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}@media(prefers-reduced-motion:reduce){.mobile-pts-jump,.mobile-pts-jump .down{animation:none!important}}
+
+/* Mobile compact layout — desktop unchanged */
+@media (max-width: 700px) {
+  header { padding: 22px 12px 10px !important; }
+  .badge { padding: 5px 11px !important; font-size: 11px !important; }
+  h1 { font-size: 29px !important; margin: 8px 0 4px !important; }
+  .subtitle { font-size: 14px !important; line-height: 1.35 !important; }
+
+  main, .wrap { padding-left: 12px !important; padding-right: 12px !important; }
+  .panel, .homecard, .card { padding: 16px !important; border-radius: 21px !important; }
+
+  .panel h2, .home-intro h2 { font-size: 22px !important; margin-bottom: 5px !important; }
+  .home-intro { margin-bottom: 13px !important; }
+  .home-intro p { font-size: 14px !important; }
+
+  .topics, .menu, .main-menu { gap: 11px !important; margin-top: 14px !important; }
+  .topic, .bigbtn, .hub-card {
+    min-height: 0 !important;
+    padding: 15px !important;
+    border-radius: 19px !important;
+  }
+  .topic .icon, .hub-card .icon { font-size: 29px !important; line-height: 1 !important; }
+  .topic h3, .hub-card h3 {
+    font-size: 20px !important;
+    margin: 6px 0 4px !important;
+    line-height: 1.15 !important;
+  }
+  .topic p, .hub-card p { font-size: 14px !important; line-height: 1.35 !important; }
+  .hub-card .start { margin-top: 9px !important; font-size: 13px !important; }
+  .pts-divider { margin: 20px 0 11px !important; }
+}
+
 </style>
 </head>
 <body>
@@ -73,7 +106,7 @@
 </main>
 <script>
 const screens=[...document.querySelectorAll('.screen')];let current='home', previous='home';
-function openScreen(id){previous=current;current=id;screens.forEach(s=>s.classList.toggle('active',s.id===id));document.getElementById('backBtn').style.display=id==='home'?'none':'inline-block';window.scrollTo({top:0,behavior:'smooth'});}
+function openScreen(id){previous=current;current=id;screens.forEach(s=>s.classList.toggle('active',s.id===id));document.getElementById('backBtn').style.display=id==='home'?'none':'inline-block';const ptsJump=document.getElementById('mobilePtsJump');if(ptsJump)ptsJump.classList.toggle('mobile-pts-hidden',id!=='home');window.scrollTo({top:0,behavior:'smooth'});}
 function goBack(){if(current==='lesson')openScreen('learnMenu');else if(current==='quiz'||current==='quizResult')openScreen('practiceMenu');else if(current==='ptsQuiz'||current==='ptsResult')openScreen('ptsMenu');else if(current==='ptsMenu')openScreen('home');else if(current==='build'||current==='transform')openScreen('buildMenu');else openScreen('home');}
 const lessons={simple:{title:'🌞 Present Simple',sub:'Routines, habits and things that happen regularly.',tabs:['Positive','Negative','Questions','Frequency'],html:{
 Positive:`<div class="revision-block"><h3>😊 Positive</h3><div class="two-col"><div class="mini"><b>I / You / We / They</b><div class="formula">subject + verb</div>We <b>go</b> to school every day.<br>They <b>read</b> after school.</div><div class="mini"><b>He / She / It</b><div class="formula">subject + verb-s</div>Emma <b>gets</b> up at seven.<br>Ben <b>does</b> his homework.</div></div><div class="remember">⭐ <b>Remember:</b> go → goes • do → does • have → has • study → studies</div><div class="mini-practice"><h4>✏️ Quick Practice</h4><div class="practice-line">1. I go to school at eight. → He <input class="practice-input" data-answer="goes"> to school at eight.</div><div class="practice-line">2. We study English every day. → Mia <input class="practice-input" data-answer="studies"> English every day.</div><div class="practice-line">3. They have lunch at school. → Ben <input class="practice-input" data-answer="has"> lunch at school.</div>
