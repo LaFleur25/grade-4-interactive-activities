@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grade 4 • Unit 2 Vocabulary Lab</title>
+<link rel="icon" type="image/png" href="../../skaya-logo-white-bg-purple-favicon.png">
+<style>
+:root{
+  --ink:#183153;
+  --blue:#75d5e8;
+  --yellow:#ffd86b;
+  --pink:#f2a6c9;
+  --purple:#c8b4f5;
+  --green:#9bd47a;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--ink);
+  background:linear-gradient(135deg,#fff5c9,#e9f9ff);
+}
+button{font:inherit;color:inherit}
+.top{
+  position:sticky;
+  top:0;
+  z-index:20;
+  display:flex;
+  gap:10px;
+  padding:12px 16px;
+  background:#ffffffed;
+  box-shadow:0 3px 12px #18315318;
+}
+.nav{
+  border:0;
+  border-radius:14px;
+  padding:10px 15px;
+  font-weight:800;
+  cursor:pointer;
+  background:#edf2f7;
+}
+header{
+  text-align:center;
+  padding:28px 16px 12px;
+}
+header h1{
+  font-size:clamp(30px,5vw,48px);
+  margin:8px 0;
+}
+header p{
+  margin:10px 0 0;
+  font-size:17px;
+}
+.eyebrow{
+  display:inline-block;
+  background:var(--green);
+  color:white;
+  border-radius:999px;
+  padding:7px 14px;
+  font-weight:800;
+}
+.wrap{
+  max-width:1050px;
+  margin:auto;
+  padding:18px;
+}
+.panel{
+  background:#fffffff2;
+  border-radius:28px;
+  padding:24px;
+  box-shadow:0 12px 32px #1831531c;
+}
+.panel h2{
+  margin-top:0;
+}
+.weekgrid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-top:20px;
+}
+.week{
+  position:relative;
+  border:0;
+  border-radius:23px;
+  padding:23px 16px;
+  text-align:left;
+  cursor:pointer;
+  box-shadow:0 6px 0 #1831531b;
+  min-height:180px;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.week:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 18px #1831531b;
+}
+.week h3{
+  font-size:21px;
+  margin:8px 0;
+}
+.week p{
+  line-height:1.4;
+  margin-bottom:0;
+}
+.w1{background:#fff0b5}
+.w2{background:#dff5d5}
+.w3{background:#f8ddec}
+.w4{background:#e7ddff}
+.tag{
+  display:inline-block;
+  background:white;
+  border-radius:999px;
+  padding:5px 9px;
+  font-size:12px;
+  font-weight:800;
+}
+.empty{
+  opacity:.78;
+  cursor:default;
+}
+.empty:hover{
+  transform:none;
+  box-shadow:0 6px 0 #1831531b;
+}
+
+.new-badge{
+  position:absolute;
+  top:14px;
+  right:14px;
+  background:#ff6f91;
+  color:white;
+  border-radius:999px;
+  padding:6px 10px;
+  font-size:11px;
+  font-weight:900;
+  box-shadow:0 3px 8px #18315322;
+}
+.lock-icon{
+  display:block;
+  font-size:28px;
+  margin-top:14px;
+}
+.wip-text{
+  display:block;
+  margin-top:7px;
+  font-size:13px;
+  font-weight:800;
+  color:#65758b;
+}
+
+@media(max-width:850px){
+  .weekgrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:550px){
+  .weekgrid{grid-template-columns:1fr}
+}
+
+/* Unit 2: calm sage, cream and teal; keep all artwork fully visible. */
+body{background:linear-gradient(135deg,#f9f5e9,#e6f0e7);color:#203f49}
+.eyebrow{background:#376773}.practice{background:#f3e9cb}.quiz{background:#dcebd9}.unscramble{background:#dcebed}.activity.guess{background:#e4e3ef}
+.section-title{background:#e7efea}.back{background:#f2f4eb;border-color:#c9d9cb}
+.quiz-next,.check-button,.guess-check{background:#a9ced0}.clue-btn{background:#e9ddba}.shuffle-button{background:#dbe4e7}.letter-tile{background:#ede5c9}
+.cards{grid-template-columns:repeat(3,minmax(0,1fr))}.flip-card{height:340px}.vocab-image{width:100%;height:auto;max-height:280px;aspect-ratio:1;object-fit:contain;margin:0}
+.back strong{font-size:24px}.back p{font-size:17px;line-height:1.45}.back .example{font-size:15px}.front small{color:#526372}
+.hint-image,.guess-picture-hint img,.guess-result img{width:min(100%,330px);height:auto;aspect-ratio:1;object-fit:contain}
+.word-slot{flex-wrap:wrap;max-width:100%}.guess-input{min-width:0}button:focus-visible,a:focus-visible{outline:3px solid #376773;outline-offset:4px}
+@media(max-width:850px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:550px){.cards{grid-template-columns:1fr}.panel{padding:18px}.word-slot{gap:4px}.letter-space{width:24px}.wrap{padding:12px}.question{font-size:20px}.section-title h2{font-size:25px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.w1{background:#f3e9cb}.w2{background:#dcebd9}.w3{background:#dcebed}.w4{background:#e4e3ef}.new-badge{background:#376773}.empty{opacity:1}.wip-text{color:#53636a}.week:disabled{cursor:default}
+
+/* Brighter Unit 2 palette: sky blue, peach and lilac. */
+body{background:linear-gradient(135deg,#fff0c9 0%,#d5efff 55%,#f3dcff 100%);color:#203c59}
+.eyebrow{background:#486ab1}.practice,.w1{background:#ffe6a0}.quiz,.w2{background:#ccecff}.unscramble,.w3{background:#ffd5d9}.activity.guess,.w4{background:#e1d4ff}
+.section-title{background:#e3eeff}.back{background:#f1eaff;border-color:#d5c4f4}.new-badge{background:#b44675}
+.quiz-next,.check-button,.guess-check{background:#97d9ed}.clue-btn{background:#ffdc88}.shuffle-button{background:#ded0ff}.letter-tile{background:#ffe4a0}
+</style>
+</head>
+<body><div class="top"><a class="nav" href="../../index.html">⬅️ Home</a></div>
+<header>
+  <span class="eyebrow">COMPASS • UNIT 2</span>
+  <h1>📖 Vocabulary Lab</h1>
+  <p>Learn the words • Practise them • Master them! 🚀</p>
+</header>
+
+<main class="wrap">
+  <section class="panel">
+    <h2>🌟 Choose a Week</h2>
+    <p>Choose a week to practise your Unit 2 vocabulary.</p>
+
+<div class="weekgrid"><button class="week w1" type="button" onclick="location.href='week1.html'"><span class="new-badge">NEW</span><span class="tag">10 WORDS</span><h3>😊 WEEK 1</h3><b>Feelings</b><p>Explore ten feelings.</p></button><button class="week w2 empty" type="button" disabled><h3>WEEK 2</h3><span class="lock-icon" aria-hidden="true">🔒</span><span class="wip-text">Work in Progress</span></button><button class="week w3 empty" type="button" disabled><h3>WEEK 3</h3><span class="lock-icon" aria-hidden="true">🔒</span><span class="wip-text">Work in Progress</span></button><button class="week w4 empty" type="button" disabled><h3>WEEK 4</h3><span class="lock-icon" aria-hidden="true">🔒</span><span class="wip-text">Work in Progress</span></button></div>
+  </section>
+</main>
+
+</body>
+</html>
