@@ -34,7 +34,9 @@ header h1{font-size:clamp(30px,5vw,45px);margin:0}header p{font-size:20px;color:
 .space{width:22px;height:46px}
 .hintbox{text-align:center;margin:0 auto 18px}.hintbox img{width:min(280px,100%);height:180px;object-fit:cover;border-radius:18px;border:3px solid #d9e5ee;box-shadow:0 5px 15px #17365d16}
 @media(max-width:650px){.options{grid-template-columns:1fr}}
-</style></head><body>
+</style><link rel="stylesheet" href="../../shared/navigation.css">
+<script src="../../shared/navigation.js" defer></script>
+</head><body data-navigation="vocabulary-week" data-unit="1" data-week="1">
 <div class="top">
   <button class="nav" onclick="location.href='index.html'">⬅️ Weeks</button>
   <button id="back" class="nav" onclick="home()" style="display:none">⬅️ Activities</button>
@@ -132,6 +134,8 @@ function openQuiz(){
  renderQ();
 }
 function renderQ(){
+ document.querySelector('[onclick="prevQ()"]').disabled=qIndex===0;
+ document.querySelector('[onclick="nextQ()"]').disabled=qIndex===questions.length-1;
  const q=questions[qIndex];
  const chosen=qAnswers[qIndex];
  document.getElementById('qProgress').textContent='Question '+(qIndex+1)+' / '+questions.length;
@@ -166,7 +170,7 @@ function answerQ(i){
    renderQ();
  }
 }
-function prevQ(){if(qIndex>0){qIndex--;renderQ();}else home();}
+function prevQ(){if(qIndex>0){qIndex--;renderQ();}}
 function nextQ(){if(qIndex<questions.length-1){qIndex++;renderQ();}}
 
 // UNSCRAMBLE
@@ -199,6 +203,8 @@ function openUnscramble(){
  renderU();
 }
 function renderU(){
+ document.querySelector('[onclick="prevU()"]').disabled=uIndex===0;
+ document.querySelector('[onclick="nextU()"]').disabled=uIndex===uWords.length-1;
  if(!uStates[uIndex]) uStates[uIndex]=makeState(uWords[uIndex]);
  document.getElementById('uProgress').textContent='Word '+(uIndex+1)+' / '+uWords.length;
 
@@ -289,7 +295,6 @@ function resetU(){
 }
 function prevU(){
  if(uIndex>0){uIndex--;renderU();}
- else home();
 }
 function nextU(){
  if(uIndex<uWords.length-1){

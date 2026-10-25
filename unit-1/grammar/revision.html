@@ -67,8 +67,21 @@
 
 [hidden]{display:none!important}
 </style>
+<link rel="stylesheet" href="../../shared/navigation.css">
+<script src="../../shared/navigation.js" defer>
+// Browser navigation snapshots stay in this page's memory, never in saved storage.
+window.LegacyPTSNavigation={
+ capture:()=>({screen:current,mode:ptsMode,index:ptsIndex,answers:ptsAnswers.slice()}),
+ restore:route=>{
+  ptsMode=route.mode;ptsIndex=route.index;ptsAnswers=route.answers.slice();
+  if(route.screen==='ptsResult'){finishPTS();return;}
+  openScreen(route.screen);
+  if(route.screen==='ptsQuiz')renderPTS();
+ }
+};
+</script>
 </head>
-<body>
+<body data-navigation="revision" data-unit="1">
 <div class="topnav"><button class="navbtn" id="backBtn" style="display:none" onclick="goBack()">⬅️ Back</button><button class="navbtn mobile-pts-jump" id="mobilePtsJump" onclick="jumpToPTS()" aria-label="Jump to PTS Zone">🏆 PTS <span class="down">↓</span></button><div class="nav-spacer"></div><button class="navbtn homebtn" onclick="location.href='index.html'">🏠 Unit 1 Topics</button></div>
 <header><span class="badge">COMPASS • UNIT 1</span><h1>Revision Hub 🚀</h1><p class="subtitle">Review the grammar, practise what you know and get ready for your Unit Progress Check.</p></header>
 <main class="wrap">
@@ -240,5 +253,21 @@ function jumpToPTS(){
 
 // Gentle PTS celebration for touch devices and idle home screens.
 (function(){const card=document.getElementById('ptsHomeCard');if(!card||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;function celebrate(){if(!card.closest('.screen.active'))return;card.classList.remove('celebrate');void card.offsetWidth;card.classList.add('celebrate');setTimeout(()=>card.classList.remove('celebrate'),3200)}celebrate();setTimeout(celebrate,900);setInterval(celebrate,8500)})();
+
+// Direct entry from the Activity Labs hub; other revision entry points are unchanged.
+function openPTSFromHub(){if(location.hash==='#pts')openScreen('ptsMenu');}
+window.addEventListener('hashchange',openPTSFromHub);
+openPTSFromHub();
+
+// Browser navigation snapshots stay in this page's memory, never in saved storage.
+window.LegacyPTSNavigation={
+ capture:()=>({screen:current,mode:ptsMode,index:ptsIndex,answers:ptsAnswers.slice()}),
+ restore:route=>{
+  ptsMode=route.mode;ptsIndex=route.index;ptsAnswers=route.answers.slice();
+  if(route.screen==='ptsResult'){finishPTS();return;}
+  openScreen(route.screen);
+  if(route.screen==='ptsQuiz')renderPTS();
+ }
+};
 </script>
 </body></html>

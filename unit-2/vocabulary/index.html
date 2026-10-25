@@ -177,9 +177,16 @@ body{background:linear-gradient(135deg,#fff0c9 0%,#d5efff 55%,#f3dcff 100%);colo
 .eyebrow{background:#486ab1}.practice,.w1{background:#ffe6a0}.quiz,.w2{background:#ccecff}.unscramble,.w3{background:#ffd5d9}.activity.guess,.w4{background:#e1d4ff}
 .section-title{background:#e3eeff}.back{background:#f1eaff;border-color:#d5c4f4}.new-badge{background:#b44675}
 .quiz-next,.check-button,.guess-check{background:#97d9ed}.clue-btn{background:#ffdc88}.shuffle-button{background:#ded0ff}.letter-tile{background:#ffe4a0}
+
+/* Consistent route back to the Activity Labs hub. */
+.lab-home-nav{position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;gap:8px;padding:12px 16px;background:#fffffff2;box-shadow:0 3px 12px #203c5918}
+a.lab-home-link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink,#203c59);border:0;border-radius:14px;background:#edf1f7;padding:11px 16px;font-size:15px;font-weight:700;line-height:1.5;min-height:44px}
+a.lab-home-link:hover{background:#e1e9f5}a.lab-home-link:focus-visible{outline:3px solid #486ab1;outline-offset:3px}
 </style>
+<link rel="stylesheet" href="../../shared/navigation.css">
+<script src="../../shared/navigation.js" defer></script>
 </head>
-<body><div class="top"><a class="nav" href="../../index.html">⬅️ Home</a></div>
+<body data-navigation="vocabulary-index" data-unit="2"><nav class="lab-home-nav" aria-label="Page navigation"><a class="lab-home-link" href="../../index.html#units/unit-2"><span aria-hidden="true">🏠</span> Activity Labs</a></nav>
 <header>
   <span class="eyebrow">COMPASS • UNIT 2</span>
   <h1>📖 Vocabulary Lab</h1>

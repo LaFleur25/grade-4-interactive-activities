@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#486ab1">
+  <title>Grade 4 • PTS Zone</title>
+  <link rel="icon" href="../skaya-logo-white-bg-purple-favicon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="questions.js" defer></script>
+  <script src="app.js" defer></script>
+<link rel="stylesheet" href="../shared/navigation.css">
+<script src="../shared/navigation.js" defer></script>
+</head>
+<body data-navigation="pts">
+  <div class="app">
+    <nav class="topbar" aria-label="Main navigation">
+      <a class="nav-button" href="../index.html"><span aria-hidden="true">🏠</span> Activity Labs</a>
+      <span class="brand">GRADE 4 <span>• PTS ZONE</span></span>
+    </nav>
+
+    <main id="home" class="home-screen">
+      <header class="hero">
+        <span class="hero-icon" aria-hidden="true">🏆</span>
+        <div><span class="eyebrow">READ • THINK • CHOOSE</span><h1>PTS Zone</h1><p>Ready for your next challenge?</p></div>
+        <span class="hero-pill">6 sets · 60 questions</span>
+      </header>
+      <div class="mode-grid" role="group" aria-label="Choose a mode">
+        <button class="mode-card training" type="button" data-mode="training"><span class="mode-icon" aria-hidden="true">🎯</span><span class="mode-copy"><strong>PTS Training</strong><small>Practise, get help and try again.</small><span class="mode-count">2 practice sets · 10 questions each</span></span><span class="mode-start">Start Training <span aria-hidden="true">→</span></span></button>
+        <button class="mode-card challenge" type="button" data-mode="challenge"><span class="mode-icon" aria-hidden="true">🧩</span><span class="mode-copy"><strong>PTS Challenge</strong><small>Look carefully and connect the clues.</small><span class="mode-count">2 challenge sets · 10 questions each</span></span><span class="mode-start">Take the Challenge <span aria-hidden="true">→</span></span></button>
+        <button class="mode-card mock" type="button" data-mode="mock"><span class="mode-icon" aria-hidden="true">📝</span><span class="mode-copy"><strong>PTS Mock Exam</strong><small>Show what you can do on your own.</small><span class="mode-count">2 mock exams · 10 questions each</span></span><span class="mode-start">Start Mock Exam <span aria-hidden="true">→</span></span></button>
+      </div>
+    </main>
+    <section id="sets" class="sets-screen" hidden aria-labelledby="sets-title">
+      <button class="text-button section-back" id="back-modes" type="button">← PTS Menu</button>
+      <header class="sets-heading"><span class="sets-icon" id="mode-icon" aria-hidden="true">🎯</span><div><h1 id="sets-title" tabindex="-1">PTS Training</h1><p id="mode-description"></p></div></header>
+      <div class="sets-panel">
+        <div id="set-cards" class="set-grid"></div>
+      </div>
+    </section>
+
+    <section id="session" class="session-screen" hidden aria-label="PTS questions">
+      <header class="session-header"><button id="back-sets" class="text-button" type="button">← Back to Sets</button><h1 id="session-title" tabindex="-1"></h1><span id="session-mode" class="quiet-pill"></span></header>
+      <div class="session-meta"><span id="question-count"></span><span id="answered-count"></span><button id="flag-question" class="text-button" type="button" aria-pressed="false">☆ Mark for review</button></div>
+      <div class="progress-track" aria-hidden="true"><div id="progress-fill"></div></div>
+      <nav id="question-nav" class="question-nav" aria-label="Choose a question"></nav>
+      <div class="workspace panel" id="workspace">
+        <article class="stimulus" id="stimulus" aria-labelledby="source-title"></article>
+        <article class="answer-panel">
+          <div class="question-heading"><span id="question-kind" class="eyebrow"></span><span id="review-status" class="status-chip" hidden></span></div>
+          <h2 id="question-prompt"></h2>
+          <div id="options" class="options" role="group" aria-labelledby="question-prompt"></div>
+          <div id="feedback" class="feedback" aria-live="polite" aria-atomic="true"></div>
+        </article>
+      </div>
+      <footer class="session-controls"><button id="previous" class="button secondary" type="button">← Previous</button><button id="session-finish" class="text-button" type="button">Finish Test</button><button id="next" class="button primary" type="button">Next →</button></footer>
+    </section>
+
+    <section id="results" class="results-screen panel" hidden aria-labelledby="result-title">
+      <div class="completion-icon" aria-hidden="true">✓</div><span class="eyebrow">SET COMPLETE</span>
+      <h1 id="result-title" tabindex="-1"></h1><p id="result-mode"></p>
+      <div class="score-circle"><strong id="result-score"></strong><span id="result-percentage"></span></div>
+      <p id="result-message" class="result-message"></p>
+      <section class="topic-section" aria-labelledby="topic-report-title"><h2 id="topic-report-title">📊 Your Topic Report</h2><div id="topic-report"></div></section>
+      <p id="unanswered-result" class="note"></p>
+      <div class="result-actions"><button id="review-answers" class="button primary" type="button">Review Answers →</button><button id="retry-set" class="button secondary" type="button">Retry Set</button><button id="result-home" class="text-button" type="button">Back to Sets</button></div>
+    </section>
+    <footer class="site-footer"><p class="motto">Learn <span>•</span> Think <span>•</span> Grow</p></footer>
+  </div>
+  <dialog id="confirm-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-copy dialog-unanswered">
+    <form method="dialog"><span class="dialog-icon" aria-hidden="true">✏️</span><h2 id="dialog-title">Finish Your Test?</h2><p id="dialog-copy">Are you ready to submit your answers?</p><p id="dialog-unanswered" class="dialog-note"></p><div class="dialog-actions"><button id="dialog-cancel" class="button secondary" value="cancel" autofocus>Keep Working</button><button id="dialog-confirm" class="button primary" value="confirm">Finish Test</button></div></form>
+  </dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <noscript><p class="panel">Please enable JavaScript to use PTS Zone.</p></noscript>
+</body>
+</html>
