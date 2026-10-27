@@ -77,3 +77,5 @@ button:disabled{box-shadow:none;opacity:.5}
  .source-with-picture .source-figure img{height:210px}
 }
 @media(min-width:1600px){.source-with-picture{grid-template-columns:340px minmax(0,1fr)}.source-with-picture .source-figure img{height:330px}}
+
+.set-new{display:inline-block;border-radius:8px;background:#e9405e;color:#fff;padding:5px 8px;font-size:11px;line-height:1;font-weight:800;white-space:nowrap}

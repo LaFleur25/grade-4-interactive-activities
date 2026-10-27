@@ -1,4 +1,4 @@
-/* SW401–SW406; 60 distinct Grade 4 questions. Topics are exclusive for exact totals. */
+/* SW401–SW406; Grade 4 PTS practice questions. */
 window.PTS_DATA = {
   "version": 2,
   "vocabularyScope": "SW401–SW406",
@@ -634,6 +634,384 @@ window.PTS_DATA = {
             "He goes to school."
           ],
           "answer": 2
+        }
+      ]
+    },
+    {
+      "id": "training-3",
+      "mode": "training",
+      "title": "Practice Set 3",
+      "isNew": true,
+      "sources": {
+        "s1": {
+          "type": "table",
+          "title": "Lucy's after-school activities",
+          "headers": [
+            "Day",
+            "Activity"
+          ],
+          "rows": [
+            [
+              "Monday",
+              "🎨 Art club"
+            ],
+            [
+              "Tuesday",
+              "⚽ Football"
+            ],
+            [
+              "Wednesday",
+              "📚 Library"
+            ]
+          ]
+        },
+        "s2": {
+          "type": "dialogue",
+          "title": "After school",
+          "turns": [
+            {
+              "name": "Jack: ",
+              "text": "Hi, Emily! Would you like to play football after school?"
+            },
+            {
+              "name": "Emily: ",
+              "text": "I’d love to, but I have a piano lesson today."
+            },
+            {
+              "name": "Jack: ",
+              "text": "____________________"
+            }
+          ]
+        },
+        "s3": {
+          "type": "timeline",
+          "title": "Ben’s morning",
+          "steps": [
+            {
+              "icon": "🛏️",
+              "time": "First",
+              "action": "Get up"
+            },
+            {
+              "icon": "🪥",
+              "time": "Then",
+              "action": "Brush teeth"
+            },
+            {
+              "icon": "🥣",
+              "time": "Next",
+              "action": "Have breakfast"
+            },
+            {
+              "icon": "🚌",
+              "time": "Last",
+              "action": "Catch the bus"
+            }
+          ]
+        },
+        "s4": {
+          "type": "table",
+          "title": "Sophie’s morning routine",
+          "headers": [
+            "Time",
+            "Activity"
+          ],
+          "rows": [
+            [
+              "7:00",
+              "🛏️ Gets up"
+            ],
+            [
+              "7:15",
+              "🥣 Has breakfast"
+            ],
+            [
+              "7:30",
+              "🪥 Brushes her teeth"
+            ],
+            [
+              "7:45",
+              "🎒 Goes to school"
+            ]
+          ]
+        },
+        "s5": {
+          "type": "table",
+          "title": "Tom and Grace’s jobs",
+          "headers": [
+            "Activity",
+            "Tom",
+            "Grace"
+          ],
+          "rows": [
+            [
+              "Feeds a pet",
+              "✓",
+              "—"
+            ],
+            [
+              "Waters the plants",
+              "—",
+              "✓"
+            ],
+            [
+              "Makes the bed",
+              "✓",
+              "✓"
+            ]
+          ],
+          "note": "✓ = yes   — = no"
+        },
+        "s6": {
+          "type": "table",
+          "title": "Oliver’s weekly activities",
+          "headers": [
+            "Day",
+            "Activity"
+          ],
+          "rows": [
+            [
+              "Monday",
+              "🏊 Swimming"
+            ],
+            [
+              "Tuesday",
+              "📖 Reading"
+            ],
+            [
+              "Wednesday",
+              "🏊 Swimming"
+            ],
+            [
+              "Thursday",
+              "📖 Reading"
+            ],
+            [
+              "Friday",
+              "🏊 Swimming"
+            ],
+            [
+              "Saturday",
+              "🎨 Art club"
+            ],
+            [
+              "Sunday",
+              "🚲 Cycling"
+            ]
+          ]
+        },
+        "s7": {
+          "type": "reading",
+          "title": "At the park yesterday",
+          "text": "Yesterday at four, the children were at the park. Lily is the girl with red hair.",
+          "image": "images/park-activities.jpg",
+          "alt": "Four children in a park: a red-haired girl reading, a boy cycling, a boy playing with a ball and a girl painting."
+        },
+        "s8": {
+          "type": "dialogue",
+          "title": "Walking to school",
+          "turns": [
+            {
+              "name": "Daniel: ",
+              "text": "How often do you walk to school?"
+            },
+            {
+              "name": "Charlie: ",
+              "text": "I walk to school every day."
+            },
+            {
+              "name": "Daniel: ",
+              "text": "So, you __________ walk to school."
+            }
+          ]
+        },
+        "s9": {
+          "type": "reading",
+          "title": "Lily’s message",
+          "text": "Hi Grace, I can’t play outside today. It’s raining, so I’m making a cake with my mum. See you tomorrow! — Lily"
+        },
+        "s10": {
+          "type": "timeline",
+          "title": "Harry’s afternoon",
+          "steps": [
+            {
+              "icon": "📖",
+              "time": "5:00",
+              "action": "Harry starts reading"
+            },
+            {
+              "icon": "🏠",
+              "time": "5:30",
+              "action": "Mum comes home"
+            },
+            {
+              "icon": "📚",
+              "time": "6:00",
+              "action": "Harry finishes reading"
+            }
+          ]
+        }
+      },
+      "questions": [
+        {
+          "source": "s1",
+          "kind": "table",
+          "prompt": "What does Lucy do after school on Tuesday?",
+          "explanation": "The table shows football on Tuesday.",
+          "id": "training-3-q1",
+          "topic": "routines",
+          "group": "routines",
+          "options": [
+            "She goes to art club.",
+            "She plays football.",
+            "She goes to the library.",
+            "She plays tennis."
+          ],
+          "answer": 1
+        },
+        {
+          "source": "s2",
+          "kind": "dialogue",
+          "prompt": "What does Jack say next?",
+          "explanation": "Emily has a piano lesson today, so Jack suggests tomorrow.",
+          "id": "training-3-q2",
+          "topic": "routines",
+          "group": "routines",
+          "options": [
+            "My piano is in the living room.",
+            "Yes, I play football every day.",
+            "I had lunch at school yesterday.",
+            "That’s OK. We can play tomorrow."
+          ],
+          "answer": 3
+        },
+        {
+          "source": "s3",
+          "kind": "timeline",
+          "prompt": "What does Ben do before he has breakfast?",
+          "explanation": "Ben brushes his teeth before breakfast.",
+          "id": "training-3-q3",
+          "topic": "routines",
+          "group": "routines",
+          "options": [
+            "He gets on the bus.",
+            "He goes to bed.",
+            "He brushes his teeth.",
+            "He plays football."
+          ],
+          "answer": 2
+        },
+        {
+          "source": "s4",
+          "kind": "table",
+          "prompt": "What does Sophie do after breakfast?",
+          "explanation": "Sophie brushes her teeth after breakfast.",
+          "id": "training-3-q4",
+          "topic": "routines",
+          "group": "routines",
+          "options": [
+            "She goes to school.",
+            "She gets up.",
+            "She brushes her teeth.",
+            "She has dinner."
+          ],
+          "answer": 2
+        },
+        {
+          "source": "s5",
+          "kind": "table",
+          "prompt": "Which activity do Tom and Grace both do?",
+          "explanation": "Both Tom and Grace have a tick next to makes the bed.",
+          "id": "training-3-q5",
+          "topic": "routines",
+          "group": "routines",
+          "options": [
+            "They feed a pet.",
+            "They make the bed.",
+            "They water the plants.",
+            "They wash the car."
+          ],
+          "answer": 1
+        },
+        {
+          "source": "s6",
+          "kind": "table",
+          "prompt": "Which sentence is correct?",
+          "explanation": "Oliver swims three days a week and goes to art club once.",
+          "id": "training-3-q6",
+          "topic": "frequency",
+          "group": "frequency",
+          "options": [
+            "Oliver goes swimming more often than he goes to art club.",
+            "Oliver goes swimming every day.",
+            "Oliver never goes to art club.",
+            "Oliver goes to art club three times a week."
+          ],
+          "answer": 0
+        },
+        {
+          "source": "s7",
+          "kind": "picture",
+          "prompt": "What was Lily doing?",
+          "explanation": "Lily, the red-haired girl, was reading a book.",
+          "id": "training-3-q7",
+          "topic": "pastContinuous",
+          "group": "pastContinuous",
+          "options": [
+            "She was riding a bike.",
+            "She was playing with a ball.",
+            "She was painting a picture.",
+            "She was reading a book."
+          ],
+          "answer": 3
+        },
+        {
+          "source": "s8",
+          "kind": "dialogue",
+          "prompt": "Choose the best word.",
+          "explanation": "Every day means always.",
+          "id": "training-3-q8",
+          "topic": "frequency",
+          "group": "frequency",
+          "options": [
+            "never",
+            "sometimes",
+            "always",
+            "often"
+          ],
+          "answer": 2
+        },
+        {
+          "source": "s9",
+          "kind": "reading",
+          "prompt": "Why is Lily staying inside?",
+          "explanation": "Lily says it is raining.",
+          "id": "training-3-q9",
+          "topic": "routines",
+          "group": "routines",
+          "options": [
+            "She has a test.",
+            "It is raining.",
+            "She is tired.",
+            "It is snowing."
+          ],
+          "answer": 1
+        },
+        {
+          "source": "s10",
+          "kind": "timeline",
+          "prompt": "What was Harry doing when Mum came home?",
+          "explanation": "Harry started reading before Mum came home and finished after she arrived.",
+          "id": "training-3-q10",
+          "topic": "pastContinuous",
+          "group": "pastContinuous",
+          "options": [
+            "He was reading a book.",
+            "He was eating dinner.",
+            "He was playing football.",
+            "He was going to school."
+          ],
+          "answer": 0
         }
       ]
     },
@@ -1783,6 +2161,720 @@ window.PTS_DATA = {
             "He puts on his jacket."
           ],
           "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "challenge-3",
+      "mode": "challenge",
+      "title": "Challenge Set 3",
+      "isNew": true,
+      "sources": {
+        "s1": {
+          "type": "table",
+          "title": "Grace’s school mornings",
+          "headers": [
+            "Time",
+            "Activity"
+          ],
+          "rows": [
+            [
+              "7:00",
+              "Get up"
+            ],
+            [
+              "7:15",
+              "Have breakfast"
+            ],
+            [
+              "7:30",
+              "Brush teeth"
+            ],
+            [
+              "7:45",
+              "Catch the bus"
+            ]
+          ]
+        },
+        "s2": {
+          "type": "table",
+          "title": "Tom’s pet care",
+          "headers": [
+            "Day",
+            "Feed the dog",
+            "Walk the dog"
+          ],
+          "rows": [
+            [
+              "Monday",
+              "✓",
+              "✓"
+            ],
+            [
+              "Tuesday",
+              "✓",
+              "—"
+            ],
+            [
+              "Wednesday",
+              "✓",
+              "✓"
+            ],
+            [
+              "Thursday",
+              "✓",
+              "—"
+            ],
+            [
+              "Friday",
+              "✓",
+              "✓"
+            ]
+          ],
+          "note": "✓ = yes   — = no"
+        },
+        "s3": {
+          "type": "dialogue",
+          "title": "At home yesterday",
+          "turns": [
+            {
+              "name": "Lucy: ",
+              "text": "What were you doing when Dad came home?"
+            },
+            {
+              "name": "Ben: ",
+              "text": "I was making a sandwich. My sister was reading."
+            },
+            {
+              "name": "Lucy: ",
+              "text": "Who was reading?"
+            }
+          ]
+        },
+        "s4": {
+          "type": "reading",
+          "title": "A busy afternoon",
+          "text": "Yesterday at four, Lily was at the park. Lily is the girl with red hair.",
+          "image": "images/park-activities.jpg",
+          "alt": "A red-haired girl reading and three other children cycling, painting and playing football in a park."
+        },
+        "s5": {
+          "type": "timeline",
+          "title": "Oliver’s evening",
+          "steps": [
+            {
+              "icon": "🍽️",
+              "time": "First",
+              "action": "Have dinner"
+            },
+            {
+              "icon": "🎒",
+              "time": "Then",
+              "action": "Pack school bag"
+            },
+            {
+              "icon": "🪥",
+              "time": "Next",
+              "action": "Brush teeth"
+            },
+            {
+              "icon": "🛏️",
+              "time": "Last",
+              "action": "Go to bed"
+            }
+          ]
+        },
+        "s6": {
+          "type": "reading",
+          "title": "A rainy morning",
+          "text": "Emily usually walks to school. Today it is raining, so her dad takes her to school by car."
+        },
+        "s7": {
+          "type": "table",
+          "title": "Jack’s reading",
+          "headers": [
+            "Day",
+            "Reads a book"
+          ],
+          "rows": [
+            [
+              "Monday",
+              "✓"
+            ],
+            [
+              "Tuesday",
+              "—"
+            ],
+            [
+              "Wednesday",
+              "✓"
+            ],
+            [
+              "Thursday",
+              "—"
+            ],
+            [
+              "Friday",
+              "✓"
+            ]
+          ],
+          "note": "✓ = yes   — = no"
+        },
+        "s8": {
+          "type": "dialogue",
+          "title": "A phone call",
+          "turns": [
+            {
+              "name": "Harry: ",
+              "text": "I called you at six. Were you playing football?"
+            },
+            {
+              "name": "Daniel: ",
+              "text": "No, I wasn’t. I was feeding my dog."
+            },
+            {
+              "name": "Harry: ",
+              "text": "Oh, was your dog hungry?"
+            },
+            {
+              "name": "Daniel: ",
+              "text": "Yes, he was!"
+            }
+          ]
+        },
+        "s9": {
+          "type": "timeline",
+          "title": "Saturday at home",
+          "steps": [
+            {
+              "icon": "🧹",
+              "time": "10:00",
+              "action": "Lily starts tidying her room"
+            },
+            {
+              "icon": "📞",
+              "time": "10:15",
+              "action": "Grace calls Lily"
+            },
+            {
+              "icon": "✅",
+              "time": "10:30",
+              "action": "Lily finishes tidying her room"
+            }
+          ]
+        },
+        "s10": {
+          "type": "reading",
+          "title": "Before school",
+          "text": "Sophie puts her books in her bag every evening. In the morning, her bag is ready for school."
+        }
+      },
+      "questions": [
+        {
+          "source": "s1",
+          "kind": "table",
+          "prompt": "What does Grace do between breakfast and catching the bus?",
+          "explanation": "Grace brushes her teeth at 7:30.",
+          "id": "challenge-3-q1",
+          "topic": "routines",
+          "group": "routines",
+          "options": [
+            "She brushes her teeth.",
+            "She gets up.",
+            "She has dinner.",
+            "She goes to bed."
+          ],
+          "answer": 0
+        },
+        {
+          "source": "s2",
+          "kind": "table",
+          "prompt": "Which sentence is correct?",
+          "explanation": "Tom feeds his dog on all five days in the table.",
+          "id": "challenge-3-q2",
+          "topic": "frequency",
+          "group": "frequency",
+          "options": [
+            "Tom walks the dog every day shown.",
+            "Tom feeds the dog every day shown.",
+            "Tom never feeds the dog.",
+            "Tom walks the dog on Tuesday."
+          ],
+          "answer": 1
+        },
+        {
+          "source": "s3",
+          "kind": "dialogue",
+          "prompt": "What is the best answer to Lucy’s question?",
+          "explanation": "Ben says his sister was reading.",
+          "id": "challenge-3-q3",
+          "topic": "pastContinuous",
+          "group": "pastContinuous",
+          "options": [
+            "Dad was reading.",
+            "Ben was reading.",
+            "Ben’s sister was reading.",
+            "Lucy was reading."
+          ],
+          "answer": 2
+        },
+        {
+          "source": "s4",
+          "kind": "picture",
+          "prompt": "What was Lily doing?",
+          "explanation": "The red-haired girl is reading a book.",
+          "id": "challenge-3-q4",
+          "topic": "pastContinuous",
+          "group": "pastContinuous",
+          "options": [
+            "She was cycling.",
+            "She was painting.",
+            "She was playing football.",
+            "She was reading."
+          ],
+          "answer": 3
+        },
+        {
+          "source": "s5",
+          "kind": "timeline",
+          "prompt": "What does Oliver do just before he brushes his teeth?",
+          "explanation": "Packing his school bag comes just before brushing his teeth.",
+          "id": "challenge-3-q5",
+          "topic": "routines",
+          "group": "routines",
+          "options": [
+            "He packs his school bag.",
+            "He goes to bed.",
+            "He has breakfast.",
+            "He gets dressed."
+          ],
+          "answer": 0
+        },
+        {
+          "source": "s6",
+          "kind": "inference",
+          "prompt": "Why does Emily go to school by car today?",
+          "explanation": "Emily goes by car because it is raining.",
+          "id": "challenge-3-q6",
+          "topic": "routines",
+          "group": "routines",
+          "options": [
+            "She is going swimming.",
+            "It is raining.",
+            "She is walking with her dad.",
+            "It is Saturday."
+          ],
+          "answer": 1
+        },
+        {
+          "source": "s7",
+          "kind": "table",
+          "prompt": "How often does Jack read a book on the days shown?",
+          "explanation": "The table shows three reading days: Monday, Wednesday and Friday.",
+          "id": "challenge-3-q7",
+          "topic": "frequency",
+          "group": "frequency",
+          "options": [
+            "He reads every day.",
+            "He never reads.",
+            "He reads on three days.",
+            "He reads on one day."
+          ],
+          "answer": 2
+        },
+        {
+          "source": "s8",
+          "kind": "dialogue",
+          "prompt": "What was Daniel doing at six?",
+          "explanation": "Daniel says he was feeding his dog.",
+          "id": "challenge-3-q8",
+          "topic": "pastContinuous",
+          "group": "pastContinuous",
+          "options": [
+            "He was playing football.",
+            "He was calling Harry.",
+            "He was eating dinner.",
+            "He was feeding his dog."
+          ],
+          "answer": 3
+        },
+        {
+          "source": "s9",
+          "kind": "timeline",
+          "prompt": "What was Lily doing when Grace called?",
+          "explanation": "Grace called between the start and the end of Lily’s tidying.",
+          "id": "challenge-3-q9",
+          "topic": "pastContinuous",
+          "group": "pastContinuous",
+          "options": [
+            "She was tidying her room.",
+            "She was going to bed.",
+            "She was riding a bike.",
+            "She was having lunch."
+          ],
+          "answer": 0
+        },
+        {
+          "source": "s10",
+          "kind": "inference",
+          "prompt": "Why is Sophie’s bag ready in the morning?",
+          "explanation": "Sophie puts her books in her bag every evening.",
+          "id": "challenge-3-q10",
+          "topic": "routines",
+          "group": "routines",
+          "options": [
+            "She buys new books every morning.",
+            "She packs her bag every evening.",
+            "She leaves her books at school.",
+            "She never takes books to school."
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "mock-3",
+      "mode": "mock",
+      "title": "Mock Exam 3",
+      "isNew": true,
+      "sources": {
+        "s1": {
+          "type": "table",
+          "title": "Emily’s week",
+          "headers": [
+            "Day",
+            "After school"
+          ],
+          "rows": [
+            [
+              "Monday",
+              "📚 Library"
+            ],
+            [
+              "Tuesday",
+              "🏊 Swimming"
+            ],
+            [
+              "Wednesday",
+              "🎨 Art club"
+            ]
+          ]
+        },
+        "s2": {
+          "type": "dialogue",
+          "title": "A school morning",
+          "turns": [
+            {
+              "name": "Sophie: ",
+              "text": "Do you walk to school every day?"
+            },
+            {
+              "name": "Jack: ",
+              "text": "No. I walk on Monday and Tuesday. On the other days, I catch the bus."
+            }
+          ]
+        },
+        "s3": {
+          "type": "timeline",
+          "title": "Grace’s bedtime",
+          "steps": [
+            {
+              "icon": "🚿",
+              "time": "First",
+              "action": "Take a shower"
+            },
+            {
+              "icon": "🪥",
+              "time": "Then",
+              "action": "Brush teeth"
+            },
+            {
+              "icon": "👕",
+              "time": "Next",
+              "action": "Put on pyjamas"
+            },
+            {
+              "icon": "🛏️",
+              "time": "Last",
+              "action": "Go to bed"
+            }
+          ]
+        },
+        "s4": {
+          "type": "reading",
+          "title": "Yesterday in the kitchen",
+          "text": "Yesterday at six, Emily was helping at home. Look at the picture.",
+          "image": "images/dishes.jpg",
+          "alt": "A girl washing dishes in the kitchen."
+        },
+        "s5": {
+          "type": "reading",
+          "title": "An evening at home",
+          "text": "Yesterday at seven, Tom was doing his homework. His brother was feeding their cat."
+        },
+        "s6": {
+          "type": "table",
+          "title": "Lucy’s breakfast",
+          "headers": [
+            "Day",
+            "Has breakfast"
+          ],
+          "rows": [
+            [
+              "Monday",
+              "✓"
+            ],
+            [
+              "Tuesday",
+              "✓"
+            ],
+            [
+              "Wednesday",
+              "✓"
+            ],
+            [
+              "Thursday",
+              "✓"
+            ],
+            [
+              "Friday",
+              "✓"
+            ]
+          ],
+          "note": "✓ = yes"
+        },
+        "s7": {
+          "type": "dialogue",
+          "title": "After school",
+          "turns": [
+            {
+              "name": "Ben: ",
+              "text": "Would you like to play football now?"
+            },
+            {
+              "name": "Harry: ",
+              "text": "I can’t now. I’m doing my homework."
+            },
+            {
+              "name": "Ben: ",
+              "text": "That’s OK. We can play later."
+            }
+          ]
+        },
+        "s8": {
+          "type": "timeline",
+          "title": "Yesterday afternoon",
+          "steps": [
+            {
+              "icon": "📖",
+              "time": "4:00",
+              "action": "Daniel starts reading"
+            },
+            {
+              "icon": "🚪",
+              "time": "4:15",
+              "action": "Mum comes home"
+            },
+            {
+              "icon": "✅",
+              "time": "4:30",
+              "action": "Daniel finishes reading"
+            }
+          ]
+        },
+        "s9": {
+          "type": "table",
+          "title": "Tom and Oliver’s routines",
+          "headers": [
+            "Activity",
+            "Tom",
+            "Oliver"
+          ],
+          "rows": [
+            [
+              "Make the bed",
+              "✓",
+              "✓"
+            ],
+            [
+              "Feed a pet",
+              "✓",
+              "—"
+            ],
+            [
+              "Walk to school",
+              "—",
+              "✓"
+            ]
+          ],
+          "note": "✓ = yes   — = no"
+        },
+        "s10": {
+          "type": "reading",
+          "title": "A wet day",
+          "text": "It is raining outside. Lily takes her umbrella before she walks to school."
+        }
+      },
+      "questions": [
+        {
+          "source": "s1",
+          "kind": "table",
+          "prompt": "What does Emily do after school on Wednesday?",
+          "explanation": "The table shows art club on Wednesday.",
+          "id": "mock-3-q1",
+          "topic": "routines",
+          "group": "routines",
+          "options": [
+            "She goes swimming.",
+            "She goes to the library.",
+            "She goes to art club.",
+            "She plays football."
+          ],
+          "answer": 2
+        },
+        {
+          "source": "s2",
+          "kind": "dialogue",
+          "prompt": "Which sentence is correct?",
+          "explanation": "Jack walks on two days and catches the bus on the others.",
+          "id": "mock-3-q2",
+          "topic": "frequency",
+          "group": "frequency",
+          "options": [
+            "Jack never walks to school.",
+            "Jack always walks to school.",
+            "Jack catches the bus every day.",
+            "Jack sometimes walks to school."
+          ],
+          "answer": 3
+        },
+        {
+          "source": "s3",
+          "kind": "timeline",
+          "prompt": "What does Grace do after brushing her teeth?",
+          "explanation": "Putting on pyjamas comes after brushing teeth.",
+          "id": "mock-3-q3",
+          "topic": "routines",
+          "group": "routines",
+          "options": [
+            "She puts on her pyjamas.",
+            "She takes a shower.",
+            "She goes to school.",
+            "She has breakfast."
+          ],
+          "answer": 0
+        },
+        {
+          "source": "s4",
+          "kind": "picture",
+          "prompt": "What was Emily doing?",
+          "explanation": "The picture shows Emily washing the dishes.",
+          "id": "mock-3-q4",
+          "topic": "pastContinuous",
+          "group": "pastContinuous",
+          "options": [
+            "She was reading a book.",
+            "She was washing the dishes.",
+            "She was painting a picture.",
+            "She was playing football."
+          ],
+          "answer": 1
+        },
+        {
+          "source": "s5",
+          "kind": "reading",
+          "prompt": "What was Tom’s brother doing?",
+          "explanation": "Tom’s brother was feeding their cat.",
+          "id": "mock-3-q5",
+          "topic": "pastContinuous",
+          "group": "pastContinuous",
+          "options": [
+            "He was doing homework.",
+            "He was reading a book.",
+            "He was feeding the cat.",
+            "He was having breakfast."
+          ],
+          "answer": 2
+        },
+        {
+          "source": "s6",
+          "kind": "table",
+          "prompt": "Which sentence matches the table?",
+          "explanation": "There is a tick for every day shown.",
+          "id": "mock-3-q6",
+          "topic": "frequency",
+          "group": "frequency",
+          "options": [
+            "Lucy never has breakfast.",
+            "Lucy has breakfast on Monday only.",
+            "Lucy has breakfast on three days.",
+            "Lucy has breakfast every day shown."
+          ],
+          "answer": 3
+        },
+        {
+          "source": "s7",
+          "kind": "dialogue",
+          "prompt": "Why can’t Harry play now?",
+          "explanation": "Harry says he is doing his homework.",
+          "id": "mock-3-q7",
+          "topic": "routines",
+          "group": "routines",
+          "options": [
+            "He is doing his homework.",
+            "He is feeding his dog.",
+            "He is at the library.",
+            "He is going to bed."
+          ],
+          "answer": 0
+        },
+        {
+          "source": "s8",
+          "kind": "timeline",
+          "prompt": "What was Daniel doing when Mum came home?",
+          "explanation": "Mum came home while Daniel was reading.",
+          "id": "mock-3-q8",
+          "topic": "pastContinuous",
+          "group": "pastContinuous",
+          "options": [
+            "He was eating lunch.",
+            "He was reading.",
+            "He was playing tennis.",
+            "He was taking a shower."
+          ],
+          "answer": 1
+        },
+        {
+          "source": "s9",
+          "kind": "table",
+          "prompt": "What do both boys do?",
+          "explanation": "Both boys have a tick for making the bed.",
+          "id": "mock-3-q9",
+          "topic": "routines",
+          "group": "routines",
+          "options": [
+            "They feed a pet.",
+            "They walk to school.",
+            "They make the bed.",
+            "They catch the bus."
+          ],
+          "answer": 2
+        },
+        {
+          "source": "s10",
+          "kind": "inference",
+          "prompt": "Why does Lily take an umbrella?",
+          "explanation": "An umbrella helps Lily stay dry in the rain.",
+          "id": "mock-3-q10",
+          "topic": "routines",
+          "group": "routines",
+          "options": [
+            "She wants to play tennis.",
+            "She is going swimming.",
+            "She wants to read a book.",
+            "She wants to stay dry."
+          ],
+          "answer": 3
         }
       ]
     }

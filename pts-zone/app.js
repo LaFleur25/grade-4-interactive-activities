@@ -3,9 +3,9 @@
   const DATA = window.PTS_DATA;
   const $ = id => document.getElementById(id);
   const MODES = {
-    training: {name:'PTS Training',icon:'🎯',emojis:['🌱','✨'],description:'Choose a practice set. Try, learn and correct your answers.'},
-    challenge: {name:'PTS Challenge',icon:'🧩',emojis:['🔎','💡'],description:'Choose a challenge. Look carefully and find the clues.'},
-    mock: {name:'PTS Mock Exam',icon:'📝',emojis:['📝','🎓'],description:'Choose an exam. Your results appear when you finish.'}
+    training: {name:'PTS Training',icon:'🎯',emojis:['🌱','✨','🚀'],description:'Choose a practice set. Try, learn and correct your answers.'},
+    challenge: {name:'PTS Challenge',icon:'🧩',emojis:['🔎','💡','🧠'],description:'Choose a challenge. Look carefully and find the clues.'},
+    mock: {name:'PTS Mock Exam',icon:'📝',emojis:['📝','🎓','⭐'],description:'Choose an exam. Your results appear when you finish.'}
   };
   const KINDS = {reading:'Read & choose',dialogue:'Read the conversation',table:'Look at the table',picture:'Look & choose',inference:'Look for a clue',poster:'Look at the card',timeline:'Look at the order',scene:'Look at the scene'};
   const TOPICS={routines:{name:'Daily Routines',icon:'🌅'},frequency:{name:'Adverbs of Frequency',icon:'📅'},pastContinuous:{name:'Past Continuous',icon:'🕰️'}};
@@ -53,6 +53,7 @@
       const record = history[set.id], draft = sessions[set.id] && !sessions[set.id].submitted ? sessions[set.id] : null;
       const card = make('article','set-card '+mode), head = make('div','set-head');
       const title=make('h3');title.append(make('span','set-emoji',MODES[mode].emojis[setIndex]),document.createTextNode(set.title));
+      if (set.isNew) title.append(make('span','set-new','NEW'));
       head.append(title,make('span','set-status'+(record&&!draft?' complete':''),draft?'In progress':record?'✓ Completed':'Ready to start'));
       const meta = make('p','set-meta','10 Questions'+(draft?' · '+draft.answers.filter(a => a !== null).length+' answered':''));
       const previous = make('p','set-meta',record?'Last score this session: '+score(set,record)+' / 10':'Ready when you are!');
