@@ -84,8 +84,8 @@
     }
     if(page==='grammar-topic'){
       title+=' · '+document.body.dataset.topic;
-      if(id==='home')parent=link('📚 Grammar Lab','unit-'+unit+'/grammar/index.html');
-      else if(id==='quiz')parent=action('🎯 Multiple Choice',()=>run('openScreen','mc'));
+      if(id==='home')parent=link(document.body.dataset.topic === 'Past Simple' ? '📚 Unit 2 Grammar Topics' : '📚 Grammar Lab','unit-'+unit+'/grammar/index.html');
+      else if(id==='quiz'||(id==='quizResult'&&document.body.dataset.topic==='Past Simple'))parent=action(document.body.dataset.topic==='Past Simple'?'🎯 Back to Multiple Choice':'🎯 Multiple Choice',()=>run('openScreen','mc'));
       else if(['jumble','changeSentence','build'].includes(id))parent=action('🧩 Build the Sentence',()=>run('openScreen','buildMenu'));
       else parent=action('🎮 Activities',()=>run('openScreen','home'));
     }

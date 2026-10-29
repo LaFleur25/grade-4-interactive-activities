@@ -31,3 +31,4 @@
 .area-button{width:clamp(176px,21vw,240px);min-width:176px;min-height:54px;padding:10px 15px;font-size:17px}
 .area-emoji{font-size:24px}.site-number{font-size:28px}
 @media(max-width:700px){.area-navigation{min-height:48px}.area-button{width:auto;min-width:0;min-height:48px;padding:9px 11px;font-size:15px}.area-emoji{font-size:21px}}
+.updated-label{display:table;margin-top:10px;padding:5px 9px;border-radius:7px;background:#fff;color:#405b7b;border:1px solid #d8e3ef;font-size:12px;font-weight:700;line-height:1.25}.destination-copy .updated-label+.open-button{margin-top:12px}@media(max-width:430px){.updated-label{grid-column:1 / -1;justify-self:start;margin-top:3px}.destination-copy .updated-label+.open-button{margin-top:8px}}
