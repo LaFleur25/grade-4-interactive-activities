@@ -22,7 +22,7 @@
     displayScreen(screen);
   });
   document.querySelectorAll('[data-screen]').forEach(button => button.addEventListener('click', () => window.openScreen(button.dataset.screen)));
-  const quizSets = window.PAST_SIMPLE_QUIZZES;
+  const quizSets = [...window.PAST_SIMPLE_QUIZZES, window.WHEN_WHILE_QUIZ];
   const quizStates = quizSets.map(set => ({index:0, answers:Array(set.questions.length).fill(null)}));
   let activeQuiz = 0;
   const letters = ['A','B','C','D'], correctPositions = [2,0,3,1,0,2,1,3,1,0];
@@ -40,10 +40,10 @@
   }
   const quizMenu = document.getElementById('mc-menu');
   quizSets.forEach((set, index) => {
-    const button = document.createElement('button'); button.type = 'button'; button.className = 'activity-card ' + ['yellow','blue','pink','purple-card'][index];
+    const button = document.createElement('button'); button.type = 'button'; button.className = 'activity-card ' + ['yellow','blue','pink','purple-card','green-card'][index];
     const icon = document.createElement('span'); icon.className = 'activity-icon'; icon.textContent = set.icon;
     const title = document.createElement('h3'); title.textContent = set.title;
-    const copy = document.createElement('p'); copy.textContent = ['Actions that happened or didn’t happen.','Yes/No questions, Wh- questions and short answers.','Positive, negative and question forms together.','Past forms of regular and irregular verbs.'][index];
+    const copy = document.createElement('p'); copy.textContent = ['Actions that happened or didn’t happen.','Yes/No questions, Wh- questions and short answers.','Positive, negative and question forms together.','Past forms of regular and irregular verbs.','Connect past actions with when and while.'][index];
     const tag = document.createElement('span'); tag.className = 'activity-tag'; tag.textContent = '10 Questions';
     const heading = document.createElement('div'); heading.className = 'mc-card-heading'; heading.append(icon,title);
     button.append(heading,copy,tag); button.addEventListener('click', () => startQuiz(index, quizStates[index].answers.every(answer => answer !== null))); quizMenu.append(button);
@@ -135,7 +135,7 @@
   document.getElementById('verb-practice-prev').addEventListener('click', () => { const state = verbPracticeState[verbPracticeSet]; if (state.page > 0) { state.page--; renderVerbPractice(); } });
   document.getElementById('verb-practice-next').addEventListener('click', () => { const state = verbPracticeState[verbPracticeSet]; if ((state.page + 1) * verbPracticeSize < verbPracticeSets[verbPracticeSet].length) { state.page++; renderVerbPractice(); } });
   renderVerbPractice();
-  const formNames = ['positive', 'negative', 'questions'];
+  const formNames = ['positive', 'negative', 'questions', 'whenwhile'];
   function showForm(name, focus = false) {
     formNames.forEach(key => {
       const selected = key === name, tab = document.getElementById('tab-' + key);
@@ -263,6 +263,39 @@
   }
   setupPractice('negative-practice', negativeSets, 'regular');
   setupPractice('question-practice', questionSets, 'yesno');
+  const whenWhileItems = [
+    {before:'Sarah was trying to focus',after:'the phone rang.',answers:['when','while'],why:'When is common for the ringing event. While can also describe the time it was ringing.'},
+    {before:'',after:'Alice was managing her homework, Tom was reading.',answers:['when','while'],why:'While shows the actions happening together. When can also mean during that time.'},
+    {before:'',after:'the bell rang, Harry picked up his bag and left.',answers:['when'],why:'When connects the bell ringing with the actions that followed.'},
+    {before:'',after:'the game ended, George and Charlie stopped arguing.',answers:['when'],why:'When connects the end of the game with what happened next.'},
+    {before:'',after:'Tom was learning to manage stress, Lily was helping him.',answers:['when','while'],why:'Both words can connect actions happening at the same time.'},
+    {before:'',after:'the test started, Harry felt pressure.',answers:['when'],why:'When tells us the point in time when Harry felt pressure.'}
+  ];
+  const whenWhileList = document.getElementById('when-while-items'), whenWhileFeedback = document.getElementById('when-while-feedback');
+  whenWhileItems.forEach((item, index) => {
+    const row = document.createElement('div'); row.className = 'question';
+    const label = document.createElement('label'); label.append(document.createTextNode(`${index + 1}. ${item.before}${item.before ? ' ' : ''}`));
+    const input = document.createElement('input'); input.type = 'text'; input.autocomplete = 'off'; input.spellcheck = false;
+    input.setAttribute('aria-label', `${item.before} blank ${item.after}`.trim());
+    label.append(input, document.createTextNode(' ' + item.after));
+    const result = document.createElement('span'); result.className = 'result'; result.setAttribute('aria-live','polite');
+    input.addEventListener('input', () => { input.classList.remove('good','bad'); input.removeAttribute('aria-invalid'); result.textContent = ''; whenWhileFeedback.textContent = ''; });
+    row.append(label,result); whenWhileList.append(row);
+  });
+  document.getElementById('when-while-form').addEventListener('submit', event => {
+    event.preventDefault(); let correct = 0;
+    [...whenWhileList.children].forEach((row, index) => {
+      const input = row.querySelector('input'), result = row.querySelector('.result'), value = input.value.trim().toLowerCase(), right = whenWhileItems[index].answers.includes(value);
+      correct += Number(right); input.classList.toggle('good',right); input.classList.toggle('bad',!right); input.setAttribute('aria-invalid',String(!right));
+      result.className = 'result ' + (right ? 'good' : 'bad'); result.textContent = right ? '✓ Correct! ' + whenWhileItems[index].why : value ? 'Try again.' : 'Write an answer.';
+    });
+    whenWhileFeedback.textContent = `${correct} / ${whenWhileItems.length} correct. ${correct === whenWhileItems.length ? 'Great work!' : 'Check your answers and try again.'}`;
+  });
+  document.getElementById('when-while-reset').addEventListener('click', () => {
+    document.getElementById('when-while-form').reset(); whenWhileFeedback.textContent = '';
+    whenWhileList.querySelectorAll('input').forEach(input => { input.classList.remove('good','bad'); input.removeAttribute('aria-invalid'); });
+    whenWhileList.querySelectorAll('.result').forEach(result => { result.className = 'result'; result.textContent = ''; });
+  });
   document.querySelectorAll('[data-dialog]').forEach(button => button.addEventListener('click', () => document.getElementById(button.dataset.dialog).showModal()));
   const verbs = [['be','was / were'],['become','became'],['begin','began'],['bring','brought'],['build','built'],['buy','bought'],['come','came'],['do','did'],['drink','drank'],['eat','ate'],['feel','felt'],['feed','fed'],['find','found'],['fly','flew'],['get','got'],['give','gave'],['go','went'],['have','had'],['make','made'],['read','read'],['run','ran'],['say','said'],['see','saw'],['sit','sat'],['sleep','slept'],['take','took'],['write','wrote']];
   const pageSize = 8, rows = document.getElementById('verb-rows'), toggle = document.getElementById('toggle-v2');

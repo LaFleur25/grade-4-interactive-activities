@@ -37,7 +37,7 @@
     $('grammar-link').href = 'unit-' + selectedUnit + '/grammar/index.html';
     for (const [id, iso, label] of [
       ['vocabulary-updated', selectedUnit === 2 ? '2026-10-31' : '2026-10-25', selectedUnit === 2 ? 'Oct 31, 2026' : 'Oct 25, 2026'],
-      ['grammar-updated', selectedUnit === 2 ? '2026-10-29' : '2026-10-25', selectedUnit === 2 ? 'Oct 29, 2026' : 'Oct 25, 2026']
+      ['grammar-updated', selectedUnit === 2 ? '2026-11-02' : '2026-10-25', selectedUnit === 2 ? 'Nov 2, 2026' : 'Oct 25, 2026']
     ]) {
       const time = $(id).querySelector('time');
       time.dateTime = iso; time.textContent = label;
