@@ -1,0 +1,69 @@
+/* Original revision practice content for Unit 2. */
+window.REVISION_PRACTICE = {
+  sets: [
+    { id: 'simple', title: 'Past Simple', description: 'Practise completed actions, negatives and questions.', questions: [
+      { context: 'Yesterday Alice visited her aunt.', prompt: 'Which sentence is correct?', options: ['Alice visits her aunt.', 'Alice visited her aunt.', 'Alice visiting her aunt.', 'Alice visit her aunt.'], answer: 1, explanation: 'Visited is the past form of visit.' },
+      { context: 'Tom stayed at home. He did not go to the park.', prompt: 'Complete: Tom ___ to the park.', options: ['didn’t went', 'went', 'go', 'didn’t go'], answer: 3, explanation: 'Use the base form go after didn’t.' },
+      { context: 'Sarah ate an apple after school.', prompt: 'What did Sarah eat?', options: ['An apple.', 'At school.', 'After school.', 'She ate yesterday.'], answer: 0, explanation: 'What asks for the thing Sarah ate.' },
+      { context: 'Michael and Harry played chess yesterday.', prompt: 'Did they play chess?', options: ['Yes, they were.', 'No, they didn’t.', 'Yes, they did.', 'Yes, he did.'], answer: 2, explanation: 'The answer is yes, and Michael and Harry are they.' },
+      { context: 'Daisy studied for a test last night.', prompt: 'Choose the negative sentence.', options: ['Daisy didn’t studied for a test.', 'Daisy didn’t study for a test.', 'Daisy wasn’t study for a test.', 'Daisy don’t study for a test.'], answer: 1, explanation: 'After didn’t, use study.' },
+      { context: 'George went to the library on Saturday.', prompt: 'Choose the question for “the library”.', options: ['When did George go?', 'What did George go?', 'Where did George went?', 'Where did George go?'], answer: 3, explanation: 'Where asks for a place; use go after did.' },
+      { context: 'Lily and her brother cleaned their room.', prompt: 'Choose the correct question.', options: ['Did they clean their room?', 'Did they cleaned their room?', 'Did they cleaning their room?', 'Were they clean their room?'], answer: 0, explanation: 'Use Did + subject + base verb.' },
+      { context: 'Oliver was tired after the trip.', prompt: 'Choose the correct negative sentence.', options: ['Oliver didn’t tired.', 'Oliver weren’t tired.', 'Oliver wasn’t tired.', 'Oliver didn’t be tired.'], answer: 2, explanation: 'With be, use wasn’t with Oliver.' }
+    ]},
+    { id: 'continuous', title: 'Past Continuous', description: 'Practise actions in progress in the past.', questions: [
+      { context: 'At 6 p.m. yesterday, Grace was reading.', prompt: 'Complete: Grace ___ a book at 6 p.m.', options: ['read', 'were reading', 'reading', 'was reading'], answer: 3, explanation: 'Use was + verb-ing with Grace.' },
+      { context: 'At 5 p.m., Tom and Charlie were playing tennis.', prompt: 'Which question is correct?', options: ['Were they playing tennis?', 'Was they playing tennis?', 'Did they playing tennis?', 'Were they play tennis?'], answer: 0, explanation: 'Use Were with they and the -ing form.' },
+      { context: 'At eight, Sarah was doing homework. She was not watching TV.', prompt: 'Which sentence is true?', options: ['Sarah wasn’t doing homework.', 'Sarah watched TV at eight.', 'Sarah wasn’t watching TV.', 'Sarah weren’t watching TV.'], answer: 2, explanation: 'The information says she was not watching TV.' },
+      { context: 'Alice and Lily were cooking at seven.', prompt: 'Were they cooking at seven?', options: ['Yes, she was.', 'Yes, they were.', 'No, they weren’t.', 'Yes, they did.'], answer: 1, explanation: 'Alice and Lily are they, so answer Yes, they were.' },
+      { context: 'At noon Michael was drawing a cat.', prompt: 'What was Michael drawing?', options: ['A cat.', 'At noon.', 'In the classroom.', 'He was happy.'], answer: 0, explanation: 'What asks for the thing he was drawing.' },
+      { context: 'At 4 p.m., the children were running in the park.', prompt: 'Choose the correct negative form.', options: ['They wasn’t running.', 'They didn’t running.', 'They weren’t run.', 'They weren’t running.'], answer: 3, explanation: 'Use weren’t + verb-ing with they.' },
+      { context: 'At nine, I was making breakfast.', prompt: 'Choose the correct spelling.', options: ['makeing', 'making', 'makking', 'made'], answer: 1, explanation: 'Remove the final e from make before adding -ing.' },
+      { context: 'At 7 p.m., William was feeding his dog.', prompt: 'Choose the question for “his dog”.', options: ['When was William feeding?', 'What did William feeding?', 'What was William feeding?', 'What were William feeding?'], answer: 2, explanation: 'Use was with William and feeding after it.' }
+    ]},
+    { id: 'reading-park', title: 'Reading: A Day in the Park', description: 'Read a short story and answer questions.', questions: [
+      {context:'Last Saturday, Daisy and her brother went to the park. Daisy rode her bike and felt excited. Her brother flew a blue kite. At noon, they ate sandwiches under a tree.',prompt:'Where did they go?',options:['To the zoo.','To the park.','To school.','To a shop.'],answer:1,explanation:'They went to the park.'},
+      {context:'Last Saturday, Daisy and her brother went to the park. Daisy rode her bike and felt excited. Her brother flew a blue kite. At noon, they ate sandwiches under a tree.',prompt:'Who rode a bike?',options:['Her brother.','Their father.','Daisy.','Their friend.'],answer:2,explanation:'Daisy rode her bike.'},
+      {context:'Last Saturday, Daisy and her brother went to the park. Daisy rode her bike and felt excited. Her brother flew a blue kite. At noon, they ate sandwiches under a tree.',prompt:'How did Daisy feel?',options:['Excited.','Tired.','Scared.','Angry.'],answer:0,explanation:'Daisy felt excited.'},
+      {context:'Last Saturday, Daisy and her brother went to the park. Daisy rode her bike and felt excited. Her brother flew a blue kite. At noon, they ate sandwiches under a tree.',prompt:'What did they eat?',options:['Apples.','Cake.','Eggs.','Sandwiches.'],answer:3,explanation:'They ate sandwiches under a tree.'},
+      {context:'Later, Daisy saw a small dog near the pond. The dog was carrying a ball. Its owner was sitting on a bench and reading a book. Daisy gave the dog some water.',prompt:'Where was the dog?',options:['Under a tree.','Near the pond.','On a bench.','By the school.'],answer:1,explanation:'Daisy saw the dog near the pond.'},
+      {context:'Later, Daisy saw a small dog near the pond. The dog was carrying a ball. Its owner was sitting on a bench and reading a book. Daisy gave the dog some water.',prompt:'What was the dog carrying?',options:['A book.','A kite.','A bag.','A ball.'],answer:3,explanation:'The dog was carrying a ball.'},
+      {context:'Later, Daisy saw a small dog near the pond. The dog was carrying a ball. Its owner was sitting on a bench and reading a book. Daisy gave the dog some water.',prompt:'What was the owner doing?',options:['Reading a book.','Riding a bike.','Eating a sandwich.','Flying a kite.'],answer:0,explanation:'The owner was sitting and reading a book.'},
+      {context:'Later, Daisy saw a small dog near the pond. The dog was carrying a ball. Its owner was sitting on a bench and reading a book. Daisy gave the dog some water.',prompt:'What did Daisy give the dog?',options:['A ball.','A sandwich.','Some water.','A book.'],answer:2,explanation:'Daisy gave the dog some water.'}
+    ]},
+    { id: 'reading-school', title: 'Reading: A School Day', description: 'Read about a class and find the answers.', questions: [
+      {context:'On Friday, Miss Green’s class visited a farm. They travelled there by bus. First, the children fed the chickens. Then they collected eggs in a basket.',prompt:'When did the class visit the farm?',options:['On Monday.','On Friday.','On Sunday.','On Saturday.'],answer:1,explanation:'The class visited the farm on Friday.'},
+      {context:'On Friday, Miss Green’s class visited a farm. They travelled there by bus. First, the children fed the chickens. Then they collected eggs in a basket.',prompt:'How did they travel?',options:['By bike.','On foot.','By car.','By bus.'],answer:3,explanation:'They travelled by bus.'},
+      {context:'On Friday, Miss Green’s class visited a farm. They travelled there by bus. First, the children fed the chickens. Then they collected eggs in a basket.',prompt:'What did they feed first?',options:['Chickens.','Dogs.','Horses.','Cats.'],answer:0,explanation:'First, the children fed the chickens.'},
+      {context:'On Friday, Miss Green’s class visited a farm. They travelled there by bus. First, the children fed the chickens. Then they collected eggs in a basket.',prompt:'Where did they put the eggs?',options:['In a bag.','On a table.','In a basket.','Under a tree.'],answer:2,explanation:'They collected the eggs in a basket.'},
+      {context:'At lunchtime, Harry was eating a cheese sandwich. Grace was drinking water. After lunch, they walked around the garden and took pictures of flowers.',prompt:'What was Harry eating?',options:['An apple.','A cheese sandwich.','An egg.','A cake.'],answer:1,explanation:'Harry was eating a cheese sandwich.'},
+      {context:'At lunchtime, Harry was eating a cheese sandwich. Grace was drinking water. After lunch, they walked around the garden and took pictures of flowers.',prompt:'What was Grace drinking?',options:['Milk.','Juice.','Tea.','Water.'],answer:3,explanation:'Grace was drinking water.'},
+      {context:'At lunchtime, Harry was eating a cheese sandwich. Grace was drinking water. After lunch, they walked around the garden and took pictures of flowers.',prompt:'Where did they walk after lunch?',options:['Around the garden.','Around the school.','To the shop.','To the park.'],answer:0,explanation:'They walked around the garden.'},
+      {context:'At lunchtime, Harry was eating a cheese sandwich. Grace was drinking water. After lunch, they walked around the garden and took pictures of flowers.',prompt:'What did they photograph?',options:['Chickens.','Buses.','Flowers.','Sandwiches.'],answer:2,explanation:'They took pictures of flowers.'}
+    ]}
+    ,{ id: 'when-while', title: 'When & While', description: 'Connect past actions with when and while.', questions: [
+      {context:'Sarah was reading. Then the phone rang.',prompt:'Choose the sentence that matches.',options:['Sarah was reading when the phone rang.','Sarah read when the phone didn’t ring.','Sarah was read when the phone rang.','Sarah were reading when the phone rang.'],answer:0,explanation:'The phone rang during Sarah’s reading.'},
+      {context:'Tom was doing homework. His sister was drawing at the same time.',prompt:'Choose the sentence that matches.',options:['While Tom did homework, his sister was draw.','While Tom was doing homework, his sister was drawing.','While Tom was doing homework, his sister wasn’t drawing.','While Tom were doing homework, his sister was drawing.'],answer:1,explanation:'Both actions were happening at the same time.'},
+      {context:'The bell rang. Then Alice opened the door.',prompt:'Which sentence is correct?',options:['When the bell was rang, Alice opened the door.','When the bell rang, Alice opening the door.','When the bell rang, Alice opened the door.','When the bell rang, Alice didn’t open the door.'],answer:2,explanation:'When can connect these two past actions.'},
+      {context:'George was walking to school. Then he saw Lily.',prompt:'Complete: George was walking when he ___ Lily.',options:['see','was see','seeing','saw'],answer:3,explanation:'Saw is the past form of see.'},
+      {context:'While Grace was reading, Harry was making a card.',prompt:'What was Harry doing?',options:['He was making a card.','He was reading a card.','He was watching TV.','He was riding a bike.'],answer:0,explanation:'Harry was making a card.'},
+      {context:'Daisy was feeding her pet. Then Mum arrived.',prompt:'Choose the sentence that matches.',options:['Daisy was feeding her pet when Mum left.','Daisy was feeding her pet when Mum arrived.','Daisy feeding her pet when Mum arrived.','Daisy were feeding her pet when Mum arrived.'],answer:1,explanation:'Mum arrived during Daisy’s action.'},
+      {context:'While Oliver was studying, his brother was playing quietly.',prompt:'What was Oliver doing?',options:['He was playing.','He played football.','He was studying.','He was sleeping.'],answer:2,explanation:'Oliver was studying.'},
+      {context:'Michael was taking a picture. Then it started to rain.',prompt:'Complete: Michael ___ a picture when it started to rain.',options:['were taking','was take','takes','was taking'],answer:3,explanation:'Use was + verb-ing with Michael.'}
+    ]}
+  ],
+  passages: [
+    {title:'A Rainy Afternoon', text:'Yesterday, Alice and her brother stayed at home because it rained. At three o’clock, Alice was making a card for her grandmother. Her brother was building a toy house. Later, they played a board game together.', questions:[
+      {before:'Alice and her brother stayed at ',after:'.',answers:['home']},
+      {before:'Alice was making a card for her ',after:'.',answers:['grandmother']},
+      {before:'Her brother was building a toy ',after:'.',answers:['house']},
+      {before:'Later, they played a board ',after:'.',answers:['game']}
+    ]},
+    {title:'At the School Fair', text:'Last weekend, Tom went to a school fair with his sister. They bought cakes and listened to music. At two o’clock, Tom was taking pictures and his sister was talking to a teacher. They had a lovely day.', questions:[
+      {before:'Tom went to the fair with his ',after:'.',answers:['sister']},
+      {before:'They bought ',after:' at the fair.',answers:['cakes']},
+      {before:'At two, Tom was taking ',after:'.',answers:['pictures','photos','photographs']},
+      {before:'His sister was talking to a ',after:'.',answers:['teacher']}
+    ]}
+  ]
+};

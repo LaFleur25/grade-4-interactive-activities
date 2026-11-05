@@ -89,6 +89,14 @@
       else if(['jumble','changeSentence','build'].includes(id))parent=action('🧩 Build the Sentence',()=>run('openScreen','buildMenu'));
       else parent=action('🎮 Activities',()=>run('openScreen','home'));
     }
+    if(page==='revision-unit2'){
+      title='Unit 2 · Revision';
+      if(id==='home')parent=link('📚 Unit 2 Grammar Topics','unit-2/grammar/index.html');
+      else if(id==='quiz'||id==='results')parent=action('📝 Multiple Choice',()=>run('openScreen','mcMenu'));
+      else if(id==='fill')parent=action('📖 Read & Complete',()=>run('openScreen','fillMenu'));
+      else if(id==='mcMenu'||id==='fillMenu')parent=action('🎯 Practice',()=>run('openScreen','practiceMenu'));
+      else parent=action('🚀 Revision Hub',()=>run('openScreen','home'));
+    }
     if(page==='revision'){
       title='Unit 1 · Revision Hub';
       if(/^pts/.test(id)){
