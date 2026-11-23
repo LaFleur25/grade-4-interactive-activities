@@ -11,16 +11,16 @@ function openScreen(id) {
 document.querySelectorAll('[data-screen]').forEach(button => button.addEventListener('click', () => openScreen(button.dataset.screen)));
 
 const questions = [
-  ['The room is so dark that I can’t see my book.', 'The room is ___ dark to read.', ['too', 'not very', 'pretty'], 0, 'Too shows there is a problem.'],
-  ['The photo is blurry. I can only see a little of the picture.', 'The photo is ___ clear.', ['really', 'not very', 'too'], 1, 'Not very clear means the photo is only a little clear.'],
-  ['The painting has lots of bright colours. I love it!', 'The painting is ___ colourful.', ['not very', 'too', 'very'], 2, 'Very makes colourful stronger without saying there is a problem.'],
-  ['The music is so loud that it hurts my ears.', 'The music is ___ loud.', ['pretty', 'too', 'not very'], 1, 'Too loud means there is a problem.'],
-  ['The film was quite good, but it wasn’t great.', 'The film was ___ good.', ['too', 'pretty', 'not very'], 1, 'Pretty means quite or fairly here.'],
-  ['The sculpture is extremely beautiful. I love it!', 'The sculpture is ___ beautiful.', ['really', 'not very', 'too'], 0, 'Really makes beautiful stronger.'],
-  ['The box is so heavy that Mia can’t lift it.', 'The box is ___ heavy for Mia.', ['not very', 'too', 'pretty'], 1, 'Too heavy tells us Mia cannot lift it.'],
-  ['There are only a few people in the museum.', 'The museum is ___ crowded.', ['not very', 'really', 'too'], 0, 'Not very crowded means there are only a few people.'],
-  ['Choose the correct word order.', 'Which sentence is correct?', ['The picture is bright very.', 'The picture very is bright.', 'The picture is very bright.'], 2, 'The modifier comes before the adjective.'],
-  ['The puzzle is quite simple, but not very simple.', 'The puzzle is ___ simple.', ['pretty', 'too', 'not very'], 0, 'Pretty simple means quite simple.']
+  ['The room is so dark that I can’t see my book.', 'The room is ___ dark to read.', ['too', 'not very', 'pretty', 'not'], 0, 'Too shows there is a problem.'],
+  ['The photo is blurry. I can only see a little of the picture.', 'The photo is ___ clear.', ['really', 'not very', 'too', 'very not'], 1, 'Not very clear means the photo is only a little clear.'],
+  ['Use very to make the adjective stronger.', 'The painting is ___ colourful.', ['not very', 'too', 'very', 'very is'], 2, 'Very makes colourful stronger.'],
+  ['The music is so loud that it hurts my ears.', 'The music is ___ loud for me to enjoy.', ['pretty', 'too', 'not very', 'very not'], 1, 'Too loud means there is a problem.'],
+  ['Use pretty to say the film was quite good.', 'The film was ___ good.', ['too', 'pretty', 'not very', 'not pretty very'], 1, 'Pretty means quite or fairly here.'],
+  ['Use really to make beautiful stronger.', 'The sculpture is ___ beautiful.', ['really', 'not very', 'too', 'really is'], 0, 'Really makes beautiful stronger.'],
+  ['The box is so heavy that Mia can’t lift it.', 'The box is ___ heavy for Mia to lift.', ['not very', 'too', 'pretty', 'not'], 1, 'Too heavy tells us Mia cannot lift it.'],
+  ['There are only a few people in the museum.', 'The museum is ___ crowded.', ['not very', 'really', 'too', 'very not'], 0, 'Not very crowded means there are only a few people.'],
+  ['Choose the correct word order.', 'Which sentence is correct?', ['The picture is bright very.', 'The picture very is bright.', 'The picture is very bright.', 'Very the picture is bright.'], 2, 'The modifier comes before the adjective.'],
+  ['Use pretty to say the puzzle is quite simple.', 'The puzzle is ___ simple.', ['pretty', 'too', 'not very', 'pretty is'], 0, 'Pretty simple means quite simple.']
 ];
 let quizIndex = 0;
 const answers = Array(questions.length).fill(null);
