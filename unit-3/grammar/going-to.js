@@ -1,8 +1,8 @@
 function openScreen(id) {
-  if (!['home', 'learn', 'mc', 'quiz', 'buildMenu', 'build'].includes(id)) return;
+  if (!['home', 'learn', 'mc', 'quiz', 'buildMenu', 'build', 'spinner'].includes(id)) return;
   document.querySelectorAll('.screen').forEach(screen => { screen.hidden = screen.id !== id; });
   window.ActivityNavigation?.refresh();
-  document.getElementById({home:'home-title', learn:'learn-title', mc:'mc-title', quiz:'quiz-title', buildMenu:'build-menu-title', build:'build-title'}[id]).focus();
+  document.getElementById({home:'home-title', learn:'learn-title', mc:'mc-title', quiz:'quiz-title', buildMenu:'build-menu-title', build:'build-title', spinner:'spinner-title'}[id]).focus();
   window.scrollTo(0, 0);
 }
 document.querySelectorAll('[data-screen]').forEach(button => {
